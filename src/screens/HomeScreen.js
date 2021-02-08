@@ -4,12 +4,12 @@ import { Text, StyleSheet, View, Button } from 'react-native';
 
 const HomeScreen = ({ navigation }) => {
 
-  const { name, setName } = useContext(Context);
+  const { state, setName } = useContext(Context);
 
 
   return (
     <View>
-      { name.length > 0? <Text>Bem-vindo(a) {name} </Text> : null }
+      { state.name.length > 0? <Text>Bem-vindo(a) {state.name} </Text> : null }
       <Text style={styles.text}>Para todos</Text>
       <Button
         onPress={() => navigation.navigate('Registration')}

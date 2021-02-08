@@ -6,25 +6,23 @@ import Context from '../context/Context';
 
 const RegistrationScreen = ({ navigation }) => {
 
-//  const [name, setName] = useState('');
-  const { name, setName } = useContext(Context);
+  const { state, setName } = useContext(Context);
 
   return (
 
     <View style={styles.marginTop}>
         <Text style={styles.textStyle}>Seu identificador:</Text>
-        <Text style={styles.input}>{getMyPublicKey()}</Text>
+        <Text style={styles.input}>{state.publicKey}</Text>
 
         <Text style={styles.textStyle}>Seu nome: </Text>      
         <TextInput style={styles.input} 
             autoCapitalize="words" 
             autoCorrect={false} 
-            value={name} 
+            value={state.name} 
             placeholder="Digite aqui"
             onChangeText={(newValue) => setName(newValue)}
         />
-        { name.length > 0 && name.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }
-      
+        { state.name.length > 0 && state.name.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }
 
         <View style={styles.marginTop}>
         <Button 
@@ -39,13 +37,10 @@ const RegistrationScreen = ({ navigation }) => {
   );
 };
 
-const getMyPublicKey = () => {
-    const pk = '0x0001';
-    return pk;
-}
 
 const styles = StyleSheet.create({
   textStyle: {
+    marginTop: 10,
     fontSize: 20
   },
   errorTextStyle: {
