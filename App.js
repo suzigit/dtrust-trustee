@@ -5,20 +5,20 @@ import { Provider } from './src/context/Context';
 
 
 import HomeScreen from './src/screens/HomeScreen';
-import ComponentsScreen from './src/screens/ComponentsScreen';
+import GetCertificateToRegister from './src/screens/GetCertificateToRegister';
 import RegistrationScreen from './src/screens/RegistrationScreen';
 
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Components: ComponentsScreen,
     Registration: RegistrationScreen,
+    GetCertificateToRegister: GetCertificateToRegister
 
   },
   {
     initialRouteName: 'Home',
     defaultNavigationOptions: {
-      title: 'Está Dito',
+      title: 'Confirmado',
     },
   }
 );

@@ -12,14 +12,14 @@ const HomeScreen = ({ navigation }) => {
       { state.name.length > 0? <Text>Bem-vindo(a) {state.name} </Text> : null }
       <Text style={styles.text}>Para todos</Text>
       <Button
-        onPress={() => navigation.navigate('Registration')}
+        onPress={() => navigation.navigate('AskConfirmationAddress')}
         title="Peça confirmação de seu endereço"
       />
 
 
       <Text style={styles.text}>Para confirmar endereços em uma comunidade</Text>
       <Button
-        onPress={() => navigation.navigate('Components')}
+        onPress={() => navigation.navigate('ConfirmeAddress')}
         title="Confirme endereço de alguém"
       />
       <Button
@@ -37,8 +37,8 @@ const HomeScreen = ({ navigation }) => {
         title="Peça para iniciar comunidade confiável"
       />
       <Button
-        onPress={() => navigation.navigate('Components')}
-        title="Confirme criação comunidade confiável"
+        onPress={() => navigation.navigate('GetCertificateToRegister')}
+        title="Receba ok para criação de comunidade confiável"
       />
 
 

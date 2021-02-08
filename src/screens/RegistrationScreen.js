@@ -1,12 +1,15 @@
 import { left } from 'inquirer/lib/utils/readline';
-import React, {useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import { Text, StyleSheet, View, TextInput, Button } from 'react-native';
 import Context from '../context/Context';
 
 
 const RegistrationScreen = ({ navigation }) => {
 
+  const [ localName, setLocalName ] = useState('');
+
   const { state, setName } = useContext(Context);
+//  { state.name.length > 0 && state.name.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }
 
   return (
 
@@ -18,18 +21,21 @@ const RegistrationScreen = ({ navigation }) => {
         <TextInput style={styles.input} 
             autoCapitalize="words" 
             autoCorrect={false} 
-            value={state.name} 
+            defaultValue={state.name} 
             placeholder="Digite aqui"
-            onChangeText={(newValue) => setName(newValue)}
+            onChangeText={setLocalName}
         />
-        { state.name.length > 0 && state.name.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }
+
+      { localName.length > 0 && localName.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }
+
 
         <View style={styles.marginTop}>
         <Button 
             onPress={() => {
+                setName(localName);
                 navigation.navigate('Home');
             }}
-            title="Quero participar!"
+            title="Pedir iníciar da sua comunidade"
         />
         </View>
 
