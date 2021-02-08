@@ -17,7 +17,7 @@ const RegistrationScreen = ({ navigation }) => {
         <Text style={styles.textStyle}>Seu identificador:</Text>
         <Text style={styles.input}>{state.publicKey}</Text>
 
-        <Text style={styles.textStyle}>Seu nome: </Text>      
+        <Text style={styles.textStyle}>Seu nome pessoal: </Text>      
         <TextInput style={styles.input} 
             autoCapitalize="words" 
             autoCorrect={false} 
@@ -33,7 +33,7 @@ const RegistrationScreen = ({ navigation }) => {
         <Button 
             onPress={() => {
                 setName(localName);
-                navigation.navigate('Home');
+                navigation.pop();
             }}
             title="Pedir iníciar da sua comunidade"
         />

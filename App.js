@@ -18,7 +18,7 @@ const navigator = createStackNavigator(
   {
     initialRouteName: 'Home',
     defaultNavigationOptions: {
-      title: 'Confirmado',
+      title: 'Está Dito',
     },
   }
 );
