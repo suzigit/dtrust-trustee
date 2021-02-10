@@ -1,5 +1,9 @@
 import React, { useReducer, useEffect } from 'react';
+//TODO: avaliar trocar esse Random conforme documentado aqui: https://docs.ethers.io/v5/cookbook/react-native/
+import "react-native-get-random-values"
+import "@ethersproject/shims";
 import { ethers }  from 'ethers';
+
 
 const Context = React.createContext();
 
