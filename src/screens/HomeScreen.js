@@ -23,7 +23,7 @@ const HomeScreen = ({ navigation }) => {
         title="Confirme endereço de alguém"
       />
       <Button
-        onPress={() => navigation.navigate('Registration')}
+        onPress={() => navigation.navigate('Trustee_AskToParticipate')}
         title="Peça para participar"
       />
 
