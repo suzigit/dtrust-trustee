@@ -1,52 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
-    AppRegistry,
     StyleSheet,
     Text,
-    TouchableOpacity,
-    View,
-    Linking
+    View
   } from 'react-native';
-  //import QRCodeScanner from 'react-native-qrcode-scanner';
-  //import { RNCamera } from 'react-native-camera';
-  
+  import QRCodeScanner from '../component/QRCodeScanner';
+
 
 const GetCertificateToRegister = () => {
-/*
-    onSuccess = e => {
-        Linking.openURL(e.data).catch(err =>
-          console.error('An error occured', err)
-        );
-      };    
 
-  return (
-    <View>
-      <Text style={styles.textStyle}>Aponte seu celular para QR Code que contém sua permissão para iniciar comunidade</Text>
-    
-      <QRCodeScanner
-        onRead={this.onSuccess}
-        flashMode={RNCamera.Constants.FlashMode.torch}
-        topContent={
-          <Text style={styles.centerText}>
-            Go to{' '}
-            <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on
-            your computer and scan the QR code.
-          </Text>
-        }
-        bottomContent={
-          <TouchableOpacity style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>OK. Got it!</Text>
-          </TouchableOpacity>
-        }
-      />
 
-    </View>
-
-  );
-*/
 return (
     <View>
-      <Text style={styles.textStyle}>Aponte seu celular para QR Code que contém sua permissão para iniciar comunidade</Text>
+      <Text style={styles.textStyle}>Aponte seu celular para o QRCode com sua permissão para iniciar comunidade</Text>
+      <View><QRCodeScanner/></View>
     </View>
 );
 
