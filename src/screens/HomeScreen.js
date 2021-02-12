@@ -40,6 +40,10 @@ const HomeScreen = ({ navigation }) => {
         onPress={() => navigation.navigate('GetCertificateToRegister')}
         title="Receba ok para criação de comunidade confiável"
       />
+      <Button
+        onPress={() => navigation.navigate('ViewCertificate')}
+        title="Veja seu certificado"
+      />
 
 
     </View>

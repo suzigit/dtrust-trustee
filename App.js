@@ -8,13 +8,15 @@ import HomeScreen from './src/screens/HomeScreen';
 import GetCertificateToRegister from './src/screens/GetCertificateToRegister';
 import RegistrationScreen from './src/screens/RegistrationScreen';
 import Trustee_AskToParticipate from './src/screens/Trustee_AskToParticipate';
+import ViewCertificate from './src/screens/ViewCertificate'
 
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
     Registration: RegistrationScreen,
     GetCertificateToRegister: GetCertificateToRegister,
-    Trustee_AskToParticipate: Trustee_AskToParticipate
+    Trustee_AskToParticipate: Trustee_AskToParticipate,
+    ViewCertificate: ViewCertificate
   },
   {
     initialRouteName: 'Home',

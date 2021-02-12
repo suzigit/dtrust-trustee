@@ -7,43 +7,28 @@ import {
   import QRCodeScanner from '../component/QRCodeScanner';
   import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const GetCertificateToRegister = () => {
-
+const GetCertificateToRegister = ({ navigation }) => {
 
   const updateCaller = (data) => {
-    alert(`vltou principal= ${data}`);
+    navigation.navigate('ViewCertificate')
     storeData(data);
-    getData();
-};
+  };
 
-const storeData = async (value) => {
-  try {
-    await AsyncStorage.setItem('@storage_Key', value)
-  } catch (e) {
-    // saving error
-  }
-}
-
-const getData = async () => {
-  try {
-    const value = await AsyncStorage.getItem('@storage_Key')
-    if(value !== null) {
-      // value previously stored
-      console.log("valor lido foi=");
-      console.log(value);
+  const storeData = async (value) => {
+    try {
+      await AsyncStorage.setItem('@MyCertificate', value)
+    } catch (e) {
+      console.err("Error while saving item");
+      console.err(e);
     }
-  } catch(e) {
-    // error reading value
   }
-}
 
-
-return (
-    <View>
-      <Text style={styles.textStyle}>Aponte seu celular para o QRCode com sua permissão para iniciar comunidade</Text>
-      <View><QRCodeScanner updateCaller={updateCaller}/></View>
-    </View>
-);
+  return (
+      <View>
+        <Text style={styles.textStyle}>Aponte seu celular para o QRCode com sua permissão para iniciar comunidade</Text>
+        <View><QRCodeScanner updateCaller={updateCaller}/></View>
+      </View>
+  );
 
 
 };
