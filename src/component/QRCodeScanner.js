@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions, Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 
-const QRCodeScanner = ({handleBarCodeScanned})  => {
+const QRCodeScanner = ({updateCaller})  => {
 
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
@@ -15,18 +15,21 @@ const QRCodeScanner = ({handleBarCodeScanned})  => {
     })();
   }, []);
 
- 
+  const handleBarCodeScanned = ({ data }) => {
+      setScanned(true);
+      updateCaller(data);
+  };
 
-  if (hasPermission === null) {
-    return <Text>Requesting for camera permission</Text>;
-  }
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
-  }
+    if (hasPermission === null) {
+      return <Text>Requesting for camera permission</Text>;
+    }
+    if (hasPermission === false) {
+      return <Text>No access to camera</Text>;
+    }
 
     return (
         <BarCodeScanner
-        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+        onBarCodeScanned = { scanned? undefined: handleBarCodeScanned }
         style={[StyleSheet.absoluteFill, styles.container]}
         >
         <View style={styles.layerTop} />
