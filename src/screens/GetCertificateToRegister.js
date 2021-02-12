@@ -9,11 +9,15 @@ import {
 
 const GetCertificateToRegister = () => {
 
+  
+  const handleBarCodeScanned = ({ data }) => {
+    alert(`dados lidos = ${data}`);
+  };
 
 return (
     <View>
       <Text style={styles.textStyle}>Aponte seu celular para o QRCode com sua permissão para iniciar comunidade</Text>
-      <View><QRCodeScanner/></View>
+      <View><QRCodeScanner handleBarCodeScanned={handleBarCodeScanned}/></View>
     </View>
 );
 

@@ -3,11 +3,10 @@ import { Dimensions, Text, View, StyleSheet } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 
-export default function QRCodeScanner () {
+const QRCodeScanner = ({handleBarCodeScanned})  => {
+
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-
-  const { width } = Dimensions.get('window');
 
   useEffect(() => {
     (async () => {
@@ -16,10 +15,7 @@ export default function QRCodeScanner () {
     })();
   }, []);
 
-  const handleBarCodeScanned = ({ type, data }) => {
-    setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-  };
+ 
 
   if (hasPermission === null) {
     return <Text>Requesting for camera permission</Text>;
@@ -78,3 +74,5 @@ const styles = StyleSheet.create({
     backgroundColor: opacity
   },
 });
+
+export default QRCodeScanner;

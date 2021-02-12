@@ -10,6 +10,8 @@ import {
 const Trustee_AskToParticipate = () => {
 
 
+  
+
     return (
         <View>
           <Text style={styles.textStyle}>Peça para participar apresentando seu QRCode ao criador da comunidade</Text>
