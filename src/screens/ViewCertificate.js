@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import {
-    StyleSheet,
-    Text,
-    View
+    StyleSheet, Text, View, Button
   } from 'react-native';
   import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const ViewCertificate = () => {
+const ViewCertificate = ({ navigation }) => {
 
     const [ data, setData ] = useState('');
 
@@ -29,6 +27,13 @@ const ViewCertificate = () => {
         <View>
         <Text style={styles.textStyle}>Seu Certificado:</Text>
         <Text style={styles.certificateStyle}>{data}</Text>
+        <Button 
+            onPress={() => {
+              navigation.navigate('Home')
+            }}
+            title="Ok"
+        />
+
         </View>
     );
 

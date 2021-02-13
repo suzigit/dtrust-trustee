@@ -10,9 +10,9 @@ const Context = React.createContext();
 const reducer = (state, action) => {
     switch (action.type) {
       case 'edit_name':
-          return {name: action.payload, publicKey: state.publicKey};
-      case 'set_publicKey':
-            return {name: state.name, publicKey: action.payload};  
+          return {name: action.payload, publicKey: state.publicKey, blockchainAddress:state.blockchainAddress};
+      case 'set_key':
+            return {name: state.name, publicKey: action.payload.publicKey, blockchainAddress: action.payload.blockchainAddress};  
      default:
         return state;
     }
@@ -28,7 +28,7 @@ export const Provider = ({ children }) => {
 
     useEffect (() => {
       userWallet = ethers.Wallet.createRandom();
-      dispatch({ type: 'set_publicKey', payload: userWallet.publicKey });
+      dispatch({ type: 'set_key', payload: {publicKey: userWallet.publicKey, blockchainAddress: userWallet.address} });
     }, []);
 
 
@@ -37,7 +37,7 @@ export const Provider = ({ children }) => {
     //Chaves publicas + nomes + datas para quem emitiu certificado de ateste? (precisa armazenar certificados emitidos? acho que nao)
   
     const [state, dispatch] = useReducer(reducer, 
-      {name: '', publicKey: 'N/A'});
+      {name: '', publicKey: 'N/A', blockchainAddress: ''});
 
     const setName = (newName) => {
         dispatch({ type: 'edit_name', payload: newName });

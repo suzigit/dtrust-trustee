@@ -6,7 +6,6 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 const QRCodeScanner = ({updateCaller})  => {
 
   const [hasPermission, setHasPermission] = useState(null);
-  const [scanned, setScanned] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -16,7 +15,6 @@ const QRCodeScanner = ({updateCaller})  => {
   }, []);
 
   const handleBarCodeScanned = ({ data }) => {
-      setScanned(true);
       updateCaller(data);
   };
 
@@ -29,7 +27,7 @@ const QRCodeScanner = ({updateCaller})  => {
 
     return (
         <BarCodeScanner
-        onBarCodeScanned = { scanned? undefined: handleBarCodeScanned }
+        onBarCodeScanned = { handleBarCodeScanned }
         style={[StyleSheet.absoluteFill, styles.container]}
         >
         <View style={styles.layerTop} />

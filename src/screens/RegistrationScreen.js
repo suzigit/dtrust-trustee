@@ -15,7 +15,7 @@ const RegistrationScreen = ({ navigation }) => {
 
     <View style={styles.marginTop}>
         <Text style={styles.textStyle}>Seu identificador:</Text>
-        <Text style={styles.input}>{state.publicKey}</Text>
+        <Text style={styles.input}>did:ethr:{state.blockchainAddress}</Text>
 
         <Text style={styles.textStyle}>Seu nome pessoal: </Text>      
         <TextInput style={styles.input} 
