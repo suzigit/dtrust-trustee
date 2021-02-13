@@ -8,7 +8,7 @@ const RegistrationScreen = ({ navigation }) => {
 
   const [ localName, setLocalName ] = useState('');
 
-  const { state, setName } = useContext(Context);
+  const { state, setName, encryptedMessageToMasterAccount } = useContext(Context);
 //  { state.name.length > 0 && state.name.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }
 
   return (
@@ -33,6 +33,10 @@ const RegistrationScreen = ({ navigation }) => {
         <Button 
             onPress={() => {
                 setName(localName);
+
+                //TODO: send message to start message
+                console.log(encryptedMessageToMasterAccount());
+
                 navigation.pop();
             }}
             title="Pedir iníciar da sua comunidade"

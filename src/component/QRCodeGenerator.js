@@ -6,7 +6,7 @@ import {
 import {QRCode, Canvas} from 'easyqrcode-react-native';
 
 
-export default function QRCodeGenerator () {
+export default function QRCodeGenerator ({data}) {
 
 
     // 3. Generate QRCode
@@ -14,7 +14,7 @@ export default function QRCodeGenerator () {
         if (canvas !== null){
             // QRCode options
             var options = {
-                text: "www.easyproject.cn/donation",
+                text: data,
         	};
         	// Create QRCode Object
         	var qrCode = new QRCode(canvas, options);

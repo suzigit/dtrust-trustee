@@ -3,6 +3,7 @@ import React, { useReducer, useEffect } from 'react';
 import "react-native-get-random-values"
 import "@ethersproject/shims";
 import { ethers }  from 'ethers';
+//import  EthCrypto  from 'eth-crypto';
 
 
 const Context = React.createContext();
@@ -43,8 +44,21 @@ export const Provider = ({ children }) => {
         dispatch({ type: 'edit_name', payload: newName });
       };
 
+      //TODO: It is not encrypting yet
+      const encryptedMessageToMasterAccount = (() => {
+        return state.publicKey;
+      }
+    );
+  
+/*
+eth-crypto
+  const encryptedMessageToMasterAccount = EthCrypto.encryptWithPublicKey (
+      masterPublicKey, 
+      JSON.stringify("meu payload a ser lido") // we have to stringify the payload before we can encrypt it
+  );
+*/
     return (
-        <Context.Provider value={{state, setName }}>
+        <Context.Provider value={{state, setName, encryptedMessageToMasterAccount }}>
         {children}
         </Context.Provider>
     );
