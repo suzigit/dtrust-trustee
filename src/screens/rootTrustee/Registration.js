@@ -1,14 +1,13 @@
-import { left } from 'inquirer/lib/utils/readline';
 import React, {useState, useContext} from 'react';
 import { Text, StyleSheet, View, TextInput, Button } from 'react-native';
-import Context from '../context/Context';
+import Context from '../../context/Context';
 
 
-const RegistrationScreen = ({ navigation }) => {
+const Registration = ({ navigation }) => {
 
   const [ localName, setLocalName ] = useState('');
 
-  const { state, setName, encryptedMessageToMasterAccount } = useContext(Context);
+  const { state, setName } = useContext(Context);
 //  { state.name.length > 0 && state.name.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }
 
   return (
@@ -35,7 +34,7 @@ const RegistrationScreen = ({ navigation }) => {
                 setName(localName);
 
                 //TODO: send message to start message
-                console.log(encryptedMessageToMasterAccount());
+                //console.log(encryptedMessageToMasterAccount());
 
                 navigation.pop();
             }}
@@ -73,4 +72,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default RegistrationScreen;
+export default Registration;

@@ -4,7 +4,7 @@ import {
   } from 'react-native';
   import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const ViewCertificate = ({ navigation }) => {
+const RootTrustee_AddTrusteeStep2 = ({ navigation }) => {
 
     const [ data, setData ] = useState('');
 
@@ -13,6 +13,7 @@ const ViewCertificate = ({ navigation }) => {
             const value = await AsyncStorage.getItem('@MyCertificate');
             if(value !== null) {
                 setData(value);
+                console.log("view certificate=" + value);
                 return value;
             }
         } catch(e) {
@@ -50,4 +51,4 @@ const styles = StyleSheet.create({
   }   
 });
 
-export default ViewCertificate;
+export default RootTrustee_AddTrusteeStep2;

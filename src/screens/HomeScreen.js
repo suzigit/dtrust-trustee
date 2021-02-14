@@ -16,7 +16,6 @@ const HomeScreen = ({ navigation }) => {
         title="Peça confirmação de seu endereço"
       />
 
-
       <Text style={styles.text}>Para confirmar endereços em uma comunidade</Text>
       <Button
         onPress={() => navigation.navigate('ConfirmeAddress')}
@@ -29,7 +28,7 @@ const HomeScreen = ({ navigation }) => {
 
       <Text style={styles.text}>Para manter uma comunidade confiável</Text>
       <Button
-        onPress={() => navigation.navigate('Components')}
+        onPress={() => navigation.navigate('AddTrustee')}
         title="Inclua alguém confiável"
       />
       <Button
