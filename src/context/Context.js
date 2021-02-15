@@ -45,18 +45,20 @@ export const Provider = ({ children }) => {
 
     const signCertificate = async (idTrusteeCandidate, nameTrusteeCandidate) => {
 
-        const certificateBody = JSON.stringify(
+      const certificateBody = 
         {
           rootTrusteeName: state.name,
           trusteeName: nameTrusteeCandidate,
           trusteeId: idTrusteeCandidate
-        });
-        const signedCertificate = await userWallet.signMessage(certificateBody);
-        console.log("signed no contexto");
+        };  
+        const signedCertificate = await userWallet.signMessage(JSON.stringify(certificateBody));
         console.log(signedCertificate);
-        console.log("depois do signed no contexto");
 
-        return signedCertificate;
+        certificateBody["signature"] = signedCertificate;
+        console.log("certificateBody");
+        console.log(certificateBody);
+
+        return JSON.stringify(certificateBody);
     };
 
 

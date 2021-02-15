@@ -6,23 +6,17 @@ import Context from '../../context/Context';
 import QRCodeGenerator from '../../component/QRCodeGenerator';
 
 
-
 const AddTrusteeStep3 = ({ navigation }) =>  {
 
   const idTrusteeCandidate = navigation.getParam("idTrusteeCandidate");
   const nameTrusteeCandidate = navigation.getParam("localName");
   const { signCertificate } = useContext(Context);
-  const [ state, setState ] = useState(false);
-  const [ signedData, setSignedData] = useState("N/A")
+  const [ signedData, setSignedData] = useState("")
 
   const getSignedData = async () => {
     try {   
         const value = await signCertificate(idTrusteeCandidate, nameTrusteeCandidate);
-        setState(true);
         setSignedData(value);
-        console.log(value);
-        console.log("getSignedData - depois");
-
         return value;
       } catch(e) {
         console.error("Error reading data of getSignedData");
@@ -31,7 +25,7 @@ const AddTrusteeStep3 = ({ navigation }) =>  {
 
   } 
 
-    getSignedData();
+  getSignedData();
 
     return (
         <View>
@@ -39,7 +33,7 @@ const AddTrusteeStep3 = ({ navigation }) =>  {
         <Text style={styles.certificateStyle}>{idTrusteeCandidate}</Text>
         <Text style={styles.certificateStyle}>{nameTrusteeCandidate}</Text>
         
-        {state==true? <View><QRCodeGenerator data={signedData}/></View> : <Text style={styles.certificateStyle}>Carregando...</Text>}
+        {signedData!=""? <View><QRCodeGenerator data={signedData}/></View> : <Text style={styles.certificateStyle}>Carregando...</Text>}
 
         <Button 
             onPress={() => {
@@ -47,7 +41,6 @@ const AddTrusteeStep3 = ({ navigation }) =>  {
             }}
             title="Ok"
         />
-
         </View>
     );
     

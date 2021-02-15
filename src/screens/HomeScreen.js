@@ -4,7 +4,8 @@ import { Text, StyleSheet, View, Button } from 'react-native';
 
 const HomeScreen = ({ navigation }) => {
 
-  const { state, setName } = useContext(Context);
+  //TODO: name precisa ir para storage
+  const { state } = useContext(Context);
 
 
   return (
@@ -12,8 +13,16 @@ const HomeScreen = ({ navigation }) => {
       { state.name.length > 0? <Text>Bem-vindo(a) {state.name} </Text> : null }
       <Text style={styles.text}>Para todos</Text>
       <Button
-        onPress={() => navigation.navigate('AskConfirmationAddress')}
+        onPress={() => navigation.navigate('AskToConfirmYourAddress')}
         title="Peça confirmação de seu endereço"
+      />
+      <Button
+        onPress={() => navigation.navigate('GetAddressCertificate')}
+        title="Receba confirmação de seu endereço"
+      />
+      <Button
+        onPress={() => navigation.navigate('ViewAddressCertificate')}
+        title="Veja confirmação de seu endereço"
       />
 
       <Text style={styles.text}>Para confirmar endereços em uma comunidade</Text>
