@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     StyleSheet,
     Text,
@@ -12,7 +12,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const AskToConfirmYourAddress = ({ navigation }) => {
 
-  const [ data, setData ] = useState('');
   const [ localAddress, setLocalAddress ] = useState('');
 
   const storeData = async (value) => {
@@ -24,11 +23,12 @@ const AskToConfirmYourAddress = ({ navigation }) => {
     }
   }  
 
+
   const getData = async () => {
     try {
         const value = await AsyncStorage.getItem('@MyAddress');
         if(value !== null) {
-            setData(value);
+            setLocalAddress(value);
             console.log("view address=" + value);
             return value;
         }
@@ -38,8 +38,9 @@ const AskToConfirmYourAddress = ({ navigation }) => {
     }
 }
 
-getData();
-
+  useEffect (() => {
+    getData();
+  }, []);
 
 
     return (
@@ -48,7 +49,7 @@ getData();
           <TextInput style={styles.input} 
             autoCapitalize="words" 
             autoCorrect={false} 
-            defaultValue={data} 
+            defaultValue={localAddress} 
             placeholder="Digite aqui"
             onChangeText={setLocalAddress}
             />

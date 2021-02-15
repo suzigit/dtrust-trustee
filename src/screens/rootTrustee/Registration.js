@@ -7,8 +7,7 @@ const Registration = ({ navigation }) => {
 
   const [ localName, setLocalName ] = useState('');
 
-  const { state, setName } = useContext(Context);
-//  { state.name.length > 0 && state.name.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }
+  const { myName, setMyName } = useContext(Context);
 
   return (
 
@@ -20,7 +19,7 @@ const Registration = ({ navigation }) => {
         <TextInput style={styles.input} 
             autoCapitalize="words" 
             autoCorrect={false} 
-            defaultValue={state.name} 
+            defaultValue={myName} 
             placeholder="Digite aqui"
             onChangeText={setLocalName}
         />
@@ -31,7 +30,7 @@ const Registration = ({ navigation }) => {
         <View style={styles.marginTop}>
         <Button 
             onPress={() => {
-                setName(localName);
+                setMyName(localName);
 
                 //TODO: send message to start message
                 //console.log(encryptedMessageToMasterAccount());

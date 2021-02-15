@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     StyleSheet,
     Text,
@@ -10,7 +10,7 @@ import {
 
 
 
-const AskToConfirmYourAddressStep2 = () => {
+const AskToConfirmYourAddressStep2 = ({ navigation }) => {
 
   const [ data, setData ] = useState('');
 
@@ -19,7 +19,7 @@ const AskToConfirmYourAddressStep2 = () => {
         const value = await AsyncStorage.getItem('@MyAddress');
         if(value !== null) {
             setData(value);
-            console.log("view address=" + value);
+            console.log("view address do AskToConfirmYourAddressStep2" + value);
             return value;
         }
     } catch(e) {
@@ -28,11 +28,14 @@ const AskToConfirmYourAddressStep2 = () => {
     }
   }
 
-  getData();
+  useEffect (() => {
+    getData();
+  }, []);
 
     return (
         <View>
           <Text style={styles.textStyle}>Peça certificado de endereço apresentando seu QRCode a uma pessoa confiável da comunidade</Text>
+          <Text style={styles.certificateStyle}>{data}</Text>
           
           {data!=""? <View><QRCodeGenerator data={data}/></View> : <Text style={styles.certificateStyle}>Carregando...</Text>}
           
@@ -40,7 +43,7 @@ const AskToConfirmYourAddressStep2 = () => {
             onPress={() => {
               navigation.navigate('Home')
             }}
-            title="Ok"
+            title="Clique para ler o QRCode de seu Certificado"
         />
 
         </View>
@@ -52,6 +55,10 @@ const AskToConfirmYourAddressStep2 = () => {
 const styles = StyleSheet.create({
     textStyle: {
       fontSize: 20
+    }, 
+    certificateStyle: {
+      fontSize: 20,
+      color: 'blue'
     } 
   });
   
