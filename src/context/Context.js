@@ -42,8 +42,9 @@ export const Provider = ({ children }) => {
         return JSON.stringify(certificateBody);
     };
 
+
     return (
-        <Context.Provider value={{myName, setMyName, signCertificate, getMyId, getMyPublicKey}}>
+        <Context.Provider value={{myName, setMyName, signCertificate,getMyId, getMyPublicKey}}>
         {children}
         </Context.Provider>
     );
