@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {
     StyleSheet,
     Text,
@@ -6,40 +6,21 @@ import {
     View,
     Button
   } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+  import Context from '../../context/Context';
+
 
 
 
 const AskToConfirmYourAddress = ({ navigation }) => {
 
   const [ localAddress, setLocalAddress ] = useState('');
+  const { saveMyAddressData, getMyAddressData } = useContext(Context);
 
-  const storeData = async (value) => {
-    try {
-      await AsyncStorage.setItem('@MyAddress', value)
-    } catch (e) {
-      console.err("Error while saving item @MyAddress");
-      console.err(e);
-    }
-  }  
-
-
-  const getData = async () => {
-    try {
-        const value = await AsyncStorage.getItem('@MyAddress');
-        if(value !== null) {
-            setLocalAddress(value);
-            console.log("view address=" + value);
-            return value;
-        }
-    } catch(e) {
-        console.error("Error reading data of MyAddress");
-        console.error(e);
-    }
-}
 
   useEffect (() => {
-    getData();
+    getMyAddressData((savedAddress) => {
+      setLocalAddress(savedAddress);
+    });
   }, []);
 
 
@@ -60,7 +41,7 @@ const AskToConfirmYourAddress = ({ navigation }) => {
               <View style={styles.marginTop}>
               <Button 
                   onPress={() => {
-                      storeData(localAddress);
+                      saveMyAddressData(localAddress);
                       navigation.navigate('AskToConfirmYourAddressStep2');
                     }}
                   title="Gerar QRCode para Solicitação"

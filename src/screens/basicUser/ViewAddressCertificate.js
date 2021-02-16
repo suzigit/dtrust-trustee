@@ -1,33 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
     StyleSheet, Text, View, Button
   } from 'react-native';
-  import AsyncStorage from '@react-native-async-storage/async-storage';
+import Context from '../../context/Context';
+import QRCodeGenerator from '../../component/QRCodeGenerator';
+
+
 
 const ViewAddressCertificate = ({ navigation }) => {
 
     const [ data, setData ] = useState('');
+    const { getMyAddressCertificate } = useContext(Context);
 
-    const getData = async () => {
-        try {
-            const value = await AsyncStorage.getItem('@MyCerticateAddress');
-            if(value !== null) {
-                setData(value);
-                console.log("view certificate=" + value);
-                return value;
-            }
-        } catch(e) {
-            console.error("Error reading data of MyAddress");
-            console.error(e);
-        }
-    }
 
-    getData();
+
+    useEffect (() => {
+      getMyAddressCertificate((addrCertificate) => {
+        setData(addrCertificate);
+      });
+    }, []);
+  
+
 
     return (
         <View>
         <Text style={styles.textStyle}>Seu Certificado de Endereço:</Text>
         <Text style={styles.certificateStyle}>{data}</Text>
+        {data!=""? <View><QRCodeGenerator data={data}/></View> : <Text style={styles.certificateStyle}>Carregando...</Text>}
+
         <Button 
             onPress={() => {
               navigation.navigate('Home')

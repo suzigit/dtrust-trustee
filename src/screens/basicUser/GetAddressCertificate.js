@@ -1,27 +1,22 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
     StyleSheet,
     Text,
     View
   } from 'react-native';
   import QRCodeScanner from '../../component/QRCodeScanner';
-  import AsyncStorage from '@react-native-async-storage/async-storage';
+  import Context from '../../context/Context';
 
 const GetAddressCertificate = ({ navigation }) => {
 
+  const { saveMyAddressCertificate } = useContext(Context);
+
+
   const updateCaller = (data) => {
-    navigation.navigate('ViewCertificate')
-    storeData(data);
+    navigation.navigate('ViewAddressCertificate')
+    saveMyAddressCertificate(data);
   };
 
-  const storeData = async (value) => {
-    try {
-      await AsyncStorage.setItem('@MyCertificateAddress', value)
-    } catch (e) {
-      console.err("Error while saving item");
-      console.err(e);
-    }
-  }
 
   return (
       <View>

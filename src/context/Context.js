@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import "react-native-get-random-values"
 import "@ethersproject/shims";
 import { ethers }  from 'ethers';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 
 const Context = React.createContext();
@@ -42,9 +44,60 @@ export const Provider = ({ children }) => {
         return JSON.stringify(certificateBody);
     };
 
+    //MyAddress
+
+    const saveMyAddressData = async (value) => {
+      try {
+        await AsyncStorage.setItem('@MyAddress', value)
+      } catch (e) {
+        console.err("Error while saving item @MyAddress");
+        console.err(e);
+      }
+    }  
+  
+  
+    const getMyAddressData = async (callback) => {
+      try {
+          const value = await AsyncStorage.getItem('@MyAddress');
+          if(value !== null) {
+              callback(value);
+              console.log("view address=" + value);
+              return value;
+          }
+      } catch(e) {
+          console.error("Error reading data of MyAddress");
+          console.error(e);
+      }
+  }
+
+    //MyAddressCertificate
+  
+  const saveMyAddressCertificate = async (value) => {
+    try {
+      await AsyncStorage.setItem('@MyAddressCertificate', value)
+    } catch (e) {
+      console.err("Error while saving item");
+      console.err(e);
+    }
+  }
+
+  const getMyAddressCertificate = async (callback) => {
+    try {
+        const value = await AsyncStorage.getItem('@MyAddressCertificate');
+        if(value !== null) {
+            callback(value);
+            console.log("view certificate=" + value);
+            return value;
+        }
+    } catch(e) {
+        console.error("Error reading data of MyAddress");
+        console.error(e);
+    }
+  }
 
     return (
-        <Context.Provider value={{myName, setMyName, signCertificate,getMyId, getMyPublicKey}}>
+        <Context.Provider value={{myName, setMyName, signCertificate,getMyId, getMyPublicKey, 
+          saveMyAddressData, getMyAddressData, saveMyAddressCertificate, getMyAddressCertificate}}>
         {children}
         </Context.Provider>
     );

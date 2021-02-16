@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {
     StyleSheet,
     Text,
@@ -6,30 +6,21 @@ import {
     Button
   } from 'react-native';
   import QRCodeGenerator from '../../component/QRCodeGenerator';
-  import AsyncStorage from '@react-native-async-storage/async-storage';
+  import Context from '../../context/Context';
 
 
 
 const AskToConfirmYourAddressStep2 = ({ navigation }) => {
 
   const [ data, setData ] = useState('');
+  const { getMyAddressData } = useContext(Context);
 
-  const getData = async () => {
-    try {
-        const value = await AsyncStorage.getItem('@MyAddress');
-        if(value !== null) {
-            setData(value);
-            console.log("view address do AskToConfirmYourAddressStep2" + value);
-            return value;
-        }
-    } catch(e) {
-        console.error("Error reading data of MyAddress");
-        console.error(e);
-    }
-  }
+
 
   useEffect (() => {
-    getData();
+    getMyAddressData((savedAddress) => {
+      setData(savedAddress);
+    });
   }, []);
 
     return (
@@ -41,7 +32,7 @@ const AskToConfirmYourAddressStep2 = ({ navigation }) => {
           
           <Button 
             onPress={() => {
-              navigation.navigate('Home')
+              navigation.navigate('GetAddressCertificate');
             }}
             title="Clique para ler o QRCode de seu Certificado"
         />
