@@ -7,7 +7,7 @@ import {
   } from 'react-native';
   import QRCodeGenerator from '../../component/QRCodeGenerator';
   import Context from '../../context/Context';
-
+  import i18n from 'i18n-js';
 
 
 const AskToParticipate = ({ navigation }) => {
@@ -16,16 +16,17 @@ const AskToParticipate = ({ navigation }) => {
 
     console.log("ID do trustee = " + getMyId());
 
+
     return (
         <View>
-          <Text style={styles.textStyle}>Peça para participar apresentando seu QRCode ao criador da comunidade</Text>
+          <Text style={styles.textStyle}>{i18n.t('trustee.askToParticipate')}</Text>
           <View><QRCodeGenerator data={getMyId()}/></View>
 
           <Button 
             onPress={() => {
               navigation.navigate('GetParticipationCertificate');
             }}
-            title="Clique para ler o QRCode de seu Certificado"
+            title={i18n.t('general.askResponseQRCode')}
         />          
         </View>
     );

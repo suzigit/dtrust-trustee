@@ -6,6 +6,7 @@ import {
   } from 'react-native';
   import QRCodeScanner from '../../component/QRCodeScanner';
   import Context from '../../context/Context';
+  import i18n from 'i18n-js';
 
 const GetAddressCertificate = ({ navigation }) => {
 
@@ -20,7 +21,7 @@ const GetAddressCertificate = ({ navigation }) => {
 
   return (
       <View>
-        <Text style={styles.textStyle}>Aponte seu celular para o QRCode com seu certificado de endereço</Text>
+        <Text style={styles.textStyle}>{i18n.t('general.pointCellToQRCodeofYourCertificate')}</Text>
         <View><QRCodeScanner updateCaller={updateCaller}/></View>
       </View>
   );

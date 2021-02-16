@@ -7,6 +7,7 @@ import {
     Button
   } from 'react-native';
   import Context from '../../context/Context';
+  import i18n from 'i18n-js';
 
 
 
@@ -23,28 +24,26 @@ const AskToConfirmYourAddress = ({ navigation }) => {
     });
   }, []);
 
+//            { localAddress.length > 0 && localAddress.length < 10 ? <Text style={styles.errorTextStyle} >O endereço digitado está muito pequeno</Text> : null }
 
     return (
         <View>
-          <Text style={styles.textStyle}>Informe seu endereço completo:</Text>
+          <Text style={styles.textStyle}>{i18n.t('basicUser.enterCompleteAddress')}</Text>
           <TextInput style={styles.input} 
             autoCapitalize="words" 
             autoCorrect={false} 
             defaultValue={localAddress} 
-            placeholder="Digite aqui"
+            placeholder={i18n.t('general.typeHere')}
             onChangeText={setLocalAddress}
             />
 
-            { localAddress.length > 0 && localAddress.length < 10 ? <Text style={styles.errorTextStyle} >O endereço digitado está muito pequeno</Text> : null }
-      
-      
               <View style={styles.marginTop}>
               <Button 
                   onPress={() => {
                       saveMyAddressData(localAddress);
                       navigation.navigate('AskToConfirmYourAddressStep2');
                     }}
-                  title="Gerar QRCode para Solicitação"
+                  title={i18n.t('general.generateQRCode')}
               />
               </View>
       

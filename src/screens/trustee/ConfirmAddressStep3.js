@@ -4,6 +4,7 @@ import {
   } from 'react-native';
 import Context from '../../context/Context';
 import QRCodeGenerator from '../../component/QRCodeGenerator';
+import i18n from 'i18n-js';
 
 
 const ConfirmAddressStep3 = ({ navigation }) =>  {
@@ -39,7 +40,7 @@ const ConfirmAddressStep3 = ({ navigation }) =>  {
 
     return (
         <View>
-        <Text style={styles.textStyle}>QRCode Resposta para Confirmação de Endereço:</Text>   
+        <Text style={styles.textStyle}>{i18n.t('trustee.adrressCertificateOfOthers')}</Text>   
         
         {signedData!=""? <View><QRCodeGenerator data={signedData}/></View> : <Text style={styles.certificateStyle}>Aguarde, gerando QRCode...</Text>}
 

@@ -1,6 +1,7 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { Text, StyleSheet, View, TextInput, Button } from 'react-native';
 import Context from '../../context/Context';
+import i18n from 'i18n-js';
 
 
 const Registration = ({ navigation }) => {
@@ -15,22 +16,24 @@ const Registration = ({ navigation }) => {
     })
   }, []);
 
+//      { localName.length > 0 && localName.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }
+
+
   return (
 
     <View style={styles.marginTop}>
-        <Text style={styles.textStyle}>Seu identificador:</Text>
+        <Text style={styles.textStyle}>{i18n.t('rootTrustee.yourIdentifier')}</Text>
         <Text style={styles.input}>{getMyId()}</Text>
 
-        <Text style={styles.textStyle}>Seu nome pessoal: </Text>      
+        <Text style={styles.textStyle}>{i18n.t('rootTrustee.yourName')}</Text>      
         <TextInput style={styles.input} 
             autoCapitalize="words" 
             autoCorrect={false} 
             defaultValue={localName} 
-            placeholder="Digite aqui"
+            placeholder={i18n.t('general.typeHere')}
             onChangeText={setLocalName}
         />
 
-      { localName.length > 0 && localName.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }
 
 
         <View style={styles.marginTop}>
@@ -41,10 +44,9 @@ const Registration = ({ navigation }) => {
 
                 //TODO: send message to start message
                 //console.log(encryptedMessageToMasterAccount());
-
                 navigation.navigate('Home');
               }}
-            title="Pedir iníciar da sua comunidade"
+            title={i18n.t('rootTrustee.askNewCommunity')}
         />
         </View>
 

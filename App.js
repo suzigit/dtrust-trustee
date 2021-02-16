@@ -23,6 +23,8 @@ import ConfirmAddressStep3 from './src/screens/trustee/ConfirmAddressStep3';
 import AskToParticipate from './src/screens/trustee/AskToParticipate';
 
 import ViewParticipationCertificate from './src/screens/ViewParticipationCertificate'
+import i18n from 'i18n-js';
+
 
 
 const navigator = createStackNavigator(
@@ -50,7 +52,7 @@ const navigator = createStackNavigator(
   {
     initialRouteName: 'Home',
     defaultNavigationOptions: {
-      title: {Confirmo},
+      title: 'Confirmo'
     },
   }
 );

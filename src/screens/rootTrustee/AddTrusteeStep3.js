@@ -4,6 +4,7 @@ import {
   } from 'react-native';
 import Context from '../../context/Context';
 import QRCodeGenerator from '../../component/QRCodeGenerator';
+import i18n from 'i18n-js';
 
 
 const AddTrusteeStep3 = ({ navigation }) =>  {
@@ -37,9 +38,9 @@ const AddTrusteeStep3 = ({ navigation }) =>  {
 
     return (
         <View>
-        <Text style={styles.textStyle}>QRCode Resposta para Inclusão de Pessoa Confiável:</Text>        
+        <Text style={styles.textStyle}>{i18n.t('rootTrustee.participationCertificateOfOthers')}</Text>        
         
-        {signedData!=""? <View><QRCodeGenerator data={signedData}/></View> : <Text style={styles.certificateStyle}>Aguarde, gerando QRCode...</Text>}
+        {signedData!=""? <View><QRCodeGenerator data={signedData}/></View> : <Text style={styles.certificateStyle}>{i18n.t('general.waitToCreate')}</Text>}
 
         <Button 
             onPress={() => {

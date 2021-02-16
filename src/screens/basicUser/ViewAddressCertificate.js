@@ -4,6 +4,7 @@ import {
   } from 'react-native';
 import Context from '../../context/Context';
 import QRCodeGenerator from '../../component/QRCodeGenerator';
+import i18n from 'i18n-js';
 
 
 
@@ -23,8 +24,8 @@ const ViewAddressCertificate = ({ navigation }) => {
 
     return (
         <View>
-        <Text style={styles.textStyle}>Seu Certificado de Endereço:</Text>
-        {data!=""? <View><QRCodeGenerator data={data}/></View> : <Text style={styles.certificateStyle}>Aguarde, gerando QRCode...</Text>}
+        <Text style={styles.textStyle}>{i18n.t('basicUser.addressCertificate')}:</Text>
+        {data!=""? <View><QRCodeGenerator data={data}/></View> : <Text style={styles.certificateStyle}>{i18n.t('general.waitToCreate')}</Text>}
 
         <Button 
             onPress={() => {

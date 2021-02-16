@@ -4,6 +4,7 @@ import {
   } from 'react-native';
 import Context from '../context/Context';
 import QRCodeGenerator from '../component/QRCodeGenerator';
+import i18n from 'i18n-js';
 
 
 
@@ -23,8 +24,8 @@ const ViewParticipationCertificate = ({ navigation }) => {
 
     return (
         <View>
-        <Text style={styles.textStyle}>Seu Certificado de Participação:</Text>
-        {data!=""? <View><QRCodeGenerator data={data}/></View> : <Text style={styles.certificateStyle}>Aguarde, gerando QRCode...</Text>}
+        <Text style={styles.textStyle}>{i18n.t('rootTrustee.participationCertificate')}</Text>
+        {data!=""? <View><QRCodeGenerator data={data}/></View> : <Text style={styles.certificateStyle}>{i18n.t('general.waitToCreate')}</Text>}
 
         <Button 
             onPress={() => {

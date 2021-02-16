@@ -4,6 +4,10 @@ import "react-native-get-random-values"
 import "@ethersproject/shims";
 import { ethers }  from 'ethers';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
+import en from '../locales/en.json';
+import br from '../locales/br.json';
 
 
 
@@ -20,6 +24,13 @@ export const Provider = ({ children }) => {
     useEffect (() => {
       console.log("salvou carteira do usuario");
       saveMyUserWallet();
+      i18n.translations = { en, br }; 
+
+      // Set the locale once at the beginning of your app.
+      i18n.locale = 'br';//Localization.locale;
+      i18n.fallbacks = true;
+  
+
     }, []);    
 
     const getMyId = () => {

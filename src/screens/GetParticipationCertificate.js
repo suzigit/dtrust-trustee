@@ -6,7 +6,9 @@ import {
   } from 'react-native';
   import QRCodeScanner from '../component/QRCodeScanner';
   import Context from '../context/Context';
+  import i18n from 'i18n-js';
 
+  
 const GetParticipationCertificate = ({ navigation }) => {
 
   const { saveMyParticipationCertificate } = useContext(Context);
@@ -18,7 +20,7 @@ const GetParticipationCertificate = ({ navigation }) => {
 
   return (
       <View>
-        <Text style={styles.textStyle}>Aponte seu celular para o QRCode com sua permissão para iniciar comunidade</Text>
+        <Text style={styles.textStyle}>{i18n.t('general.pointCellToQRCodeToGenerateCertificate')}</Text>
         <View><QRCodeScanner updateCaller={updateCaller}/></View>
       </View>
   );

@@ -1,66 +1,55 @@
 import React, {useState, useContext, useEffect} from 'react';
 import Context from '../context/Context';
 import { Text, StyleSheet, View, Button } from 'react-native';
+import i18n from 'i18n-js';
 
 const HomeScreen = ({ navigation }) => {
-/*
-  const [ localName, setLocalName ] = useState('');
-
-  const { getMyName } = useContext(Context);
-
-  getMyName((name) => {
-      console.log("chegou no lugar de salvar no Home,");
-      setLocalName(name);
-  });
-//      { localName.length > 0? <Text>Bem-vindo(a) {localName} </Text> : null }
-*/
 
   return (
     <View>
 
-      <Text style={styles.text}>Para todos</Text>
+      <Text style={styles.text}>{i18n.t('navigation.everyone.title')}</Text>
       <Button
         onPress={() => navigation.navigate('AskToConfirmYourAddress')}
-        title="Peça confirmação de seu endereço"
+        title={i18n.t('navigation.everyone.askAddressConfirmation')}
       />
       <Button
         onPress={() => navigation.navigate('ViewAddressCertificate')}
-        title="Veja certificado de confirmação de seu endereço"
+        title={i18n.t('navigation.everyone.seeYourAddressCertificate')}
       />
 
-      <Text style={styles.text}>Para confirmar endereços em uma comunidade</Text>
+      <Text style={styles.text}>{i18n.t('navigation.trustee.title')}</Text>
       <Button
         onPress={() => navigation.navigate('ConfirmAddress')}
-        title="Confirme endereço de alguém"
+        title={i18n.t('navigation.trustee.confirmAddress')}
       />
       <Button
         onPress={() => navigation.navigate('AskToParticipate')}
-        title="Peça para participar"
+        title={i18n.t('navigation.trustee.askToParticipate')}
       />
       <Button
         onPress={() => navigation.navigate('ViewParticipationCertificate')}
-        title="Veja seu certificado"
+        title={i18n.t('navigation.trustee.seeYourParticipationCertificate')}
       />
 
 
-      <Text style={styles.text}>Para manter uma comunidade confiável</Text>
+      <Text style={styles.text}>{i18n.t('navigation.rootTrustee.title')}</Text>
       <Button
         onPress={() => navigation.navigate('AddTrustee')}
-        title="Inclua alguém confiável"
+        title={i18n.t('navigation.rootTrustee.addTrustee')}
       />
       <Button
         onPress={() => navigation.navigate('Registration')}
-        title="Peça para iniciar comunidade confiável"
+        title={i18n.t('navigation.rootTrustee.askTocreateTrusteableCommunity')}
       />
       <Button
         onPress={() => navigation.navigate('GetParticipationCertificate')}
-        title="Receba ok para criação de comunidade confiável"
+        title={i18n.t('navigation.rootTrustee.receiveParticipationCertificate')}
       />
       <Button
         onPress={() => navigation.navigate('ViewParticipationCertificate')}
-        title="Veja seu certificado"
+        title={i18n.t('navigation.rootTrustee.seeYourParticipationCertificate')}
       />
-
 
     </View>
   );

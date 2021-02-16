@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import {
     StyleSheet, Text, View, Button, TextInput
   } from 'react-native';
+  import i18n from 'i18n-js';
+
 
 const AddTrusteeStep2 = ({ navigation }) => {
 
@@ -9,13 +11,16 @@ const AddTrusteeStep2 = ({ navigation }) => {
 
   const subjectId = navigation.getParam("subjectId");
 
+  //      { localName.length > 0 && localName.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }
+
+
     return (
 
       <View style={styles.marginTop}>
-      <Text style={styles.textStyle}>Identificador da pessoa confiável lido do QRCode:</Text>
+      <Text style={styles.textStyle}>{i18n.t('rootTrustee.trusteeId')}</Text>
       <Text style={styles.input}>{subjectId}</Text>
 
-      <Text style={styles.textStyle}>Nome da pessoa confiável:</Text>      
+      <Text style={styles.textStyle}>{i18n.t('rootTrustee.trusteeName')}</Text>      
       <TextInput style={styles.input} 
           autoCapitalize="words" 
           autoCorrect={false} 
@@ -23,14 +28,12 @@ const AddTrusteeStep2 = ({ navigation }) => {
           onChangeText={setLocalName}
       />
 
-      { localName.length > 0 && localName.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }
-
       <View style={styles.marginTop}>
       <Button 
       onPress={() => {
         navigation.navigate('AddTrusteeStep3', {subjectId, subjectName:localName});
       }}
-      title="Gerar QRCode resposta"
+      title={i18n.t('general.generateQRCode')}
       />
       </View>
 

@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import {
     StyleSheet, Text, View, Button, TextInput
   } from 'react-native';
+  import i18n from 'i18n-js';
 
+  
 const ConfirmAddressStep2 = ({ navigation }) => {
 
   const [ localName, setLocalName ] = useState('');
@@ -10,28 +12,29 @@ const ConfirmAddressStep2 = ({ navigation }) => {
   const subjectId = navigation.getParam("subjectId");
   const addressData = navigation.getParam("addressData");
 
-    return (
+//      { localName.length > 0 && localName.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }
+
+  return (
 
       <View style={styles.marginTop}>
-      <Text style={styles.textStyle}>Endereço lido do QRCode:</Text>
+      <Text style={styles.textStyle}>{i18n.t('trustee.addressToConfirm')}</Text>
       <Text style={styles.input}>{addressData}</Text>
 
-      <Text style={styles.textStyle}>Nome de quem mora no endereço:</Text>      
+      <Text style={styles.textStyle}>{i18n.t('trustee.nameWhoLivesThere')}</Text>      
       <TextInput style={styles.input} 
           autoCapitalize="words" 
           autoCorrect={false} 
-          placeholder="Digite aqui"
+          placeholder={i18n.t('general.typeHere')}
           onChangeText={setLocalName}
       />
 
-      { localName.length > 0 && localName.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }
 
       <View style={styles.marginTop}>
       <Button 
       onPress={() => {
         navigation.navigate('ConfirmAddressStep3', {subjectId, addressData, subjectName: localName});
       }}
-      title="Gerar QRCode resposta"
+      title={i18n.t('general.generateQRCode')}
       />
       </View>
 

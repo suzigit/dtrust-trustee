@@ -1,3 +1,52 @@
 {
-    "appName": "Blitz Reading"
+  "navigation": {
+    "home": "Home",
+    "everyone": {
+        "title": "For everyone",
+        "askAddressConfirmation": "Ask confirmation of your address",
+        "seeYourAddressCertificate": "See your Address Certificate"
+    },
+    "trustee": {
+        "title": "For Trustees",
+        "confirmAddress": "Confirm an address",
+        "askToParticipate": "Ask to participate",
+        "seeYourParticipationCertificate": "See your Participation Certificate"
+    },
+    "rootTrustee": {
+        "title": "For the Community Manager",
+        "addTrustee": "Add a trustee",
+        "askTocreateTrusteableCommunity": "Ask to create a trusteable community",
+        "receiveParticipationCertificate": "Receive authorization to start a community",
+        "seeYourParticipationCertificate": "See your certificate as Community Manager"
+    }
+  },
+  "basicUser": {
+      "enterCompleteAddress": "Enter your complete address",
+      "askAddressCertificate": "Generate a certificate showing this QRCode to a trustee",
+      "addressCertificate": "This is your Address Certificate"
+  },
+  "trustee": {
+      "addressToConfirm": "Address to Confirm",
+      "nameWhoLivesThere": "Name of who lives there",
+      "adrressCertificateOfOthers": "This is the requested Address Certificate",
+      "askToParticipate": "Ask to participate showing this QRCode to the Community Manager",
+      "participationCertificate": "This is your Participation Certificate"
+  },
+  "rootTrustee": {
+      "trusteeId": "Id from who wants to be a trustee",
+      "trusteeName": "Name from who wants to be a trustee",
+      "yourIdentifier": "Your identifier",
+      "yourName": "Your name",
+      "askNewCommunity": "Ask to generate a new community",
+      "participationCertificateOfOthers": "This is the QRCode to include a new trustee",
+      "participationCertificate": "This is your certificate to create a new community."
+  },
+  "general" : {
+      "generateQRCode": "Generate QRCode",
+      "askResponseQRCode": "Click to read QRCode of your certificate",
+      "pointCellToQRCodeofYourCertificate": "Point your cellphone to a QRCode with your certificate",
+      "pointCellToQRCodeToGenerateCertificate": "Point your cellphone to a QRCode with data to generate a certificate",
+      "waitToCreate": "Please wait to generate the QRCode",
+      "typeHere": "Type here"
   }
+}

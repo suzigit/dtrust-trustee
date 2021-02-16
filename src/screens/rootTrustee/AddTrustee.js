@@ -5,7 +5,9 @@ import {
     View
   } from 'react-native';
   import QRCodeScanner from '../../component/QRCodeScanner';
+  import i18n from 'i18n-js';
 
+  
 const AddTrustee = ({ navigation }) => {
 
   const updateCaller = (subjectId) => {
@@ -15,7 +17,7 @@ const AddTrustee = ({ navigation }) => {
 
   return (
       <View>
-        <Text style={styles.textStyle}>Aponte seu celular para o QRCode da pessoa confiável a incluir</Text>
+        <Text style={styles.textStyle}>{i18n.t('general.pointCellToQRCodeToGenerateCertificate')}</Text>
         <View><QRCodeScanner updateCaller={updateCaller}/></View>
       </View>
   );

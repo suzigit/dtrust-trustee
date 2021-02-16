@@ -1,3 +1,52 @@
 {
-    "appName": "Blitz Reading"
+  "navigation": {
+    "home": "Home",
+    "everyone": {
+        "title": "Para todos",
+        "askAddressConfirmation": "Peça confirmação de seu endereço",
+        "seeYourAddressCertificate": "Veja seu Certificado de Endereço"
+    },
+    "trustee": {
+        "title": "Para pessoas confiáveis",
+        "confirmAddress": "Confirme um endereço",
+        "askToParticipate": "Peça para participar",
+        "seeYourParticipationCertificate": "Veja seu Certificado de Participação"
+    },
+    "rootTrustee": {
+        "title": "Para o Líder da Comunidade",
+        "addTrustee": "Adicione uma pessoa confiável",
+        "askTocreateTrusteableCommunity": "Peça para criar uma comunidade confiável",
+        "receiveParticipationCertificate": "Receba autorização para iniciar uma comunidade",
+        "seeYourParticipationCertificate": "Veja seu certificado de Líder da Comunidade"
+    }
+  },
+  "basicUser": {
+      "enterCompleteAddress": "Informe seu endereço de certificado",
+      "askAddressCertificate": "Gere seu certificado apresentando esse QRCode a uma pessoa confiável",
+      "addressCertificate": "Veja seu Certificado de Endereço"
+  },
+  "trustee": {
+      "addressToConfirm": "Endereço a confirmar",
+      "nameWhoLivesThere": "Nome de quem vive no endereço",
+      "adrressCertificateOfOthers": "Este é o Certificado de Endereço solicitado",
+      "askToParticipate": "Peça para participar apresentando esse QRCode ao Líder da Comunidade",
+      "participationCertificate": "Este é o seu Certificado de Participação"
+  },
+  "rootTrustee": {
+      "trusteeId": "Identificador de quem deseja participar da comunidade de pessoas confiáveis",
+      "trusteeName": "Nome de quem quer participar da comunidade de pessoas confiáveis",
+      "yourIdentifier": "Seu identitificador",
+      "yourName": "Seu nome",
+      "askNewCommunity": "Peça para criar uma nova comunidade",
+      "participationCertificateOfOthers": "Este é o QRCode para incluir uma pessoa confiável",
+      "participationCertificate": "Este é seu Certificado de Criação da Comunidade."
+  },
+  "general" : {
+      "generateQRCode": "Gerar QRCode",
+      "askResponseQRCode": "Clique para ler QRCode com seu certificado",
+      "pointCellToQRCodeofYourCertificate": "Aponte seu celular para o QRCode com o seu certificado",
+      "pointCellToQRCodeToGenerateCertificate": "Aponte seu celular para o QRCode com os dados para gerar um certificado",
+      "waitToCreate": "Por favor espere a geração do QRCode",
+      "typeHere": "Digite aqui"
   }
+}
