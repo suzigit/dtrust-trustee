@@ -4,21 +4,20 @@ import {
     Text,
     View
   } from 'react-native';
-  import QRCodeGenerator from '../component/QRCodeGenerator';
-  import Context from '../context/Context';
+  import QRCodeGenerator from '../../component/QRCodeGenerator';
+  import Context from '../../context/Context';
 
 
 
-const Trustee_AskToParticipate = () => {
+const AskToParticipate = () => {
 
   const { getMyPublicKey } = useContext(Context);
 
-//  <View><QRCodeGenerator data={getMyPublicKey()}/></View>
 
     return (
         <View>
           <Text style={styles.textStyle}>Peça para participar apresentando seu QRCode ao criador da comunidade</Text>
-
+          <View><QRCodeGenerator data={getMyPublicKey()}/></View>
         </View>
     );
  
@@ -31,4 +30,4 @@ const styles = StyleSheet.create({
     } 
   });
   
-  export default Trustee_AskToParticipate;
+  export default AskToParticipate;

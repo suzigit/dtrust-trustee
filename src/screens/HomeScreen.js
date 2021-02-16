@@ -1,16 +1,23 @@
-import React, {useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import Context from '../context/Context';
 import { Text, StyleSheet, View, Button } from 'react-native';
 
 const HomeScreen = ({ navigation }) => {
+/*
+  const [ localName, setLocalName ] = useState('');
 
-  //TODO: name precisa ir para storage
-  const { myName } = useContext(Context);
+  const { getMyName } = useContext(Context);
 
+  getMyName((name) => {
+      console.log("chegou no lugar de salvar no Home,");
+      setLocalName(name);
+  });
+//      { localName.length > 0? <Text>Bem-vindo(a) {localName} </Text> : null }
+*/
 
   return (
     <View>
-      { myName.length > 0? <Text>Bem-vindo(a) {myName} </Text> : null }
+
       <Text style={styles.text}>Para todos</Text>
       <Button
         onPress={() => navigation.navigate('AskToConfirmYourAddress')}
@@ -27,7 +34,7 @@ const HomeScreen = ({ navigation }) => {
         title="Confirme endereço de alguém"
       />
       <Button
-        onPress={() => navigation.navigate('Trustee_AskToParticipate')}
+        onPress={() => navigation.navigate('AskToParticipate')}
         title="Peça para participar"
       />
 

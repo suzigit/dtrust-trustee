@@ -20,7 +20,6 @@ const AddTrustee = ({ navigation }) => {
       </View>
   );
 
-
 };
 
 

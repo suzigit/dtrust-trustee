@@ -16,8 +16,8 @@ import AskToConfirmYourAddressStep2 from './src/screens/basicUser/AskToConfirmYo
 import GetAddressCertificate from './src/screens/basicUser/GetAddressCertificate';
 import ViewAddressCertificate from './src/screens/basicUser/ViewAddressCertificate';
 
+import AskToParticipate from './src/screens/trustee/AskToParticipate';
 
-import Trustee_AskToParticipate from './src/screens/Trustee_AskToParticipate';
 import ViewCertificate from './src/screens/ViewCertificate'
 
 const navigator = createStackNavigator(
@@ -32,7 +32,7 @@ const navigator = createStackNavigator(
 
 
     GetCertificateToRegister: GetCertificateToRegister,
-    Trustee_AskToParticipate: Trustee_AskToParticipate,
+    AskToParticipate: AskToParticipate,
     ViewCertificate: ViewCertificate,
 
     AskToConfirmYourAddress: AskToConfirmYourAddress,

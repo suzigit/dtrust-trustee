@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import { Text, StyleSheet, View, TextInput, Button } from 'react-native';
 import Context from '../../context/Context';
 
@@ -7,19 +7,25 @@ const Registration = ({ navigation }) => {
 
   const [ localName, setLocalName ] = useState('');
 
-  const { myName, setMyName } = useContext(Context);
+  const { getMyName, saveMyName, getMyId } = useContext(Context);
+
+  useEffect (() => {
+    getMyName((name) => {
+      setLocalName(name);
+    })
+  }, []);
 
   return (
 
     <View style={styles.marginTop}>
         <Text style={styles.textStyle}>Seu identificador:</Text>
-        <Text style={styles.input}>did:ethr:{state.blockchainAddress}</Text>
+        <Text style={styles.input}>{getMyId()}</Text>
 
         <Text style={styles.textStyle}>Seu nome pessoal: </Text>      
         <TextInput style={styles.input} 
             autoCapitalize="words" 
             autoCorrect={false} 
-            defaultValue={myName} 
+            defaultValue={localName} 
             placeholder="Digite aqui"
             onChangeText={setLocalName}
         />
@@ -30,13 +36,14 @@ const Registration = ({ navigation }) => {
         <View style={styles.marginTop}>
         <Button 
             onPress={() => {
-                setMyName(localName);
+              console.log("salvando nome=" + localName);
+                saveMyName(localName);
 
                 //TODO: send message to start message
                 //console.log(encryptedMessageToMasterAccount());
 
-                navigation.pop();
-            }}
+                navigation.navigate('Home');
+              }}
             title="Pedir iníciar da sua comunidade"
         />
         </View>

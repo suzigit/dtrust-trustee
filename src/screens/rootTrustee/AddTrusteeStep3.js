@@ -10,12 +10,12 @@ const AddTrusteeStep3 = ({ navigation }) =>  {
 
   const idTrusteeCandidate = navigation.getParam("idTrusteeCandidate");
   const nameTrusteeCandidate = navigation.getParam("localName");
-  const { signCertificate } = useContext(Context);
+  const { signTrusteeCertificate } = useContext(Context);
   const [ signedData, setSignedData] = useState("")
 
   const getSignedData = async () => {
     try {   
-        const value = await signCertificate(idTrusteeCandidate, nameTrusteeCandidate);
+        const value = await signTrusteeCertificate(idTrusteeCandidate, nameTrusteeCandidate);
         setSignedData(value);
         return value;
       } catch(e) {

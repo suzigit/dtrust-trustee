@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 //Based on https://docs.ethers.io/v5/cookbook/react-native/
 import "react-native-get-random-values"
 import "@ethersproject/shims";
@@ -16,21 +16,27 @@ export const Provider = ({ children }) => {
     //Chaves publicas + nomes + datas para quem emitiu certificado de ateste? (precisa armazenar certificados emitidos? acho que nao)
 
     const [ userWallet ] = useState(ethers.Wallet.createRandom());
-    const [ myName, setMyName] = useState("");
+
+    useEffect (() => {
+      console.log("salvou carteira do usuario");
+      saveMyUserWallet();
+    }, []);    
 
     const getMyPublicKey = () => {
       return userWallet.publicKey;
     }
 
     const getMyId = () => {
-      return userWallet.address;
+      return "did:ethr:" + userWallet.address;
     }
 
-    const signCertificate = async (idTrusteeCandidate, nameTrusteeCandidate) => {
+    const signTrusteeCertificate = async (idTrusteeCandidate, nameTrusteeCandidate) => {
+
+      const myName = await getMyName();
 
       const certificateBody = 
         {
-          rootTrusteeName: state.name,
+          rootTrusteeName: myName,
           trusteeName: nameTrusteeCandidate,
           trusteeId: idTrusteeCandidate
         };  
@@ -43,6 +49,45 @@ export const Provider = ({ children }) => {
 
         return JSON.stringify(certificateBody);
     };
+
+    const saveMyUserWallet = async () => {
+      try {
+        await AsyncStorage.setItem('@MyPrivateKey', userWallet.privateKey)
+      } catch (e) {
+        console.err("Error while saving item @MyName");
+        console.err(e);
+      }
+    }
+
+    //MyName
+
+    const saveMyName = async (value) => {
+      try {
+        await AsyncStorage.setItem('@MyName', value)
+      } catch (e) {
+        console.err("Error while saving item @MyName");
+        console.err(e);
+      }
+    }
+  
+  
+    const getMyName = async (callback) => {
+      try {
+          const value = await AsyncStorage.getItem('@MyName');
+          if(value !== null) {
+              if (callback) {
+                callback(value);
+              }
+              console.log("view name=" + value);
+              return value;
+          }
+      } catch(e) {
+          console.error("Error reading data of MyName");
+          console.error(e);
+      }
+  }
+
+
 
     //MyAddress
 
@@ -96,7 +141,8 @@ export const Provider = ({ children }) => {
   }
 
     return (
-        <Context.Provider value={{myName, setMyName, signCertificate,getMyId, getMyPublicKey, 
+        <Context.Provider value={{saveMyName, getMyName, 
+          signTrusteeCertificate, getMyId, getMyPublicKey, 
           saveMyAddressData, getMyAddressData, saveMyAddressCertificate, getMyAddressCertificate}}>
         {children}
         </Context.Provider>
