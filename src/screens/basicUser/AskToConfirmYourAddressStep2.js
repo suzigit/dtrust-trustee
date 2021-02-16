@@ -13,22 +13,20 @@ import {
 const AskToConfirmYourAddressStep2 = ({ navigation }) => {
 
   const [ data, setData ] = useState('');
-  const { getMyAddressData } = useContext(Context);
-
-
+  const { getDataToAskAddressCertificate } = useContext(Context);
 
   useEffect (() => {
-    getMyAddressData((savedAddress) => {
-      setData(savedAddress);
-    });
+    getDataToAskAddressCertificate(setData);
   }, []);
+
+//  <Text style={styles.certificateStyle}>{data}</Text>
+  console.log(data);
 
     return (
         <View>
           <Text style={styles.textStyle}>Peça certificado de endereço apresentando seu QRCode a uma pessoa confiável da comunidade</Text>
-          <Text style={styles.certificateStyle}>{data}</Text>
           
-          {data!=""? <View><QRCodeGenerator data={data}/></View> : <Text style={styles.certificateStyle}>Carregando...</Text>}
+          {data!=""? <View><QRCodeGenerator data={data}/></View> : <Text style={styles.certificateStyle}>Aguarde, gerando QRCode...</Text>}
           
           <Button 
             onPress={() => {

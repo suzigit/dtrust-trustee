@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
     StyleSheet, Text, View, Button
   } from 'react-native';
@@ -8,14 +8,15 @@ import QRCodeGenerator from '../../component/QRCodeGenerator';
 
 const AddTrusteeStep3 = ({ navigation }) =>  {
 
-  const idTrusteeCandidate = navigation.getParam("idTrusteeCandidate");
-  const nameAddressCertificateCandidate = navigation.getParam("localName");
+  const subjectId = navigation.getParam("subjectId");
+  const subjectName = navigation.getParam("subjectName");
+
   const { signTrusteeCertificate } = useContext(Context);
   const [ signedData, setSignedData] = useState("")
 
   const getSignedData = async () => {
     try {   
-        const value = await signTrusteeCertificate(idTrusteeCandidate, nameTrusteeCandidate);
+        const value = await signTrusteeCertificate(subjectId, subjectName);
         setSignedData(value);
         return value;
       } catch(e) {
@@ -25,15 +26,20 @@ const AddTrusteeStep3 = ({ navigation }) =>  {
 
   } 
 
-  getSignedData();
+  // <Text style={styles.certificateStyle}>{subjectId}</Text>
+  // <Text style={styles.certificateStyle}>{subjectName}</Text>
+
+  useEffect (() => {
+    getSignedData();
+  }, []);
+
+  console.log("certificado de trustee=" + signedData);
 
     return (
         <View>
         <Text style={styles.textStyle}>QRCode Resposta para Inclusão de Pessoa Confiável:</Text>        
-        <Text style={styles.certificateStyle}>{idTrusteeCandidate}</Text>
-        <Text style={styles.certificateStyle}>{nameAddressCertificateCandidate}</Text>
         
-        {signedData!=""? <View><QRCodeGenerator data={signedData}/></View> : <Text style={styles.certificateStyle}>Carregando...</Text>}
+        {signedData!=""? <View><QRCodeGenerator data={signedData}/></View> : <Text style={styles.certificateStyle}>Aguarde, gerando QRCode...</Text>}
 
         <Button 
             onPress={() => {

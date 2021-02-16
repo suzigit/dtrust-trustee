@@ -8,8 +8,16 @@ import {
 
 const ConfirmAddress = ({ navigation }) => {
 
-  const updateCaller = (addressData) => {
-    navigation.navigate('ConfirmAddressStep2', {addressData});
+  const updateCaller = (inputData) => {
+
+    const inputDataAsObject = JSON.parse(inputData);
+    const subjectId = inputDataAsObject.subjectId;
+    const addressData = inputDataAsObject.addressData;
+    
+    //TODO: verificar erro
+    
+    navigation.navigate('ConfirmAddressStep2', {subjectId, addressData});
+
   };
 
 

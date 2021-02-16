@@ -13,6 +13,8 @@ const AskToParticipate = () => {
 
     const { getMyId } = useContext(Context);
 
+    console.log("ID do trustee = " + getMyId());
+
     return (
         <View>
           <Text style={styles.textStyle}>Peça para participar apresentando seu QRCode ao criador da comunidade</Text>

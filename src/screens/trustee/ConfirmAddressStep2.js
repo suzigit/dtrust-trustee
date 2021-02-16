@@ -7,6 +7,7 @@ const ConfirmAddressStep2 = ({ navigation }) => {
 
   const [ localName, setLocalName ] = useState('');
 
+  const subjectId = navigation.getParam("subjectId");
   const addressData = navigation.getParam("addressData");
 
     return (
@@ -28,7 +29,7 @@ const ConfirmAddressStep2 = ({ navigation }) => {
       <View style={styles.marginTop}>
       <Button 
       onPress={() => {
-        navigation.navigate('ConfirmAddressStep3', {addressData, localName});
+        navigation.navigate('ConfirmAddressStep3', {subjectId, addressData, subjectName: localName});
       }}
       title="Gerar QRCode resposta"
       />

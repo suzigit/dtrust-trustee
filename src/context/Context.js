@@ -22,53 +22,64 @@ export const Provider = ({ children }) => {
       saveMyUserWallet();
     }, []);    
 
-    const getMyPublicKey = () => {
-      return userWallet.publicKey;
-    }
-
     const getMyId = () => {
       return "did:ethr:" + userWallet.address;
     }
 
-    const signTrusteeCertificate = async (idTrusteeCandidate, nameTrusteeCandidate) => {
+    const signTrusteeCertificate = async (subjectId, subjectName) => {
 
       const myName = await getMyName();
 
       const certificateBody = 
         {
-          rootTrusteeName: myName,
-          trusteeName: nameTrusteeCandidate,
-          trusteeId: idTrusteeCandidate
+          trusteeId: getMyId(),
+          trusteeName: myName,
+          subjectId: subjectId,
+          subjectName: subjectName,
+          timestamp: new Date()
         };  
         const signedCertificate = await userWallet.signMessage(JSON.stringify(certificateBody));
-        console.log(signedCertificate);
+//        console.log(signedCertificate);
 
         certificateBody["signature"] = signedCertificate;
-        console.log("certificateBody");
-        console.log(certificateBody);
+//        console.log("certificateBody");
+//        console.log(certificateBody);
 
         return JSON.stringify(certificateBody);
     };
 
-//TODO
-    const signAddressCertificate = async (addressData, nameAddressCertificateCandidate) => {
+    const getDataToAskAddressCertificate = async (callback) => {
+      
+      const myAddress = await getMyAddressData();
+
+      const dataToAskAddressCertificate = 
+      {
+        subjectId: getMyId(),
+        addressData: myAddress
+      };
+      callback(JSON.stringify(dataToAskAddressCertificate));
+
+    }
+
+    const signAddressCertificate = async (subjectId, subjectName, addressData) => {
 
       const myName = await getMyName();
-      const certificateBody = {};
-/*
       const certificateBody = 
         {
+          trusteeId: getMyId(),
           trusteeName: myName,
-          trusteeName: nameTrusteeCandidate,
-          trusteeId: idTrusteeCandidate
+          subjectId: subjectId,
+          subjectName: subjectName,
+          addressData: addressData,
+          timestamp: new Date()
         };  
         const signedCertificate = await userWallet.signMessage(JSON.stringify(certificateBody));
-        console.log(signedCertificate);
+//        console.log(signedCertificate);
 
         certificateBody["signature"] = signedCertificate;
-        console.log("certificateBody");
-        console.log(certificateBody);
-*/
+//        console.log("certificateBody");
+//        console.log(certificateBody);
+
         return JSON.stringify(certificateBody);
     };
 
@@ -101,7 +112,7 @@ export const Provider = ({ children }) => {
               if (callback) {
                 callback(value);
               }
-              console.log("view name=" + value);
+//              console.log("view name=" + value);
               return value;
           }
       } catch(e) {
@@ -128,8 +139,10 @@ export const Provider = ({ children }) => {
       try {
           const value = await AsyncStorage.getItem('@MyAddress');
           if(value !== null) {
-              callback(value);
-              console.log("view address=" + value);
+              if (callback) {
+                callback(value);
+              }
+//              console.log("view address=" + value);
               return value;
           }
       } catch(e) {
@@ -154,7 +167,7 @@ export const Provider = ({ children }) => {
         const value = await AsyncStorage.getItem('@MyAddressCertificate');
         if(value !== null) {
             callback(value);
-            console.log("view certificate=" + value);
+//            console.log("view certificate=" + value);
             return value;
         }
     } catch(e) {
@@ -164,9 +177,10 @@ export const Provider = ({ children }) => {
   }
 
     return (
-        <Context.Provider value={{saveMyName, getMyName, 
-          getMyId, signTrusteeCertificate, signAddressCertificate,
-          saveMyAddressData, getMyAddressData, saveMyAddressCertificate, getMyAddressCertificate}}>
+        <Context.Provider value={{getMyId, saveMyName, getMyName, getMyAddressData,
+          signTrusteeCertificate, 
+          getDataToAskAddressCertificate, signAddressCertificate, 
+          saveMyAddressData, saveMyAddressCertificate, getMyAddressCertificate}}>
         {children}
         </Context.Provider>
     );

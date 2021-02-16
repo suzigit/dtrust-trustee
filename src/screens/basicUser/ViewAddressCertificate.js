@@ -12,21 +12,19 @@ const ViewAddressCertificate = ({ navigation }) => {
     const [ data, setData ] = useState('');
     const { getMyAddressCertificate } = useContext(Context);
 
-
-
     useEffect (() => {
       getMyAddressCertificate((addrCertificate) => {
         setData(addrCertificate);
       });
     }, []);
   
-
+    console.log("certificado de endereço=" + data);
+//        <Text style={styles.certificateStyle}>{data}</Text>
 
     return (
         <View>
         <Text style={styles.textStyle}>Seu Certificado de Endereço:</Text>
-        <Text style={styles.certificateStyle}>{data}</Text>
-        {data!=""? <View><QRCodeGenerator data={data}/></View> : <Text style={styles.certificateStyle}>Carregando...</Text>}
+        {data!=""? <View><QRCodeGenerator data={data}/></View> : <Text style={styles.certificateStyle}>Aguarde, gerando QRCode...</Text>}
 
         <Button 
             onPress={() => {

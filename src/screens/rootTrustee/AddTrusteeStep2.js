@@ -7,13 +7,13 @@ const AddTrusteeStep2 = ({ navigation }) => {
 
   const [ localName, setLocalName ] = useState('');
 
-  const idTrusteeCandidate = navigation.getParam("idTrusteeCandidate");
+  const subjectId = navigation.getParam("subjectId");
 
     return (
 
       <View style={styles.marginTop}>
       <Text style={styles.textStyle}>Identificador da pessoa confiável lido do QRCode:</Text>
-      <Text style={styles.input}>{idTrusteeCandidate}</Text>
+      <Text style={styles.input}>{subjectId}</Text>
 
       <Text style={styles.textStyle}>Nome da pessoa confiável:</Text>      
       <TextInput style={styles.input} 
@@ -28,7 +28,7 @@ const AddTrusteeStep2 = ({ navigation }) => {
       <View style={styles.marginTop}>
       <Button 
       onPress={() => {
-        navigation.navigate('AddTrusteeStep3', {idTrusteeCandidate, localName});
+        navigation.navigate('AddTrusteeStep3', {subjectId, subjectName:localName});
       }}
       title="Gerar QRCode resposta"
       />

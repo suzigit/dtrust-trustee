@@ -8,8 +8,8 @@ import {
 
 const AddTrustee = ({ navigation }) => {
 
-  const updateCaller = (idTrusteeCandidate) => {
-    navigation.navigate('AddTrusteeStep2', {idTrusteeCandidate});
+  const updateCaller = (subjectId) => {
+    navigation.navigate('AddTrusteeStep2', {subjectId});
   };
 
 
