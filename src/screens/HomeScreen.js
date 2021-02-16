@@ -30,7 +30,7 @@ const HomeScreen = ({ navigation }) => {
 
       <Text style={styles.text}>Para confirmar endereços em uma comunidade</Text>
       <Button
-        onPress={() => navigation.navigate('ConfirmeAddress')}
+        onPress={() => navigation.navigate('ConfirmAddress')}
         title="Confirme endereço de alguém"
       />
       <Button

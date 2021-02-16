@@ -11,13 +11,12 @@ import {
 
 const AskToParticipate = () => {
 
-  const { getMyPublicKey } = useContext(Context);
-
+    const { getMyId } = useContext(Context);
 
     return (
         <View>
           <Text style={styles.textStyle}>Peça para participar apresentando seu QRCode ao criador da comunidade</Text>
-          <View><QRCodeGenerator data={getMyPublicKey()}/></View>
+          <View><QRCodeGenerator data={getMyId()}/></View>
         </View>
     );
  

@@ -6,16 +6,16 @@ import Context from '../../context/Context';
 import QRCodeGenerator from '../../component/QRCodeGenerator';
 
 
-const AddTrusteeStep3 = ({ navigation }) =>  {
+const ConfirmAddressStep3 = ({ navigation }) =>  {
 
-  const idTrusteeCandidate = navigation.getParam("idTrusteeCandidate");
-  const nameAddressCertificateCandidate = navigation.getParam("localName");
-  const { signTrusteeCertificate } = useContext(Context);
+  const addressData = navigation.getParam("addressData");
+  const nameAddressCertificateCandidate = navigation.getParam("nameAddressCertificateCandidate");
+  const { signAddressCertificate } = useContext(Context);
   const [ signedData, setSignedData] = useState("")
 
   const getSignedData = async () => {
     try {   
-        const value = await signTrusteeCertificate(idTrusteeCandidate, nameTrusteeCandidate);
+        const value = await signAddressCertificate(addressData, nameAddressCertificateCandidate);
         setSignedData(value);
         return value;
       } catch(e) {
@@ -29,8 +29,8 @@ const AddTrusteeStep3 = ({ navigation }) =>  {
 
     return (
         <View>
-        <Text style={styles.textStyle}>QRCode Resposta para Inclusão de Pessoa Confiável:</Text>        
-        <Text style={styles.certificateStyle}>{idTrusteeCandidate}</Text>
+        <Text style={styles.textStyle}>QRCode Resposta para Confirmação de Endereço:</Text>        
+        <Text style={styles.certificateStyle}>{addressData}</Text>
         <Text style={styles.certificateStyle}>{nameAddressCertificateCandidate}</Text>
         
         {signedData!=""? <View><QRCodeGenerator data={signedData}/></View> : <Text style={styles.certificateStyle}>Carregando...</Text>}
@@ -58,4 +58,4 @@ const styles = StyleSheet.create({
     }   
   });
 
-export default AddTrusteeStep3;
+export default ConfirmAddressStep3;

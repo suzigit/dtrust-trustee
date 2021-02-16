@@ -16,6 +16,10 @@ import AskToConfirmYourAddressStep2 from './src/screens/basicUser/AskToConfirmYo
 import GetAddressCertificate from './src/screens/basicUser/GetAddressCertificate';
 import ViewAddressCertificate from './src/screens/basicUser/ViewAddressCertificate';
 
+import ConfirmAddress from './src/screens/trustee/ConfirmAddress';
+import ConfirmAddressStep2 from './src/screens/trustee/ConfirmAddressStep2';
+import ConfirmAddressStep3 from './src/screens/trustee/ConfirmAddressStep3';
+
 import AskToParticipate from './src/screens/trustee/AskToParticipate';
 
 import ViewCertificate from './src/screens/ViewCertificate'
@@ -30,13 +34,17 @@ const navigator = createStackNavigator(
     GetAddressCertificate: GetAddressCertificate,
     ViewAddressCertificate: ViewAddressCertificate,
 
-
-    GetCertificateToRegister: GetCertificateToRegister,
     AskToParticipate: AskToParticipate,
-    ViewCertificate: ViewCertificate,
+    ConfirmAddress: ConfirmAddress,
+    ConfirmAddressStep2: ConfirmAddressStep2,
+    ConfirmAddressStep3: ConfirmAddressStep3,
 
     AskToConfirmYourAddress: AskToConfirmYourAddress,
-    AskToConfirmYourAddressStep2: AskToConfirmYourAddressStep2
+    AskToConfirmYourAddressStep2: AskToConfirmYourAddressStep2,
+
+    GetCertificateToRegister: GetCertificateToRegister,
+    ViewCertificate: ViewCertificate,
+
   },
   {
     initialRouteName: 'Home',

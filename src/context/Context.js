@@ -50,6 +50,29 @@ export const Provider = ({ children }) => {
         return JSON.stringify(certificateBody);
     };
 
+//TODO
+    const signAddressCertificate = async (addressData, nameAddressCertificateCandidate) => {
+
+      const myName = await getMyName();
+      const certificateBody = {};
+/*
+      const certificateBody = 
+        {
+          trusteeName: myName,
+          trusteeName: nameTrusteeCandidate,
+          trusteeId: idTrusteeCandidate
+        };  
+        const signedCertificate = await userWallet.signMessage(JSON.stringify(certificateBody));
+        console.log(signedCertificate);
+
+        certificateBody["signature"] = signedCertificate;
+        console.log("certificateBody");
+        console.log(certificateBody);
+*/
+        return JSON.stringify(certificateBody);
+    };
+
+
     const saveMyUserWallet = async () => {
       try {
         await AsyncStorage.setItem('@MyPrivateKey', userWallet.privateKey)
@@ -142,7 +165,7 @@ export const Provider = ({ children }) => {
 
     return (
         <Context.Provider value={{saveMyName, getMyName, 
-          signTrusteeCertificate, getMyId, getMyPublicKey, 
+          getMyId, signTrusteeCertificate, signAddressCertificate,
           saveMyAddressData, getMyAddressData, saveMyAddressCertificate, getMyAddressCertificate}}>
         {children}
         </Context.Provider>
