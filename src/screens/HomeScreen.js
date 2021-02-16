@@ -37,6 +37,11 @@ const HomeScreen = ({ navigation }) => {
         onPress={() => navigation.navigate('AskToParticipate')}
         title="Peça para participar"
       />
+      <Button
+        onPress={() => navigation.navigate('ViewParticipationCertificate')}
+        title="Veja seu certificado"
+      />
+
 
       <Text style={styles.text}>Para manter uma comunidade confiável</Text>
       <Button
@@ -48,11 +53,11 @@ const HomeScreen = ({ navigation }) => {
         title="Peça para iniciar comunidade confiável"
       />
       <Button
-        onPress={() => navigation.navigate('GetCertificateToRegister')}
+        onPress={() => navigation.navigate('GetParticipationCertificate')}
         title="Receba ok para criação de comunidade confiável"
       />
       <Button
-        onPress={() => navigation.navigate('ViewCertificate')}
+        onPress={() => navigation.navigate('ViewParticipationCertificate')}
         title="Veja seu certificado"
       />
 

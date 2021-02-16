@@ -171,13 +171,39 @@ export const Provider = ({ children }) => {
             return value;
         }
     } catch(e) {
-        console.error("Error reading data of MyAddress");
+        console.error("Error reading data of MyAddressCertificate");
         console.error(e);
     }
   }
 
+  const saveMyParticipationCertificate = async (value) => {
+    try {``
+      await AsyncStorage.setItem('@MyParticipationCertificate', value)
+    } catch (e) {
+      console.err("Error while saving item MyParticipationCertificate");
+      console.err(e);
+    }
+  }  
+
+  const getMyParticipationCertificate = async (callback) => {
+    try {
+        const value = await AsyncStorage.getItem('@MyParticipationCertificate');
+        if(value !== null) {
+            callback(value);
+//            console.log("view certificate=" + value);
+            return value;
+        }
+    } catch(e) {
+        console.error("Error reading data of MyParticipationCertificate");
+        console.error(e);
+    }
+  }
+  
+
+
     return (
         <Context.Provider value={{getMyId, saveMyName, getMyName, getMyAddressData,
+          saveMyParticipationCertificate, getMyParticipationCertificate,
           signTrusteeCertificate, 
           getDataToAskAddressCertificate, signAddressCertificate, 
           saveMyAddressData, saveMyAddressCertificate, getMyAddressCertificate}}>

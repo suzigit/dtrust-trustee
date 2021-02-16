@@ -2,14 +2,15 @@ import React, {useContext} from 'react';
 import {
     StyleSheet,
     Text,
-    View
+    View, 
+    Button
   } from 'react-native';
   import QRCodeGenerator from '../../component/QRCodeGenerator';
   import Context from '../../context/Context';
 
 
 
-const AskToParticipate = () => {
+const AskToParticipate = ({ navigation }) => {
 
     const { getMyId } = useContext(Context);
 
@@ -19,6 +20,13 @@ const AskToParticipate = () => {
         <View>
           <Text style={styles.textStyle}>Peça para participar apresentando seu QRCode ao criador da comunidade</Text>
           <View><QRCodeGenerator data={getMyId()}/></View>
+
+          <Button 
+            onPress={() => {
+              navigation.navigate('GetParticipationCertificate');
+            }}
+            title="Clique para ler o QRCode de seu Certificado"
+        />          
         </View>
     );
  

@@ -1,27 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
     StyleSheet,
     Text,
     View
   } from 'react-native';
   import QRCodeScanner from '../component/QRCodeScanner';
-  import AsyncStorage from '@react-native-async-storage/async-storage';
+  import Context from '../context/Context';
 
-const GetCertificateToRegister = ({ navigation }) => {
+const GetParticipationCertificate = ({ navigation }) => {
+
+  const { saveMyParticipationCertificate } = useContext(Context);
 
   const updateCaller = (data) => {
-    navigation.navigate('ViewCertificate')
-    storeData(data);
+    navigation.navigate('ViewParticipationCertificate')
+    saveMyParticipationCertificate(data);
   };
-
-  const storeData = async (value) => {
-    try {
-      await AsyncStorage.setItem('@MyCertificate', value)
-    } catch (e) {
-      console.err("Error while saving item");
-      console.err(e);
-    }
-  }
 
   return (
       <View>
@@ -29,8 +22,6 @@ const GetCertificateToRegister = ({ navigation }) => {
         <View><QRCodeScanner updateCaller={updateCaller}/></View>
       </View>
   );
-
-
 };
 
 
@@ -40,7 +31,4 @@ const styles = StyleSheet.create({
   } 
 });
 
-export default GetCertificateToRegister;
-
-
-
+export default GetParticipationCertificate;

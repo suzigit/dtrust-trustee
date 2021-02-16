@@ -5,7 +5,7 @@ import { Provider } from './src/context/Context';
 
 
 import HomeScreen from './src/screens/HomeScreen';
-import GetCertificateToRegister from './src/screens/GetCertificateToRegister';
+import GetParticipationCertificate from './src/screens/GetParticipationCertificate';
 import Registration from './src/screens/rootTrustee/Registration';
 import AddTrustee from './src/screens/rootTrustee/AddTrustee';
 import AddTrusteeStep2 from './src/screens/rootTrustee/AddTrusteeStep2';
@@ -22,34 +22,35 @@ import ConfirmAddressStep3 from './src/screens/trustee/ConfirmAddressStep3';
 
 import AskToParticipate from './src/screens/trustee/AskToParticipate';
 
-import ViewCertificate from './src/screens/ViewCertificate'
+import ViewParticipationCertificate from './src/screens/ViewParticipationCertificate'
+
 
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Registration: Registration,
-    AddTrustee: AddTrustee,
-    AddTrusteeStep2: AddTrusteeStep2,
-    AddTrusteeStep3: AddTrusteeStep3,
-    GetAddressCertificate: GetAddressCertificate,
-    ViewAddressCertificate: ViewAddressCertificate,
+    Registration,
+    AddTrustee,
+    AddTrusteeStep2,
+    AddTrusteeStep3,
+    GetAddressCertificate,
+    ViewAddressCertificate,
 
-    AskToParticipate: AskToParticipate,
-    ConfirmAddress: ConfirmAddress,
-    ConfirmAddressStep2: ConfirmAddressStep2,
-    ConfirmAddressStep3: ConfirmAddressStep3,
+    AskToParticipate,
+    ConfirmAddress,
+    ConfirmAddressStep2,
+    ConfirmAddressStep3,
 
-    AskToConfirmYourAddress: AskToConfirmYourAddress,
-    AskToConfirmYourAddressStep2: AskToConfirmYourAddressStep2,
+    AskToConfirmYourAddress,
+    AskToConfirmYourAddressStep2,
 
-    GetCertificateToRegister: GetCertificateToRegister,
-    ViewCertificate: ViewCertificate,
+    GetParticipationCertificate,
+    ViewParticipationCertificate,
 
   },
   {
     initialRouteName: 'Home',
     defaultNavigationOptions: {
-      title: 'Confio',
+      title: {Confirmo},
     },
   }
 );
