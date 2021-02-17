@@ -4,8 +4,8 @@ import {
     Text,
     View
   } from 'react-native';
-  import QRCodeScanner from '../component/QRCodeScanner';
-  import Context from '../context/Context';
+  import QRCodeScanner from '../../component/QRCodeScanner';
+  import Context from '../../context/Context';
   import i18n from 'i18n-js';
 
   

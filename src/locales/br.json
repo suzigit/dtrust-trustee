@@ -39,14 +39,17 @@
       "yourName": "Seu nome",
       "askNewCommunity": "Peça para criar uma nova comunidade",
       "participationCertificateOfOthers": "Este é o QRCode para incluir uma pessoa confiável",
-      "participationCertificate": "Este é seu Certificado de Criação da Comunidade."
+      "participationCertificate": "Este é seu Certificado de Criação da Comunidade.",
+      "pointCellToQRCodeToGenerateCertificate": "Aponte seu celular para o QRCode com os dados para gerar o certificado com sua autorização"      
   },
   "general" : {
       "generateQRCode": "Gerar QRCode",
       "askResponseQRCode": "Clique para ler QRCode com seu certificado",
       "pointCellToQRCodeofYourCertificate": "Aponte seu celular para o QRCode com o seu certificado",
-      "pointCellToQRCodeToGenerateCertificate": "Aponte seu celular para o QRCode com os dados para gerar um certificado",
+      "pointCellToQRCodeToGenerateCertificate": "Aponte seu celular para o QRCode com os dados para gerar o certificado",
       "waitToCreate": "Por favor espere a geração do QRCode",
-      "typeHere": "Digite aqui"
+      "typeHere": "Digite aqui",
+      "defaultErrorMessage": "Aconteceu um erro na última operação"
+
   }
 }

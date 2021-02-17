@@ -2,13 +2,13 @@ import React, { useState, useEffect, useContext } from 'react';
 import {
     StyleSheet, Text, View, Button
   } from 'react-native';
-import Context from '../context/Context';
-import QRCodeGenerator from '../component/QRCodeGenerator';
+import Context from '../../context/Context';
+import QRCodeGenerator from '../../component/QRCodeGenerator';
 import i18n from 'i18n-js';
 
 
 
-const ViewParticipationCertificate = ({ navigation }) => {
+const ViewParticipationCertificateAsRoot = ({ navigation }) => {
 
     const [ data, setData ] = useState('');
     const { getMyParticipationCertificate } = useContext(Context);
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   }   
 });
 
-export default ViewParticipationCertificate;
+export default ViewParticipationCertificateAsRoot;

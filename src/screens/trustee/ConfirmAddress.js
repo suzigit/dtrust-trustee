@@ -15,9 +15,15 @@ const ConfirmAddress = ({ navigation }) => {
     const subjectId = inputDataAsObject.subjectId;
     const addressData = inputDataAsObject.addressData;
     
-    //TODO: verificar erro
-    
-    navigation.navigate('ConfirmAddressStep2', {subjectId, addressData});
+    if (!subjectId) {
+      navigation.navigate('ErrorState', {text:"SubjectId not found"});
+    }
+    else if (!addressData) {
+      navigation.navigate('ErrorState', {text:"AddressData not found"});
+    }
+    else {
+      navigation.navigate('ConfirmAddressStep2', {subjectId, addressData});
+    }
 
   };
 
