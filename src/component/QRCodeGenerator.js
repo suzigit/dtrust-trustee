@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  View, Text, StyleSheet
+  View, StyleSheet
 } from 'react-native';
 
 import {QRCode, Canvas} from 'easyqrcode-react-native';

@@ -5,6 +5,8 @@ import "@ethersproject/shims";
 import { ethers }  from 'ethers';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import getHi from "./RemoteAccessUtil";
+
 const Context = React.createContext();
 
 export const Provider = ({ children }) => {
@@ -55,9 +57,11 @@ export const Provider = ({ children }) => {
         subjectId: getMyId(),
         addressData: myAddress
       };
+
       callback(JSON.stringify(dataToAskAddressCertificate));
 
     }
+
 
     const signAddressCertificate = async (subjectId, subjectName, addressData) => {
 
@@ -75,10 +79,14 @@ export const Provider = ({ children }) => {
 //        console.log(signedCertificate);
 
         certificateBody["signature"] = signedCertificate;
+        await saveAddressCertificate(certificateBody);
+
+        const certificateBodyAsString = JSON.stringify(certificateBody);
+
 //        console.log("certificateBody");
 //        console.log(certificateBody);
 
-        return JSON.stringify(certificateBody);
+        return certificateBodyAsString;
     };
 
 
@@ -110,7 +118,6 @@ export const Provider = ({ children }) => {
               if (callback) {
                 callback(value);
               }
-//              console.log("view name=" + value);
               return value;
           }
       } catch(e) {
