@@ -2,47 +2,86 @@ import React from 'react';
 
 const serverURL = 'https://dtrust-trustee.herokuapp.com/';
 
-export default saveAddressCertificate = async (certificateBody) => {
+const backendPassword = "ofslafsdewcdsfsdplpAjmiDdfdsq!d";
+
+const saveAddressCertificate = (certificateBody) => {
+
     try {
-      fetch(serverURL + 'test', {
+      fetch(serverURL + 'saveAddressCertificate', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': 'aabbcc'
+              'Authorization': backendPassword
             },
             body: JSON.stringify ({
                 certificateBody
             })
           });
-        console.log("Mandou salvar addressCertificate");
+        console.log("Fetch to addressCertificate");
 
     } catch (error) {
       console.error(error);
     }  
 }
+
+const saveTrusteeCertificate = (certificateBody) => {
+  try {
+    fetch(serverURL + 'saveTrusteeCertificate', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': backendPassword
+          },
+          body: JSON.stringify ({
+              certificateBody
+          })
+        });
+      console.log("Fetch to trusteeCertificate");
+
+  } catch (error) {
+    console.error(error);
+  }  
+}
+
+const askRootTrusteeCertificateRemote = async (subjectId, subjectName) => {
+  
+  try {
+
+    const infoRootTrustee = {
+      subjectId, subjectName
+    };
+
+    const response = await fetch(serverURL + 'askRootTrustee', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': backendPassword
+          },
+          body: JSON.stringify ({infoRootTrustee})
+        });
+
+      console.log("Fetch to askRootTrusteeCertificateRemote=");
+      const statusCode = response.status;
+      console.log("statusCode=",statusCode);
+
+      if (statusCode!=200) {
+          return false;       
+      }
+      return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
+
+
+export {saveAddressCertificate, saveTrusteeCertificate, askRootTrusteeCertificateRemote};
 
 /*
 
-export default saveAddressCertificate = async (certificateBody) => {
-    try {
-      const response =  await fetch(serverURL + 'test', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': 'aabbcc'
-            },
-            body: JSON.stringify ({
-                certificateBody
-            })
-          });
-      const responseJson = await response.json();          
-      console.log(responseJson);
-        console.log("CHEGOU AQUI DENTRO no REMOTE ACCESS POST 5");
+router.post('/askRootTrustee', requireAuth, async (req, res) => {
+router.get('/rootTrusteeCertificate', requireAuth, async (req, res) => {
 
-    } catch (error) {
-      console.error(error);
-    }  
-}
 
 
 export default async function getHi () {
@@ -65,29 +104,5 @@ export default async function getHi () {
         console.error(error);
       }  
 }
-
-
-
-
-
-    const getHi = async () => {
-      try {
-
-          fetch('https://dtrust-trustee.herokuapp.com/', {
-              method: 'GET',
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'aabbcc'
-              }
-            }).then(response => await response.json())
-              .then(responseJson => {
-              console.log("CHEGOU AQUI DENTRO");
-              console.log(responseJson)
-            })
-            console.log("CHEGOU AQUIZINHO");
-        } catch (error) {
-          console.error(error);
-        }  
-  }
 
 */

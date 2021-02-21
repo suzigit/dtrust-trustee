@@ -4,8 +4,7 @@ import "react-native-get-random-values"
 import "@ethersproject/shims";
 import { ethers }  from 'ethers';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-import getHi from "./RemoteAccessUtil";
+import {saveAddressCertificate, saveTrusteeCertificate, askRootTrusteeCertificateRemote} from './RemoteAccessUtil';
 
 const Context = React.createContext();
 
@@ -26,6 +25,14 @@ export const Provider = ({ children }) => {
       return "did:ethr:" + userWallet.address;
     }
 
+    const askRootTrusteeCertificate = (subjectName) => {
+        return askRootTrusteeCertificateRemote(getMyId(), subjectName);
+    }
+
+    const getRootTrusteeCertificate = async (subjectId, subjectName) => {
+      //TODO:
+    }
+
     const signTrusteeCertificate = async (subjectId, subjectName) => {
 
       const myName = await getMyName();
@@ -44,6 +51,7 @@ export const Provider = ({ children }) => {
         certificateBody["signature"] = signedCertificate;
 //        console.log("certificateBody");
 //        console.log(certificateBody);
+        saveTrusteeCertificate(certificateBody);
 
         return JSON.stringify(certificateBody);
     };
@@ -79,7 +87,7 @@ export const Provider = ({ children }) => {
 //        console.log(signedCertificate);
 
         certificateBody["signature"] = signedCertificate;
-        await saveAddressCertificate(certificateBody);
+        saveAddressCertificate(certificateBody);
 
         const certificateBodyAsString = JSON.stringify(certificateBody);
 
@@ -203,11 +211,11 @@ export const Provider = ({ children }) => {
         console.error(e);
     }
   }
-  
 
 
     return (
         <Context.Provider value={{getMyId, saveMyName, getMyName, getMyAddressData,
+          askRootTrusteeCertificate, getRootTrusteeCertificate,
           saveMyParticipationCertificate, getMyParticipationCertificate,
           signTrusteeCertificate, 
           getDataToAskAddressCertificate, signAddressCertificate, 

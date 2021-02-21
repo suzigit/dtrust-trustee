@@ -8,7 +8,7 @@ const Registration = ({ navigation }) => {
 
   const [ localName, setLocalName ] = useState('');
 
-  const { getMyName, saveMyName, getMyId } = useContext(Context);
+  const { getMyName, saveMyName, getMyId, askRootTrusteeCertificate } = useContext(Context);
 
   useEffect (() => {
     getMyName((name) => {
@@ -38,13 +38,19 @@ const Registration = ({ navigation }) => {
 
         <View style={styles.marginTop}>
         <Button 
-            onPress={() => {
+            onPress={async () => {
               console.log("salvando nome=" + localName);
                 saveMyName(localName);
 
-                //TODO: send message to start message
-                //console.log(encryptedMessageToMasterAccount());
-                navigation.navigate('Home');
+                const result = await askRootTrusteeCertificate(localName);
+
+                if (result) {
+                  navigation.navigate('Home');
+                }
+                else {
+                  navigation.navigate('ErrorState', {text: "Error during registering. Please check your Internet connection"});
+                }
+
               }}
             title={i18n.t('rootTrustee.askNewCommunity')}
         />
