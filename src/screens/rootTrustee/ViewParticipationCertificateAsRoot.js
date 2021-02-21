@@ -8,7 +8,7 @@ import i18n from 'i18n-js';
 
 
 
-const ViewParticipationCertificateAsRoot = ({ navigation }) => {
+const ViewParticipationCertificate = ({ navigation }) => {
 
     const [ data, setData ] = useState('');
     const { getMyParticipationCertificate } = useContext(Context);
@@ -19,12 +19,12 @@ const ViewParticipationCertificateAsRoot = ({ navigation }) => {
       });
     }, []);
   
-    console.log("certificado de participacao=" + data);
+    console.log("certificate=" + data);
 //        <Text style={styles.certificateStyle}>{data}</Text>
 
     return (
         <View>
-        <Text style={styles.textStyle}>{i18n.t('rootTrustee.participationCertificate')}</Text>
+        <Text style={styles.textStyle}>{i18n.t('trustee.participationCertificate')}</Text>
         {data!=""? <View><QRCodeGenerator data={data}/></View> : <Text style={styles.certificateStyle}>{i18n.t('general.waitToCreate')}</Text>}
 
         <Button 
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   }   
 });
 
-export default ViewParticipationCertificateAsRoot;
+export default ViewParticipationCertificate;

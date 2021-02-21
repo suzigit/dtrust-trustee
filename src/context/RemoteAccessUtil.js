@@ -20,7 +20,7 @@ const saveAddressCertificate = (certificateBody) => {
         console.log("Fetch to addressCertificate");
 
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }  
 }
 
@@ -39,7 +39,7 @@ const saveTrusteeCertificate = (certificateBody) => {
       console.log("Fetch to trusteeCertificate");
 
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }  
 }
 
@@ -69,40 +69,40 @@ const askRootTrusteeCertificateRemote = async (subjectId, subjectName) => {
       }
       return true;
   } catch (error) {
-    console.error(error);
+    console.log(error);
     return false;
   }
 }
 
+const getRootTrusteeCertificateRemote = async (subjectId, subjectName) => {
 
-export {saveAddressCertificate, saveTrusteeCertificate, askRootTrusteeCertificateRemote};
+  try {
 
-/*
+    const params = "?subjectId="+ subjectId + "&subjectName=" + subjectName;
+    const url = serverURL + 'rootTrusteeCertificate'+params;
+    console.log(url);
 
-router.post('/askRootTrustee', requireAuth, async (req, res) => {
-router.get('/rootTrusteeCertificate', requireAuth, async (req, res) => {
+    const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': backendPassword
+          }
+        });
+    
+    console.log("Fetch to getRootTrusteeCertificateRemote");
+    
+    const responseJson = await response.json();
+    console.log(responseJson);
 
+    return responseJson;
 
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 
-export default async function getHi () {
-    try {
-        let response = await fetch('https://dtrust-trustee.herokuapp.com/', {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              'Autentication': 'aabbcc'
-            },
-            body: JSON.stringify({
-              user: 'yourValue',
-              secondParam: 'yourOtherValue',
-            }),
-          });
-
-        console.log(response);
-//        return responseJson.movies;
-      } catch (error) {
-        console.error(error);
-      }  
 }
 
-*/
+
+export {saveAddressCertificate, saveTrusteeCertificate, askRootTrusteeCertificateRemote, getRootTrusteeCertificateRemote};

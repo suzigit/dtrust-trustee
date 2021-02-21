@@ -4,7 +4,8 @@ import "react-native-get-random-values"
 import "@ethersproject/shims";
 import { ethers }  from 'ethers';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {saveAddressCertificate, saveTrusteeCertificate, askRootTrusteeCertificateRemote} from './RemoteAccessUtil';
+import {saveAddressCertificate, saveTrusteeCertificate, 
+  askRootTrusteeCertificateRemote, getRootTrusteeCertificateRemote} from './RemoteAccessUtil';
 
 const Context = React.createContext();
 
@@ -29,8 +30,11 @@ export const Provider = ({ children }) => {
         return askRootTrusteeCertificateRemote(getMyId(), subjectName);
     }
 
-    const getRootTrusteeCertificate = async (subjectId, subjectName) => {
-      //TODO:
+    //TODO: ROOT e não meu
+    const getRootTrusteeCertificate = async (callback) => {
+        const name = await getMyName();
+        const result = await getRootTrusteeCertificateRemote(getMyId(), name);
+        callback(result);
     }
 
     const signTrusteeCertificate = async (subjectId, subjectName) => {
