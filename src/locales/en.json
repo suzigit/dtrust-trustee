@@ -7,46 +7,46 @@
         "seeYourAddressCertificate": "See your Address Certificate"
     },
     "trustee": {
-        "title": "For Trustees",
+        "title": "For Certifiers",
         "confirmAddress": "Confirm an address",
-        "askToParticipate": "Ask to participate",
-        "seeYourParticipationCertificate": "See your Participation Certificate"
+        "askToParticipate": "Ask to be a Certifier",
+        "seeYourParticipationCertificate": "See your Certificate"
     },
     "rootTrustee": {
-        "title": "For the Community Manager",
-        "addTrustee": "Add a Trustee",
-        "askTocreateTrusteableCommunity": "Ask to create a trusteable community",
-        "receiveParticipationCertificate": "Receive authorization to start a community",
-        "seeYourParticipationCertificate": "See your certificate as Community Manager"
+        "title": "For the Certifier Manager",
+        "addTrustee": "Add a Certifier",
+        "askToBeRootTrustee": "Ask to be a Certifier Manager",
+        "receiveParticipationCertificate": "Receive your Certificate",
+        "seeYourParticipationCertificate": "See your Certificate"
     }
   },
   "basicUser": {
       "enterCompleteAddress": "Enter your complete address",
-      "askAddressCertificate": "Generate a certificate showing this QRCode to a Trustee",
+      "askAddressCertificate": "Generate a certificate showing this QRCode to a Certifier",
       "addressCertificate": "This is your Address Certificate"
   },
   "trustee": {
       "addressToConfirm": "Address to Confirm",
       "nameWhoLivesThere": "Name of who lives there",
       "adrressCertificateOfOthers": "This is the requested Address Certificate",
-      "askToParticipate": "Ask to participate showing this QRCode to the Community Manager",
-      "participationCertificate": "This is your Participation Certificate"
+      "askToParticipate": "Ask your Certificate showing this QRCode to the Certifier Manager",
+      "participationCertificate": "This is your Certificate"
   },
   "rootTrustee": {
-      "trusteeId": "Id from who wants to be a Trustee",
-      "trusteeName": "Name from who wants to be a Trustee",
+      "trusteeId": "Id from who wants to be a Certifier",
+      "trusteeName": "Name from who wants to be a Certifier",
       "yourIdentifier": "Your identifier",
       "yourName": "Your name",
-      "askNewCommunity": "Ask to generate a new community",
-      "participationCertificateOfOthers": "This is the QRCode to include a new Trustee",
-      "participationCertificate": "This is your Participation Certificate as Community Manager",
-      "pointCellToQRCodeToGenerateCertificate": "Point your cellphone to a QRCode with data to generate a certificate for your authorization"     
+      "askBeRootTrustee": "Ask to be a Certifier Manager",
+      "participationCertificateOfOthers": "This is the QRCode to include a new Certifier",
+      "participationCertificate": "This is your Certificate",
+      "pointCellToQRCodeToGenerateCertificate": "Point your cellphone to a QRCode with data to generate your Certificate"     
     },
   "general" : {
       "generateQRCode": "Generate QRCode",
-      "askResponseQRCode": "Click to read QRCode of your certificate",
-      "pointCellToQRCodeofYourCertificate": "Point your cellphone to a QRCode with your certificate",
-      "pointCellToQRCodeToGenerateCertificate": "Point your cellphone to a QRCode with data to generate a certificate",
+      "askResponseQRCode": "Click to read QRCode of your Certificate",
+      "pointCellToQRCodeofYourCertificate": "Point your cellphone to a QRCode with your Certificate",
+      "pointCellToQRCodeToGenerateCertificate": "Point your cellphone to a QRCode with data to generate your Certificate",
       "waitToCreate": "Please wait to generate the QRCode",
       "typeHere": "Type here",
       "defaultErrorMessage": "An error happened during the last operation"

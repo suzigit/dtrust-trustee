@@ -17,11 +17,16 @@ const GetParticipationCertificateAsRoot = ({ navigation }) => {
 
   useEffect (() => {
 
-    getRootTrusteeCertificate( (data) => {
-      if (data) {
-          saveMyParticipationCertificate(data);
+    getRootTrusteeCertificate( (resultDataAsJson) => {
+
+      if (resultDataAsJson["notFound"]=="true") {
+        setData(null);
       }
-      setData(data);
+      else {
+        const resultDataAsString = JSON.stringify(resultDataAsJson);
+        setData(resultDataAsString);
+        saveMyParticipationCertificate(resultDataAsString);
+      }
     })
     
   }, []);

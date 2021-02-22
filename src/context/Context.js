@@ -194,7 +194,7 @@ export const Provider = ({ children }) => {
   }
 
   const saveMyParticipationCertificate = async (value) => {
-    try {``
+    try {
       await AsyncStorage.setItem('@MyParticipationCertificate', value)
     } catch (e) {
       console.err("Error while saving item MyParticipationCertificate");

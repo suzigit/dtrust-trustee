@@ -52,7 +52,7 @@ const Registration = ({ navigation }) => {
                 }
 
               }}
-            title={i18n.t('rootTrustee.askNewCommunity')}
+            title={i18n.t('rootTrustee.askBeRootTrustee')}
         />
         </View>
 

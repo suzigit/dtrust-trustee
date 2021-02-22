@@ -1,46 +1,46 @@
 {
   "navigation": {
-    "home": "Home",
+    "home": "Início",
     "everyone": {
         "title": "Para todos",
         "askAddressConfirmation": "Peça confirmação de seu endereço",
         "seeYourAddressCertificate": "Veja seu Certificado de Endereço"
     },
     "trustee": {
-        "title": "Para pessoas confiáveis",
+        "title": "Para Certificadores",
         "confirmAddress": "Confirme um endereço",
-        "askToParticipate": "Peça para participar",
-        "seeYourParticipationCertificate": "Veja seu Certificado de Participação"
+        "askToParticipate": "Peça para ser um Certificador",
+        "seeYourParticipationCertificate": "Veja seu Certificado"
     },
     "rootTrustee": {
-        "title": "Para o Líder da Comunidade",
-        "addTrustee": "Adicione uma pessoa confiável",
-        "askTocreateTrusteableCommunity": "Peça para criar uma comunidade confiável",
-        "receiveParticipationCertificate": "Receba autorização para iniciar uma comunidade",
-        "seeYourParticipationCertificate": "Veja seu certificado de Líder da Comunidade"
+        "title": "Para o Líder dos Certificadores",
+        "addTrustee": "Adicione um Certificador",
+        "askToBeRootTrustee": "Peça para ser um Líder de Certificadores",
+        "receiveParticipationCertificate": "Receba seu Certificado",
+        "seeYourParticipationCertificate": "Veja seu Certificado"
     }
   },
   "basicUser": {
-      "enterCompleteAddress": "Informe seu endereço de certificado",
-      "askAddressCertificate": "Gere seu certificado apresentando esse QRCode a uma pessoa confiável",
+      "enterCompleteAddress": "Informe seu endereço para o certificado",
+      "askAddressCertificate": "Gere seu certificado apresentando esse QRCode a um Certificador",
       "addressCertificate": "Veja seu Certificado de Endereço"
   },
   "trustee": {
       "addressToConfirm": "Endereço a confirmar",
       "nameWhoLivesThere": "Nome de quem vive no endereço",
       "adrressCertificateOfOthers": "Este é o Certificado de Endereço solicitado",
-      "askToParticipate": "Peça para participar apresentando esse QRCode ao Líder da Comunidade",
-      "participationCertificate": "Este é o seu Certificado de Participação"
+      "askToParticipate": "Peça seu Certificado apresentando esse QRCode ao Líder dos Certificadores",
+      "participationCertificate": "Este é o seu Certificado"
   },
   "rootTrustee": {
-      "trusteeId": "Identificador de quem deseja participar da comunidade de pessoas confiáveis",
-      "trusteeName": "Nome de quem quer participar da comunidade de pessoas confiáveis",
+      "trusteeId": "Identificador de quem deseja ser um Certificador",
+      "trusteeName": "Nome de quem quer um Certificador",
       "yourIdentifier": "Seu identitificador",
       "yourName": "Seu nome",
-      "askNewCommunity": "Peça para criar uma nova comunidade",
-      "participationCertificateOfOthers": "Este é o QRCode para incluir uma pessoa confiável",
-      "participationCertificate": "Este é seu Certificado de Criação da Comunidade.",
-      "pointCellToQRCodeToGenerateCertificate": "Aponte seu celular para o QRCode com os dados para gerar o certificado com sua autorização"      
+      "askBeRootTrustee": "Peça para ser um Líder de Certificadores",
+      "participationCertificateOfOthers": "Este é o QRCode para incluir um Certificador",
+      "participationCertificate": "Este é seu Certificado.",
+      "pointCellToQRCodeToGenerateCertificate": "Aponte seu celular para o QRCode com os dados para gerar seu certificado"      
   },
   "general" : {
       "generateQRCode": "Gerar QRCode",

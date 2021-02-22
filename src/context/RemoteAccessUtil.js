@@ -91,14 +91,14 @@ const getRootTrusteeCertificateRemote = async (subjectId, subjectName) => {
         });
     
     console.log("Fetch to getRootTrusteeCertificateRemote");
-    
+
     const responseJson = await response.json();
     console.log(responseJson);
 
     return responseJson;
 
   } catch (error) {
-    console.log(error);
+    console.log("Error during getRootTrusteeCertificateRemote" + error);
     return null;
   }
 

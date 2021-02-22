@@ -55,7 +55,7 @@ const HomeScreen = ({ navigation }) => {
       />
       <Button
         onPress={() => navigation.navigate('Registration')}
-        title={i18n.t('navigation.rootTrustee.askTocreateTrusteableCommunity')}
+        title={i18n.t('navigation.rootTrustee.askToBeRootTrustee')}
       />
       <Button
         onPress={() => navigation.navigate('GetParticipationCertificateAsRoot')}
