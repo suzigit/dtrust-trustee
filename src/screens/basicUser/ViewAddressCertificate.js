@@ -29,7 +29,7 @@ const ViewAddressCertificate = ({ navigation }) => {
 
         <Button 
             onPress={() => {
-              navigation.navigate('Home')
+              navigation.navigate('HomeScreenBasicUser');
             }}
             title="Ok"
         />

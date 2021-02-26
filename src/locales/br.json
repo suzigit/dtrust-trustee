@@ -1,18 +1,25 @@
 {
   "navigation": {
     "home": "Início",
-    "everyone": {
+    "selectRole": "Selecione seu Perfil de Uso",
+    "welcome": "Bem-vindo, seu perfil é",
+    "seeMyMenu": "Ver meu menu",
+    "changeRole": "Mude seu perfil",
+    "basicUser": {
+        "roleName": "Público Geral",
         "title": "Para todos",
         "askAddressConfirmation": "Peça confirmação de seu endereço",
         "seeYourAddressCertificate": "Veja seu Certificado de Endereço"
     },
     "trustee": {
+        "roleName": "Certificadores",
         "title": "Para Certificadores",
         "confirmAddress": "Confirme um endereço",
         "askToParticipate": "Peça para ser um Certificador",
         "seeYourParticipationCertificate": "Veja seu Certificado"
     },
     "rootTrustee": {
+        "roleName": "Líder dos Certificadores",
         "title": "Para o Líder dos Certificadores",
         "addTrustee": "Adicione um Certificador",
         "askToBeRootTrustee": "Peça para ser um Líder de Certificadores",
@@ -35,14 +42,14 @@
   "rootTrustee": {
       "trusteeId": "Identificador de quem deseja ser um Certificador",
       "trusteeName": "Nome de quem quer um Certificador",
-      "yourIdentifier": "Seu identitificador",
-      "yourName": "Seu nome",
       "askBeRootTrustee": "Peça para ser um Líder de Certificadores",
       "participationCertificateOfOthers": "Este é o QRCode para incluir um Certificador",
       "participationCertificate": "Este é seu Certificado.",
       "pointCellToQRCodeToGenerateCertificate": "Aponte seu celular para o QRCode com os dados para gerar seu certificado"      
   },
   "general" : {
+      "yourIdentifier": "Seu identitificador",
+      "yourName": "Seu nome",
       "generateQRCode": "Gerar QRCode",
       "askResponseQRCode": "Clique para ler QRCode com seu certificado",
       "pointCellToQRCodeofYourCertificate": "Aponte seu celular para o QRCode com o seu certificado",

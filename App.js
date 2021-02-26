@@ -3,8 +3,11 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { Provider } from './src/context/Context';
 
+import SelectYourRole from './src/screens/SelectYourRole';
+import HomeScreenBasicUser from './src/screens/basicUser/HomeScreenBasicUser';
+import HomeScreenTrustee from './src/screens/trustee/HomeScreenTrustee';
+import HomeScreenRootTrustee from './src/screens/rootTrustee/HomeScreenRootTrustee';
 
-import HomeScreen from './src/screens/HomeScreen';
 import GetParticipationCertificate from './src/screens/trustee/GetParticipationCertificate';
 import GetParticipationCertificateAsRoot from './src/screens/rootTrustee/GetParticipationCertificateAsRoot';
 
@@ -32,7 +35,11 @@ import ErrorState from './src/screens/ErrorState';
 
 const navigator = createStackNavigator(
   {
-    Home: HomeScreen,
+    SelectYourRole,
+    HomeScreenBasicUser,
+    HomeScreenTrustee,
+    HomeScreenRootTrustee,
+
     Registration,
     AddTrustee,
     AddTrusteeStep2,
@@ -55,7 +62,7 @@ const navigator = createStackNavigator(
     ViewParticipationCertificateAsRoot
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'SelectYourRole',
     defaultNavigationOptions: {
       title: 'Confio'
     },

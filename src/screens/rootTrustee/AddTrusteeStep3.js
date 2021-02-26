@@ -44,7 +44,7 @@ const AddTrusteeStep3 = ({ navigation }) =>  {
 
         <Button 
             onPress={() => {
-              navigation.navigate('Home')
+              navigation.navigate('HomeScreenRootTrustee')
             }}
             title="Ok"
         />

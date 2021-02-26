@@ -46,7 +46,7 @@ const ConfirmAddressStep3 = ({ navigation }) =>  {
 
         <Button 
             onPress={() => {
-              navigation.navigate('Home')
+              navigation.navigate('HomeScreenTrustee')
             }}
             title="Ok"
         />

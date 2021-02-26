@@ -138,6 +138,31 @@ export const Provider = ({ children }) => {
       }
   }
 
+    //My Role
+    const saveMyRole = async (value) => {
+      try {
+        await AsyncStorage.setItem('@MyRole', value)
+      } catch (e) {
+        console.err("Error while saving item @MyRole");
+        console.err(e);
+      }
+    }
+  
+  
+    const getMyRole = async (callback) => {
+      try {
+          const value = await AsyncStorage.getItem('@MyRole');
+          if(value !== null) {
+              if (callback) {
+                callback(value);
+              }
+              return value;
+          }
+      } catch(e) {
+          console.error("Error reading data of MyRole");
+          console.error(e);
+      }
+    }
 
 
     //MyAddress
@@ -219,6 +244,7 @@ export const Provider = ({ children }) => {
 
     return (
         <Context.Provider value={{getMyId, saveMyName, getMyName, getMyAddressData,
+          saveMyRole,getMyRole,
           askRootTrusteeCertificate, getRootTrusteeCertificate,
           saveMyParticipationCertificate, getMyParticipationCertificate,
           signTrusteeCertificate, 

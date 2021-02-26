@@ -29,7 +29,7 @@ const ViewParticipationCertificate = ({ navigation }) => {
 
         <Button 
             onPress={() => {
-              navigation.navigate('Home')
+              navigation.navigate('HomeScreenRootTrustee')
             }}
             title="Ok"
         />

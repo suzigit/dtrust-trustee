@@ -22,10 +22,10 @@ const Registration = ({ navigation }) => {
   return (
 
     <View style={styles.marginTop}>
-        <Text style={styles.textStyle}>{i18n.t('rootTrustee.yourIdentifier')}</Text>
+        <Text style={styles.textStyle}>{i18n.t('general.yourIdentifier')}</Text>
         <Text style={styles.input}>{getMyId()}</Text>
 
-        <Text style={styles.textStyle}>{i18n.t('rootTrustee.yourName')}</Text>      
+        <Text style={styles.textStyle}>{i18n.t('general.yourName')}</Text>      
         <TextInput style={styles.input} 
             autoCapitalize="words" 
             autoCorrect={false} 
@@ -45,7 +45,7 @@ const Registration = ({ navigation }) => {
                 const result = await askRootTrusteeCertificate(localName);
 
                 if (result) {
-                  navigation.navigate('Home');
+                  navigation.navigate('HomeScreenRootTrustee');
                 }
                 else {
                   navigation.navigate('ErrorState', {text: "Error during registering. Please check your Internet connection"});
