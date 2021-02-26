@@ -19,7 +19,7 @@ const SelectYourRole = ({ navigation }) => {
 
     i18n.translations = { en, br };   
     // Set the locale once at the beginning of your app.
-    i18n.locale = 'en';//Localization.locale;
+    i18n.locale = 'br';//Localization.locale;
     i18n.fallbacks = true;
     setLoadedTranslation(true);
 
@@ -48,25 +48,25 @@ const SelectYourRole = ({ navigation }) => {
           saveMyRole("BasicUser");
           navigation.navigate('HomeScreenBasicUser')
         }}
-        title={i18n.t('navigation.basicUser.roleName')}
+        title={i18n.t('navigation.BasicUser.roleName')}
       />
       <Button
         onPress={() => {
           saveMyRole("Trustee");
           navigation.navigate('HomeScreenTrustee')
         }}
-        title={i18n.t('navigation.trustee.roleName')}
+        title={i18n.t('navigation.Trustee.roleName')}
       />
       <Button
         onPress={() => {
           saveMyRole("RootTrustee");
           navigation.navigate('HomeScreenRootTrustee')
         }}
-        title={i18n.t('navigation.rootTrustee.roleName')}
+        title={i18n.t('navigation.RootTrustee.roleName')}
       />
       </View>:
       <View>
-      <Text style={styles.text}>{i18n.t('navigation.welcome')} {role}</Text>
+      <Text style={styles.text}>{i18n.t('navigation.welcome')} {i18n.t('navigation.'+ role+ '.roleName')}</Text>
 
       <Button
         onPress={() => {
@@ -78,7 +78,7 @@ const SelectYourRole = ({ navigation }) => {
       <Button
         onPress={() => {
           saveMyRole("");
-          navigation.popToTop();
+          setRole("");
         }}
         title={i18n.t('navigation.changeRole')}
       />

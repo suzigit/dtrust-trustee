@@ -9,14 +9,14 @@ const HomeScreenBasicUser = ({ navigation }) => {
   return (
     <View>
 
-      <Text style={styles.text}>{i18n.t('navigation.basicUser.title')}</Text>
+      <Text style={styles.text}>{i18n.t('navigation.BasicUser.title')}</Text>
       <Button
         onPress={() => navigation.navigate('AskToConfirmYourAddress')}
-        title={i18n.t('navigation.basicUser.askAddressConfirmation')}
+        title={i18n.t('navigation.BasicUser.askAddressConfirmation')}
       />
       <Button
         onPress={() => navigation.navigate('ViewAddressCertificate')}
-        title={i18n.t('navigation.basicUser.seeYourAddressCertificate')}
+        title={i18n.t('navigation.BasicUser.seeYourAddressCertificate')}
       />
 
     </View>

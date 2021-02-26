@@ -9,22 +9,22 @@ const HomeScreenRootTrustee = ({ navigation }) => {
   return (
     <View>
 
-      <Text style={styles.text}>{i18n.t('navigation.rootTrustee.title')}</Text>
+      <Text style={styles.text}>{i18n.t('navigation.RootTrustee.title')}</Text>
       <Button
         onPress={() => navigation.navigate('AddTrustee')}
-        title={i18n.t('navigation.rootTrustee.addTrustee')}
+        title={i18n.t('navigation.RootTrustee.addTrustee')}
       />
       <Button
         onPress={() => navigation.navigate('Registration')}
-        title={i18n.t('navigation.rootTrustee.askToBeRootTrustee')}
+        title={i18n.t('navigation.RootTrustee.askToBeRootTrustee')}
       />
       <Button
         onPress={() => navigation.navigate('GetParticipationCertificateAsRoot')}
-        title={i18n.t('navigation.rootTrustee.receiveParticipationCertificate')}
+        title={i18n.t('navigation.RootTrustee.receiveParticipationCertificate')}
       />
       <Button
         onPress={() => navigation.navigate('ViewParticipationCertificateAsRoot')}
-        title={i18n.t('navigation.rootTrustee.seeYourParticipationCertificate')}
+        title={i18n.t('navigation.RootTrustee.seeYourParticipationCertificate')}
       />
 
     </View>

@@ -8,18 +8,18 @@ const HomeScreenTrustee = ({ navigation }) => {
   return (
     <View>
 
-      <Text style={styles.text}>{i18n.t('navigation.trustee.title')}</Text>
-      <Button
-        onPress={() => navigation.navigate('ConfirmAddress')}
-        title={i18n.t('navigation.trustee.confirmAddress')}
-      />
+      <Text style={styles.text}>{i18n.t('navigation.Trustee.title')}</Text>
       <Button
         onPress={() => navigation.navigate('AskToParticipate')}
-        title={i18n.t('navigation.trustee.askToParticipate')}
+        title={i18n.t('navigation.Trustee.askToParticipate')}
       />
       <Button
         onPress={() => navigation.navigate('ViewParticipationCertificate')}
-        title={i18n.t('navigation.trustee.seeYourParticipationCertificate')}
+        title={i18n.t('navigation.Trustee.seeYourParticipationCertificate')}
+      />
+      <Button
+        onPress={() => navigation.navigate('ConfirmAddress')}
+        title={i18n.t('navigation.Trustee.confirmAddress')}
       />
 
     </View>

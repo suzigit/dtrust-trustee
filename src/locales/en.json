@@ -5,20 +5,20 @@
     "welcome": "Welcome, your role is",
     "seeMyMenu": "See my menu",
     "changeRole": "Chenge your selected role",
-    "basicUser": {
+    "BasicUser": {
         "roleName": "General Public",
         "title": "For General Public",
         "askAddressConfirmation": "Ask to confirm your address",
         "seeYourAddressCertificate": "See your Address Certificate"
     },
-    "trustee": {
+    "Trustee": {
         "roleName": "Certifier",
         "title": "For Certifiers",
         "confirmAddress": "Confirm an address",
         "askToParticipate": "Ask to be a Certifier",
         "seeYourParticipationCertificate": "See your Certificate"
     },
-    "rootTrustee": {
+    "RootTrustee": {
         "roleName": "Certifier Manager",
         "title": "For the Certifier Manager",
         "addTrustee": "Add a Certifier",

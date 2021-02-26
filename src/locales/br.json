@@ -5,22 +5,22 @@
     "welcome": "Bem-vindo, seu perfil é",
     "seeMyMenu": "Ver meu menu",
     "changeRole": "Mude seu perfil",
-    "basicUser": {
+    "BasicUser": {
         "roleName": "Público Geral",
         "title": "Para todos",
         "askAddressConfirmation": "Peça confirmação de seu endereço",
         "seeYourAddressCertificate": "Veja seu Certificado de Endereço"
     },
-    "trustee": {
+    "Trustee": {
         "roleName": "Certificadores",
         "title": "Para Certificadores",
         "confirmAddress": "Confirme um endereço",
         "askToParticipate": "Peça para ser um Certificador",
         "seeYourParticipationCertificate": "Veja seu Certificado"
     },
-    "rootTrustee": {
-        "roleName": "Líder dos Certificadores",
-        "title": "Para o Líder dos Certificadores",
+    "RootTrustee": {
+        "roleName": "Líder de Certificadores",
+        "title": "Para o Líder de Certificadores",
         "addTrustee": "Adicione um Certificador",
         "askToBeRootTrustee": "Peça para ser um Líder de Certificadores",
         "receiveParticipationCertificate": "Receba seu Certificado",
