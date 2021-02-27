@@ -34,18 +34,19 @@ const GetParticipationCertificateAsRoot = ({ navigation }) => {
 
   return (
       <View>
-        {data==""? <Text style={styles.textStyle}>Verificando se o certificado está pronto</Text> :
+        {data==""? <Text style={styles.textStyle}>{i18n.t('rootTrustee.veryingCertificateState')}</Text> :
         (data!=null) ?
         <View>
-        <Text style={styles.textStyle}>Certificado pronto e recebido</Text>
+        <Text style={styles.textStyle}>{i18n.t('rootTrustee.certificateIsReadyAndReceived')}</Text>
         <Button 
             onPress={async () => {
-              navigation.navigate('ViewParticipationCertificateAsRoot')
+              navigation.pop(3);
+              navigation.push('HomeScreenRootTrustee')
             }}
-            title="Veja o QRCode de seu certificado"
+            title="OK"
         />
         </View>:
-        <Text style={styles.textStyle}>Certificado não está pronto ou não existe</Text>
+        <Text style={styles.errorTextStyle}>{i18n.t('rootTrustee.certificateNotReadyorNotReceived')}</Text>
       }
       </View>
   );
@@ -55,7 +56,11 @@ const GetParticipationCertificateAsRoot = ({ navigation }) => {
 const styles = StyleSheet.create({
   textStyle: {
     fontSize: 20
-  } 
+  },
+  errorTextStyle: {
+    fontSize: 15,
+    color: 'red'
+  }, 
 });
 
 export default GetParticipationCertificateAsRoot;

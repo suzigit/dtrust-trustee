@@ -25,6 +25,7 @@ import ViewAddressCertificate from './src/screens/basicUser/ViewAddressCertifica
 import ConfirmAddress from './src/screens/trustee/ConfirmAddress';
 import ConfirmAddressStep2 from './src/screens/trustee/ConfirmAddressStep2';
 import ConfirmAddressStep3 from './src/screens/trustee/ConfirmAddressStep3';
+import TrusteeRegistration from './src/screens/trustee/TrusteeRegistration';
 
 import AskToParticipate from './src/screens/trustee/AskToParticipate';
 
@@ -49,6 +50,7 @@ const navigator = createStackNavigator(
     GetAddressCertificate,
     ViewAddressCertificate,
 
+    TrusteeRegistration,
     AskToParticipate,
     ConfirmAddress,
     ConfirmAddressStep2,
@@ -67,7 +69,8 @@ const navigator = createStackNavigator(
   {
     initialRouteName: 'SelectYourRole',
     defaultNavigationOptions: {
-      title: 'Confio'
+      title: 'Confio',
+      headerBackTitle: "" 
     },
   }
 );

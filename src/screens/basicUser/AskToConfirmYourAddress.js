@@ -10,24 +10,40 @@ import {
   import i18n from 'i18n-js';
 
 
-
-
 const AskToConfirmYourAddress = ({ navigation }) => {
 
   const [ localAddress, setLocalAddress ] = useState('');
-  const { saveMyAddressData, getMyAddressData } = useContext(Context);
-
+  const { getMyName, saveMyName, getMyId, saveMyAddressData, getMyAddressData } = useContext(Context);
+  const [ localName, setLocalName ] = useState('');
 
   useEffect (() => {
+    getMyName((name) => {
+      setLocalName(name);
+    })
+
     getMyAddressData((savedAddress) => {
       setLocalAddress(savedAddress);
     });
+
   }, []);
 
 //            { localAddress.length > 0 && localAddress.length < 10 ? <Text style={styles.errorTextStyle} >O endereço digitado está muito pequeno</Text> : null }
 
     return (
         <View>
+
+        <Text style={styles.textStyle}>{i18n.t('general.yourIdentifier')}</Text>
+        <Text style={styles.input}>{getMyId()}</Text>
+
+        <Text style={styles.textStyle}>{i18n.t('general.yourName')}</Text>      
+        <TextInput style={styles.input} 
+            autoCapitalize="words" 
+            autoCorrect={false} 
+            defaultValue={localName} 
+            placeholder={i18n.t('general.typeHere')}
+            onChangeText={setLocalName}
+        />
+
           <Text style={styles.textStyle}>{i18n.t('basicUser.enterCompleteAddress')}</Text>
           <TextInput style={styles.input} 
             autoCapitalize="words" 
@@ -40,6 +56,7 @@ const AskToConfirmYourAddress = ({ navigation }) => {
               <View style={styles.marginTop}>
               <Button 
                   onPress={() => {
+                      saveMyName(localName);
                       saveMyAddressData(localAddress);
                       navigation.navigate('AskToConfirmYourAddressStep2');
                     }}

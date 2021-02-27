@@ -16,7 +16,7 @@ const ErrorState = ({ navigation }) =>  {
         
         <Button 
             onPress={() => {
-              navigation.navigate('Home')
+              navigation.navigate('SelectYourRole')
             }}
             title="Ok"
         />

@@ -8,11 +8,14 @@ const HomeScreenTrustee = ({ navigation }) => {
   const [ data, setData ] = useState('');
   const { getMyParticipationCertificate, saveMyParticipationCertificate } = useContext(Context);
    
+  useEffect (() => {
 
     getMyParticipationCertificate((certificate) => {
-      console.log("exibidingo certificado do trustee = " + certificate);
+      console.log("#### exibidingo certificado do trustee = " + certificate);
       setData(certificate);
     });
+  }, []);
+
 
   return (
     <View>
@@ -20,7 +23,7 @@ const HomeScreenTrustee = ({ navigation }) => {
     { (!data) ? 
     <View>
       <Button
-        onPress={() => navigation.navigate('AskToParticipate')}
+        onPress={() => navigation.navigate('TrusteeRegistration')}
         title={i18n.t('navigation.Trustee.askToParticipate')}
       />
     </View>

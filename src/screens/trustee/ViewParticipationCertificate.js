@@ -16,11 +16,10 @@ const ViewParticipationCertificate = ({ navigation }) => {
     useEffect (() => {
       getMyParticipationCertificate((addrCertificate) => {
         setData(addrCertificate);
+        console.log("certificado de participacao no ViewParticipationCertificate=" + data);
       });
     }, []);
   
-    console.log("certificado de participacao=" + data);
-//        <Text style={styles.certificateStyle}>{data}</Text>
 
     return (
         <View>

@@ -22,9 +22,9 @@
         "roleName": "Líder de Certificadores",
         "title": "Para o Líder de Certificadores",
         "addTrustee": "Adicione um Certificador",
-        "askToBeRootTrustee": "Peça para ser um Líder de Certificadores",
+        "askToBeRootTrustee": "Peça para ser um Líder de Certificadores e aguarde",
         "receiveParticipationCertificate": "Receba seu Certificado",
-        "seeYourParticipationCertificate": "Veja seu Certificado"
+        "seeYourParticipationCertificate": "Veja seu Certificado",
     }
   },
   "basicUser": {
@@ -45,11 +45,16 @@
       "askBeRootTrustee": "Peça para ser um Líder de Certificadores",
       "participationCertificateOfOthers": "Este é o QRCode para incluir um Certificador",
       "participationCertificate": "Este é seu Certificado.",
-      "pointCellToQRCodeToGenerateCertificate": "Aponte seu celular para o QRCode com os dados para gerar seu certificado"      
-  },
+      "pointCellToQRCodeToGenerateCertificate": "Aponte seu celular para o QRCode com os dados para gerar seu certificado",      
+      "veryingCertificateState": "Verificando se o certificado está pronto",
+      "certificateIsReadyAndReceived": "Seu certificado está pronto e foi salvo no seu celular",
+      "certificateNotReadyorNotReceived": "Seu certificado não está pronto ou não seu pedido não foi recebido",
+      "errorTypingSecretCode": "Você digitou a palavra secreta errada. O pedido não foi enviado."
+    },
   "general" : {
       "yourIdentifier": "Seu identitificador",
       "yourName": "Seu nome",
+      "secretCode": "Código secreto",
       "generateQRCode": "Gerar QRCode",
       "deleteYourCertificate": "Apague seu certificado",
       "startToUseCertificate": "Comece a usar seu novo certificado",
@@ -58,7 +63,8 @@
       "pointCellToQRCodeToGenerateCertificate": "Aponte seu celular para o QRCode com os dados para gerar o certificado",
       "waitToCreate": "Por favor espere a geração do QRCode",
       "typeHere": "Digite aqui",
-      "defaultErrorMessage": "Aconteceu um erro na última operação"
+      "defaultErrorMessage": "Aconteceu um erro na última operação",
+      "networkError": "Erro na última operação. Por favor, verifique sua conexão com a Internet."
 
   }
 }

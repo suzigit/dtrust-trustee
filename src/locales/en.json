@@ -24,7 +24,7 @@
         "addTrustee": "Add a Certifier",
         "askToBeRootTrustee": "Ask to be a Certifier Manager",
         "receiveParticipationCertificate": "Receive your Certificate",
-        "seeYourParticipationCertificate": "See your Certificate"
+        "seeYourParticipationCertificate": "See your Certificate",
     }
   },
   "basicUser": {
@@ -42,22 +42,28 @@
   "rootTrustee": {
       "trusteeId": "Id from who wants to be a Certifier",
       "trusteeName": "Name from who wants to be a Certifier",
-      "askBeRootTrustee": "Ask to be a Certifier Manager",
+      "askBeRootTrustee": "Ask to be a Certifier Manager and wait some seconds",
       "participationCertificateOfOthers": "This is the QRCode to include a new Certifier",
       "participationCertificate": "This is your Certificate",
-      "pointCellToQRCodeToGenerateCertificate": "Point your cellphone to a QRCode with data to generate your Certificate"     
+      "pointCellToQRCodeToGenerateCertificate": "Point your cellphone to a QRCode with data to generate your Certificate",
+      "veryingCertificateState": "Checking if your certificate is ready",
+      "certificateIsReadyAndReceived": "You Certificate is ready and was saved in your cellphone",
+      "certificateNotReadyorNotReceived": "Your Certificate is not ready or was not received",
+      "errorTypingSecretCode": "You typed a wrong security code. The request was not sent."
     },
   "general" : {
       "yourIdentifier": "Your identifier",
       "yourName": "Your name",
+      "secretCode": "Secret code",
       "generateQRCode": "Generate QRCode",
-      "deleteYourCertificate": "Delete Your Certificate",
-      "startToUseCertificate": "Start to use seu novo Certificate",
+      "deleteYourCertificate": "Delete your Certificate",
+      "startToUseCertificate": "Start to use your new Certificate",
       "askResponseQRCode": "Click to read QRCode of your Certificate",
       "pointCellToQRCodeofYourCertificate": "Point your cellphone to a QRCode with your Certificate",
       "pointCellToQRCodeToGenerateCertificate": "Point your cellphone to a QRCode with data to generate your Certificate",
       "waitToCreate": "Please wait to generate the QRCode",
       "typeHere": "Type here",
-      "defaultErrorMessage": "An error happened during the last operation"
+      "defaultErrorMessage": "An error happened during the last operation",
+      "networkError": "Error during last operation. Please check your Internet connection."
   }
 }

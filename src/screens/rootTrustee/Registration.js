@@ -6,7 +6,10 @@ import i18n from 'i18n-js';
 
 const Registration = ({ navigation }) => {
 
+  const secretCodeToCompare = 'ABCD1234!';
+
   const [ localName, setLocalName ] = useState('');
+  const [ secretCode, setSecretCode ] = useState('');
 
   const { getMyName, saveMyName, getMyId, askRootTrusteeCertificate } = useContext(Context);
 
@@ -34,21 +37,36 @@ const Registration = ({ navigation }) => {
             onChangeText={setLocalName}
         />
 
+        <Text style={styles.textStyle}>{i18n.t('general.secretCode')}</Text>      
+        <TextInput style={styles.input} 
+            autoCapitalize="words" 
+            autoCorrect={false} 
+            placeholder={i18n.t('general.typeHere')}
+            onChangeText={setSecretCode}
+        />
 
 
         <View style={styles.marginTop}>
         <Button 
             onPress={async () => {
-              console.log("salvando nome=" + localName);
-                saveMyName(localName);
+                console.log("salvando nome=" + localName);
 
-                const result = await askRootTrusteeCertificate(localName);
-
-                if (result) {
-                  navigation.navigate('HomeScreenRootTrustee');
+                if (secretCode != secretCodeToCompare) {
+                  navigation.navigate('ErrorState', {text: i18n.t('rootTrustee.errorTypingSecretCode')});
                 }
                 else {
-                  navigation.navigate('ErrorState', {text: "Error during registering. Please check your Internet connection"});
+                    saveMyName(localName);
+
+                    const result = await askRootTrusteeCertificate(localName);
+    
+                    if (result) {
+                      navigation.pop(2);
+                      navigation.push('HomeScreenRootTrustee')
+                    }
+                    else {
+                      navigation.navigate('ErrorState', {text: i18n.t('general.networkError')});
+                    }
+  
                 }
 
               }}

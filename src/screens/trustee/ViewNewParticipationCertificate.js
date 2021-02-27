@@ -16,10 +16,10 @@ const ViewNewParticipationCertificate = ({ navigation }) => {
     useEffect (() => {
       getMyParticipationCertificate((addrCertificate) => {
         setData(addrCertificate);
+        console.log("certificado de participacao no ViewNewParticipationCertificate=" + data);
       });
     }, []);
   
-    console.log("certificado de participacao=" + data);
 //        <Text style={styles.certificateStyle}>{data}</Text>
 
     return (
@@ -29,6 +29,7 @@ const ViewNewParticipationCertificate = ({ navigation }) => {
 
         <Button 
             onPress={() => {
+              navigation.pop(5);
               navigation.push('HomeScreenTrustee')
             }}
             title={i18n.t('general.startToUseCertificate')}
