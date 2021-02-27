@@ -19,7 +19,7 @@ const SelectYourRole = ({ navigation }) => {
 
     i18n.translations = { en, br };   
     // Set the locale once at the beginning of your app.
-    i18n.locale = 'br';//Localization.locale;
+    i18n.locale = 'en';//Localization.locale;
     i18n.fallbacks = true;
     setLoadedTranslation(true);
 
@@ -33,8 +33,13 @@ const SelectYourRole = ({ navigation }) => {
         console.error("Error reading data of getMyRoleInThisScreen");
         console.error(e);
     }
-
   } 
+
+  const updateRole = (r) => {
+    saveMyRole(r);
+    setRole(r);
+  }
+
   getMyRoleInThisScreen();
 
   return (
@@ -45,21 +50,21 @@ const SelectYourRole = ({ navigation }) => {
       <Text style={styles.text}>{i18n.t('navigation.selectRole')}</Text>
       <Button
         onPress={() => {
-          saveMyRole("BasicUser");
+          updateRole("BasicUser");
           navigation.navigate('HomeScreenBasicUser')
         }}
         title={i18n.t('navigation.BasicUser.roleName')}
       />
       <Button
         onPress={() => {
-          saveMyRole("Trustee");
+          updateRole("Trustee");
           navigation.navigate('HomeScreenTrustee')
         }}
         title={i18n.t('navigation.Trustee.roleName')}
       />
       <Button
         onPress={() => {
-          saveMyRole("RootTrustee");
+          updateRole("RootTrustee");
           navigation.navigate('HomeScreenRootTrustee')
         }}
         title={i18n.t('navigation.RootTrustee.roleName')}
@@ -77,8 +82,7 @@ const SelectYourRole = ({ navigation }) => {
 
       <Button
         onPress={() => {
-          saveMyRole("");
-          setRole("");
+          updateRole("");
         }}
         title={i18n.t('navigation.changeRole')}
       />

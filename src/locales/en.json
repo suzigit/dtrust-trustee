@@ -4,7 +4,7 @@
     "selectRole": "Select your role",
     "welcome": "Welcome, your role is",
     "seeMyMenu": "See my menu",
-    "changeRole": "Chenge your selected role",
+    "changeRole": "Chenge my selected role",
     "BasicUser": {
         "roleName": "General Public",
         "title": "For General Public",
@@ -51,6 +51,8 @@
       "yourIdentifier": "Your identifier",
       "yourName": "Your name",
       "generateQRCode": "Generate QRCode",
+      "deleteYourCertificate": "Delete Your Certificate",
+      "startToUseCertificate": "Start to use seu novo Certificate",
       "askResponseQRCode": "Click to read QRCode of your Certificate",
       "pointCellToQRCodeofYourCertificate": "Point your cellphone to a QRCode with your Certificate",
       "pointCellToQRCodeToGenerateCertificate": "Point your cellphone to a QRCode with data to generate your Certificate",

@@ -4,7 +4,7 @@
     "selectRole": "Selecione seu Perfil de Uso",
     "welcome": "Bem-vindo, seu perfil é",
     "seeMyMenu": "Ver meu menu",
-    "changeRole": "Mude seu perfil",
+    "changeRole": "Mude meu perfil",
     "BasicUser": {
         "roleName": "Público Geral",
         "title": "Para todos",
@@ -51,6 +51,8 @@
       "yourIdentifier": "Seu identitificador",
       "yourName": "Seu nome",
       "generateQRCode": "Gerar QRCode",
+      "deleteYourCertificate": "Apague seu certificado",
+      "startToUseCertificate": "Comece a usar seu novo certificado",
       "askResponseQRCode": "Clique para ler QRCode com seu certificado",
       "pointCellToQRCodeofYourCertificate": "Aponte seu celular para o QRCode com o seu certificado",
       "pointCellToQRCodeToGenerateCertificate": "Aponte seu celular para o QRCode com os dados para gerar o certificado",

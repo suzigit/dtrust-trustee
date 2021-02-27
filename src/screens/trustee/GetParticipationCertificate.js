@@ -14,7 +14,7 @@ const GetParticipationCertificate = ({ navigation }) => {
   const { saveMyParticipationCertificate } = useContext(Context);
 
   const updateCaller = (data) => {
-    navigation.navigate('ViewParticipationCertificate')
+    navigation.navigate('ViewNewParticipationCertificate')
     saveMyParticipationCertificate(data);
   };
 

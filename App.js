@@ -29,6 +29,8 @@ import ConfirmAddressStep3 from './src/screens/trustee/ConfirmAddressStep3';
 import AskToParticipate from './src/screens/trustee/AskToParticipate';
 
 import ViewParticipationCertificate from './src/screens/trustee/ViewParticipationCertificate'
+import ViewNewParticipationCertificate from './src/screens/trustee/ViewNewParticipationCertificate'
+
 import ViewParticipationCertificateAsRoot from './src/screens/rootTrustee/ViewParticipationCertificateAsRoot'
 
 import ErrorState from './src/screens/ErrorState';
@@ -57,6 +59,7 @@ const navigator = createStackNavigator(
 
     GetParticipationCertificate,
     ViewParticipationCertificate,
+    ViewNewParticipationCertificate,
     ErrorState,
     GetParticipationCertificateAsRoot,
     ViewParticipationCertificateAsRoot
