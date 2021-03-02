@@ -15,6 +15,8 @@
         "roleName": "Certificadores",
         "title": "Para Certificadores",
         "confirmAddress": "Confirme um endereço",
+        "connectWithManager": "Conecte com Líder de Certificadores",
+        "changeRootTrustee": "Mude seu Lúder de Certificadores",
         "askToParticipate": "Peça para ser um Certificador",
         "seeYourParticipationCertificate": "Veja seu Certificado"
     },
@@ -25,6 +27,7 @@
         "askToBeRootTrustee": "Peça para ser um Líder de Certificadores e aguarde",
         "receiveParticipationCertificate": "Receba seu Certificado",
         "seeYourParticipationCertificate": "Veja seu Certificado",
+        "rootTrusteeData": "Aqui estão os dados de seu Líder de Certificado (DID e nome)"
     }
   },
   "basicUser": {
@@ -37,7 +40,8 @@
       "nameWhoLivesThere": "Nome de quem vive no endereço",
       "adrressCertificateOfOthers": "Este é o Certificado de Endereço solicitado",
       "askToParticipate": "Peça seu Certificado apresentando esse QRCode ao Líder dos Certificadores",
-      "participationCertificate": "Este é o seu Certificado"
+      "participationCertificate": "Este é o seu Certificado",
+      "getRootTrusteeData": "Leia dados do Líder de Certificados"
   },
   "rootTrustee": {
       "trusteeId": "Identificador de quem deseja ser um Certificador",

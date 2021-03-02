@@ -232,7 +232,6 @@ export const Provider = ({ children }) => {
         const value = await AsyncStorage.getItem('@MyParticipationCertificate');
         if(value !== null) {
             callback(value);
-//            console.log("view certificate=" + value);
             return value;
         }
     } catch(e) {
@@ -241,6 +240,27 @@ export const Provider = ({ children }) => {
     }
   }
 
+  const saveMyTrusteeInfo = async (value) => {
+    try {
+      await AsyncStorage.setItem('@MyTrusteeInfo', value)
+    } catch (e) {
+      console.err("Error while saving item MyTrusteeInfo");
+      console.err(e);
+    }
+  }  
+
+  const getMyTrusteeInfo = async (callback) => {
+    try {
+        const value = await AsyncStorage.getItem('@MyTrusteeInfo');
+        if(value !== null) {
+            callback(value);
+            return value;
+        }
+    } catch(e) {
+        console.error("Error reading data of MyTrusteeInfo");
+        console.error(e);
+    }
+  }
 
     return (
         <Context.Provider value={{getMyId, saveMyName, getMyName, getMyAddressData,
@@ -249,7 +269,8 @@ export const Provider = ({ children }) => {
           saveMyParticipationCertificate, getMyParticipationCertificate,
           signTrusteeCertificate, 
           getDataToAskAddressCertificate, signAddressCertificate, 
-          saveMyAddressData, saveMyAddressCertificate, getMyAddressCertificate}}>
+          saveMyAddressData, saveMyAddressCertificate, getMyAddressCertificate,
+          saveMyTrusteeInfo, getMyTrusteeInfo}}>
         {children}
         </Context.Provider>
     );
