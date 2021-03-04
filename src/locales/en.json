@@ -25,6 +25,7 @@
         "title": "For the Certifier Manager",
         "addTrustee": "Add a Certifier",
         "askToBeRootTrustee": "Ask to be a Certifier Manager",
+        "askToBeRootTrusteeAgain": "Ask to be a Certifier Manager (AGAIN)",
         "receiveParticipationCertificate": "Receive your Certificate",
         "seeYourParticipationCertificate": "See your Certificate",
     }
@@ -46,7 +47,7 @@
   "rootTrustee": {
       "trusteeId": "Id from who wants to be a Certifier",
       "trusteeName": "Name from who wants to be a Certifier",
-      "askBeRootTrustee": "Ask to be a Certifier Manager and wait some seconds",
+      "askBeRootTrustee": "Ask to be a Certifier Manager and wait approval",
       "participationCertificateOfOthers": "This is the QRCode to include a new Certifier",
       "participationCertificate": "This is your Certificate",
       "pointCellToQRCodeToGenerateCertificate": "Point your cellphone to a QRCode with data to generate your Certificate",
@@ -56,6 +57,7 @@
       "errorTypingSecretCode": "You typed a wrong security code. The request was not sent."
     },
   "general" : {
+      "greetings": "Hi,",
       "yourIdentifier": "Your identifier",
       "yourName": "Your name",
       "secretCode": "Secret code",

@@ -23,9 +23,24 @@ const GetParticipationCertificateAsRoot = ({ navigation }) => {
         setData(null);
       }
       else {
-        const resultDataAsString = JSON.stringify(resultDataAsJson);
-        setData(resultDataAsString);
-        saveMyParticipationCertificate(resultDataAsString);
+        
+        setData("anystring");
+        const certificate = 
+        {
+            data: resultDataAsJson.certificate,
+            sig:  resultDataAsJson.sig
+        }
+        console.log("certificate to save=");
+        console.log(JSON.stringify(certificate));
+
+        saveMyParticipationCertificate(JSON.stringify(certificate));
+        const myChainOfTrust = {
+          tid: resultDataAsJson.tid,
+          pbkey: resultDataAsJson.pbkey
+        }
+        console.log(myChainOfTrust);        
+
+//        saveMyChainOfTrust(myChainOfTrust);
       }
     })
     

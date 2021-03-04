@@ -30,10 +30,12 @@ export const Provider = ({ children }) => {
         return askRootTrusteeCertificateRemote(getMyId(), subjectName);
     }
 
-    //TODO: ROOT e não meu
     const getRootTrusteeCertificate = async (callback) => {
         const name = await getMyName();
         const result = await getRootTrusteeCertificateRemote(getMyId(), name);
+
+        console.log("Result=" + result);
+
         callback(result);
     }
 

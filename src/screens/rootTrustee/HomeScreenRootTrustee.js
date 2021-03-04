@@ -8,25 +8,45 @@ import i18n from 'i18n-js';
 const HomeScreenRootTrustee = ({ navigation }) => {
 
   const [ data, setData ] = useState('');
-  const { getMyParticipationCertificate, saveMyParticipationCertificate } = useContext(Context);
+  const [ name, setName ] = useState('');
 
-  getMyParticipationCertificate((certificate) => {
-    console.log("exibidingo certificado do root trustee = " + certificate);
-    setData(certificate);
-  });
+  const { getMyParticipationCertificate, saveMyParticipationCertificate, getMyName } = useContext(Context);
+
+  useEffect (() => {
+
+    getMyParticipationCertificate((certificate) => {
+      console.log("exibidingo certificado do root trustee = " + certificate);
+      setData(certificate);
+    });
+
+    getMyName((myName) => {
+      setName(myName);
+    });
+
+  }, []);
 
     
   return (
     <View>
 
       <Text style={styles.text}>{i18n.t('navigation.RootTrustee.title')}</Text>
+      { (name)? <Text>{i18n.t('general.greetings')} {name}</Text> :  <Text></Text>}
 
       { (!data) ? 
       <View>
+
+      { (!name)?
       <Button
         onPress={() => navigation.navigate('Registration')}
         title={i18n.t('navigation.RootTrustee.askToBeRootTrustee')}
       />
+      :
+      <Button
+        onPress={() => navigation.navigate('Registration')}
+        title={i18n.t('navigation.RootTrustee.askToBeRootTrusteeAgain')}
+      />
+      }
+
       <Button
         onPress={() => navigation.navigate('GetParticipationCertificateAsRoot')}
         title={i18n.t('navigation.RootTrustee.receiveParticipationCertificate')}
