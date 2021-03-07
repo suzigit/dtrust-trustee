@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginTop: 15,
     marginLeft: 15,
+    marginRight: 15
   },
   marginTop: {
     marginTop: 15,

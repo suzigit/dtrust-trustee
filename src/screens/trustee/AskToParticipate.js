@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {
     StyleSheet,
     Text,
@@ -12,15 +12,28 @@ import {
 
 const AskToParticipate = ({ navigation }) => {
 
-    const { getMyId } = useContext(Context);
+    const [ qrCodeData, setQRCodeData] = useState('fetching data');
 
-    console.log("ID do trustee = " + getMyId());
+    const { getMyName, getMyPublicKey } = useContext(Context);
+
+    console.log("ID do trustee = " + getMyPublicKey());
+    
+    useEffect (() => {
+      getMyName((name) => {
+          setQRCodeData (JSON.stringify({
+                subkey: getMyPublicKey(),
+                subnm: name
+          }));
+          console.log("QRCode de pedido do Trustee=");
+      })
+    }, []);
+      
 
 
     return (
         <View>
           <Text style={styles.textStyle}>{i18n.t('trustee.askToParticipate')}</Text>
-          <View><QRCodeGenerator data={getMyId()}/></View>
+          <View><QRCodeGenerator data={qrCodeData}/></View>
 
           <Button 
             onPress={() => {

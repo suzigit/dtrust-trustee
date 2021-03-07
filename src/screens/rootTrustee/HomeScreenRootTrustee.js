@@ -10,11 +10,11 @@ const HomeScreenRootTrustee = ({ navigation }) => {
   const [ data, setData ] = useState('');
   const [ name, setName ] = useState('');
 
-  const { getMyParticipationCertificate, saveMyParticipationCertificate, getMyName } = useContext(Context);
+  const { getMyRootCertificate, saveMyParticipationCertificate, getMyName } = useContext(Context);
 
   useEffect (() => {
 
-    getMyParticipationCertificate((certificate) => {
+    getMyRootCertificate((certificate) => {
       console.log("exibidingo certificado do root trustee = " + certificate);
       setData(certificate);
     });

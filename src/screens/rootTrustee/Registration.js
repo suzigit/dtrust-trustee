@@ -11,7 +11,7 @@ const Registration = ({ navigation }) => {
   const [ localName, setLocalName ] = useState('');
   const [ secretCode, setSecretCode ] = useState('');
 
-  const { getMyName, saveMyName, getMyId, askRootTrusteeCertificate } = useContext(Context);
+  const { getMyName, saveMyName, getMyPublicKey, askRootTrusteeCertificate } = useContext(Context);
 
   useEffect (() => {
     getMyName((name) => {
@@ -26,7 +26,7 @@ const Registration = ({ navigation }) => {
 
     <View style={styles.marginTop}>
         <Text style={styles.textStyle}>{i18n.t('general.yourIdentifier')}</Text>
-        <Text style={styles.input}>{getMyId()}</Text>
+        <Text style={styles.input}>{getMyPublicKey()}</Text>
 
         <Text style={styles.textStyle}>{i18n.t('general.yourName')}</Text>      
         <TextInput style={styles.input} 
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginTop: 15,
     marginLeft: 15,
+    marginRight: 15,
   },
   marginTop: {
     marginTop: 15,

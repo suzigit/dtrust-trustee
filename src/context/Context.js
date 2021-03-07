@@ -26,13 +26,17 @@ export const Provider = ({ children }) => {
       return "did:ethr:" + userWallet.address;
     }
 
+    const getMyPublicKey = () => {
+      return userWallet.publicKey;
+    }    
+
     const askRootTrusteeCertificate = (subjectName) => {
-        return askRootTrusteeCertificateRemote(getMyId(), subjectName);
+        return askRootTrusteeCertificateRemote(getMyPublicKey(), subjectName);
     }
 
     const getRootTrusteeCertificate = async (callback) => {
         const name = await getMyName();
-        const result = await getRootTrusteeCertificateRemote(getMyId(), name);
+        const result = await getRootTrusteeCertificateRemote(getMyPublicKey(), name);
 
         console.log("Result=" + result);
 
@@ -41,25 +45,25 @@ export const Provider = ({ children }) => {
 
     const signTrusteeCertificate = async (subjectId, subjectName) => {
 
-      const myName = await getMyName();
-
       const certificateBody = 
         {
-          trusteeId: getMyId(),
-          trusteeName: myName,
-          subjectId: subjectId,
-          subjectName: subjectName,
-          timestamp: new Date()
+          subkey: subjectId,
+          subnm: subjectName,
+          iat: Date.now(),
+          iss: 2
         };  
         const signedCertificate = await userWallet.signMessage(JSON.stringify(certificateBody));
 //        console.log(signedCertificate);
 
-        certificateBody["signature"] = signedCertificate;
-//        console.log("certificateBody");
-//        console.log(certificateBody);
-        saveTrusteeCertificate(certificateBody);
+        const trusteData = {
+          data: certificateBody,
+          sig: signedCertificate,
+        }
 
-        return JSON.stringify(certificateBody);
+//        console.log(certificateBody);
+        saveTrusteeCertificate(trusteData);
+
+        return JSON.stringify(trusteData);
     };
 
     const getDataToAskAddressCertificate = async (callback) => {
@@ -195,7 +199,7 @@ export const Provider = ({ children }) => {
       }
   }
 
-    //MyAddressCertificate
+  //MyAddressCertificate
   
   const saveMyAddressCertificate = async (value) => {
     try {
@@ -242,6 +246,29 @@ export const Provider = ({ children }) => {
     }
   }
 
+  const saveMyRootCertificate = async (value) => {
+    try {
+      await AsyncStorage.setItem('@MyRootCertificate', value)
+    } catch (e) {
+      console.err("Error while saving item MyRootCertificate");
+      console.err(e);
+    }
+  }  
+
+  const getMyRootCertificate = async (callback) => {
+    try {
+        const value = await AsyncStorage.getItem('@MyRootCertificate');
+        if(value !== null) {
+            callback(value);
+            return value;
+        }
+    } catch(e) {
+        console.error("Error reading data of MyRootCertificate");
+        console.error(e);
+    }
+  }
+
+
   const saveMyTrusteeInfo = async (value) => {
     try {
       await AsyncStorage.setItem('@MyTrusteeInfo', value)
@@ -265,10 +292,10 @@ export const Provider = ({ children }) => {
   }
 
     return (
-        <Context.Provider value={{getMyId, saveMyName, getMyName, getMyAddressData,
+        <Context.Provider value={{getMyId, getMyPublicKey, saveMyName, getMyName, getMyAddressData,
           saveMyRole,getMyRole,
           askRootTrusteeCertificate, getRootTrusteeCertificate,
-          saveMyParticipationCertificate, getMyParticipationCertificate,
+          saveMyParticipationCertificate, getMyParticipationCertificate, saveMyRootCertificate, getMyRootCertificate,
           signTrusteeCertificate, 
           getDataToAskAddressCertificate, signAddressCertificate, 
           saveMyAddressData, saveMyAddressCertificate, getMyAddressCertificate,

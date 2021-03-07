@@ -11,10 +11,10 @@ import i18n from 'i18n-js';
 const ViewParticipationCertificate = ({ navigation }) => {
 
     const [ data, setData ] = useState('');
-    const { getMyParticipationCertificate } = useContext(Context);
+    const { getMyRootCertificate } = useContext(Context);
 
     useEffect (() => {
-      getMyParticipationCertificate((addrCertificate) => {
+      getMyRootCertificate((addrCertificate) => {
         setData(addrCertificate);
       });
     }, []);

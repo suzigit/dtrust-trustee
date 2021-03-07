@@ -8,7 +8,7 @@ const TrusteeRegistration = ({ navigation }) => {
 
   const [ localName, setLocalName ] = useState('');
 
-  const { getMyName, saveMyName, getMyId } = useContext(Context);
+  const { getMyName, saveMyName, getMyPublicKey } = useContext(Context);
 
   useEffect (() => {
     getMyName((name) => {
@@ -20,7 +20,7 @@ const TrusteeRegistration = ({ navigation }) => {
 
     <View style={styles.marginTop}>
         <Text style={styles.textStyle}>{i18n.t('general.yourIdentifier')}</Text>
-        <Text style={styles.input}>{getMyId()}</Text>
+        <Text style={styles.input}>{getMyPublicKey()}</Text>
 
         <Text style={styles.textStyle}>{i18n.t('general.yourName')}</Text>      
         <TextInput style={styles.input} 
@@ -69,6 +69,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginTop: 15,
     marginLeft: 15,
+    marginRight: 15,
+
   },
   marginTop: {
     marginTop: 15,

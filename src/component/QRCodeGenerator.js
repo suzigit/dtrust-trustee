@@ -14,6 +14,8 @@ export default function QRCodeGenerator ({data}) {
         if (canvas !== null){
             // QRCode options
             var options = {
+                width: 256,
+                height: 256,
                 text: data,
         	};
         	// Create QRCode Object
@@ -22,7 +24,7 @@ export default function QRCodeGenerator ({data}) {
       }
     
     return (
-        <View>
+        <View style={styles.qrcodeStyle}>
         <Canvas ref={generateQRCode}/>
         </View>
     );
@@ -31,8 +33,10 @@ export default function QRCodeGenerator ({data}) {
 }
 
 const styles = StyleSheet.create({
-    textStyle: {
-        fontSize: 20
+    qrcodeStyle: {
+        marginTop: 20,
+        marginBottom: 20,
+        alignItems: 'center'
     } 
 });
     

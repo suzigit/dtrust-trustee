@@ -11,7 +11,7 @@ import {
   
 const GetParticipationCertificateAsRoot = ({ navigation }) => {
 
-  const { getRootTrusteeCertificate, saveMyParticipationCertificate } = useContext(Context);
+  const { getRootTrusteeCertificate, saveMyRootCertificate, saveMyTrusteeInfo } = useContext(Context);
 
   const [ data, setData ] = useState('');
 
@@ -33,14 +33,15 @@ const GetParticipationCertificateAsRoot = ({ navigation }) => {
         console.log("certificate to save=");
         console.log(JSON.stringify(certificate));
 
-        saveMyParticipationCertificate(JSON.stringify(certificate));
-        const myChainOfTrust = {
-          tid: resultDataAsJson.tid,
-          pbkey: resultDataAsJson.pbkey
-        }
-        console.log(myChainOfTrust);        
+        saveMyRootCertificate(JSON.stringify(certificate));
 
-//        saveMyChainOfTrust(myChainOfTrust);
+        const myTrusteeInfo = {
+          prpkey: resultDataAsJson.pbkey
+        }
+        console.log(myTrusteeInfo);
+        
+        saveMyTrusteeInfo(JSON.stringify(myTrusteeInfo));
+
       }
     })
     

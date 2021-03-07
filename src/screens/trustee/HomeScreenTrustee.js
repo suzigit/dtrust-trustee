@@ -18,9 +18,16 @@ const HomeScreenTrustee = ({ navigation }) => {
       setData(certificate);
     });
 
-    getMyTrusteeInfo((data) => {
-      console.log("#### exibindo dados do root trustee = " + data);
-      setRootTrusteeData(data);
+    getMyTrusteeInfo((trusteeInfo) => {
+      console.log("#### exibindo dados do root trustee = " + trusteeInfo);
+      const trusteeInfoAsJson = JSON.parse(trusteeInfo);
+      console.log(trusteeInfoAsJson);
+
+      let trusteeName;
+      if (trusteeInfoAsJson.data) {
+        trusteeName = trusteeInfoAsJson.data.subnm;
+      } 
+      setRootTrusteeData(trusteeName);
     });
 
 
