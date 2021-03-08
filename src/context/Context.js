@@ -53,14 +53,12 @@ export const Provider = ({ children }) => {
           iss: 2
         };  
         const signedCertificate = await userWallet.signMessage(JSON.stringify(certificateBody));
-//        console.log(signedCertificate);
 
         const trusteData = {
           data: certificateBody,
           sig: signedCertificate,
         }
 
-//        console.log(certificateBody);
         saveTrusteeCertificate(trusteData);
 
         return JSON.stringify(trusteData);
@@ -107,7 +105,6 @@ export const Provider = ({ children }) => {
         }; 
         
         const signedCertificate = await userWallet.signMessage(JSON.stringify(certificateBody));
-//        console.log(signedCertificate);
 
         const addressCertificate = {
           data: certificateBody,
@@ -203,7 +200,6 @@ export const Provider = ({ children }) => {
               if (callback) {
                 callback(value);
               }
-//              console.log("view address=" + value);
               return value;
           }
       } catch(e) {
@@ -228,7 +224,6 @@ export const Provider = ({ children }) => {
         const value = await AsyncStorage.getItem('@MyAddressCertificate');
         if(value !== null) {
             callback(value);
-//            console.log("view certificate=" + value);
             return value;
         }
     } catch(e) {
@@ -237,24 +232,24 @@ export const Provider = ({ children }) => {
     }
   }
 
-  const saveMyParticipationCertificate = async (value) => {
+  const saveMyTrusteeCertificate = async (value) => {
     try {
-      await AsyncStorage.setItem('@MyParticipationCertificate', value)
+      await AsyncStorage.setItem('@MyTrusteeCertificate', value)
     } catch (e) {
-      console.err("Error while saving item MyParticipationCertificate");
+      console.err("Error while saving item MyTrusteeCertificate");
       console.err(e);
     }
   }  
 
-  const getMyParticipationCertificate = async (callback) => {
+  const getMyTrusteeCertificate = async (callback) => {
     try {
-        const value = await AsyncStorage.getItem('@MyParticipationCertificate');
+        const value = await AsyncStorage.getItem('@MyTrusteeCertificate');
         if(value !== null) {
             callback(value);
             return value;
         }
     } catch(e) {
-        console.error("Error reading data of MyParticipationCertificate");
+        console.error("Error reading data of MyTrusteeCertificate");
         console.error(e);
     }
   }
@@ -304,14 +299,47 @@ export const Provider = ({ children }) => {
     }
   }
 
+  const saveMyRootTrusteeInfo = async (value) => {
+    try {
+      await AsyncStorage.setItem('@MyRootTrusteeInfo', value)
+    } catch (e) {
+      console.err("Error while saving item MyRootTrusteeInfo");
+      console.err(e);
+    }
+  }  
+
+  const getMyRootTrusteeInfo = async (callback) => {
+    try {
+        const value = await AsyncStorage.getItem('@MyRootTrusteeInfo');
+        if(value !== null) {
+            callback(value);
+            return value;
+        }
+    } catch(e) {
+        console.error("Error reading data of MyRootTrusteeInfo");
+        console.error(e);
+    }
+  }
+
+  
+  const saveMasterTrusteeInfo = async (value) => {
+    try {
+      await AsyncStorage.setItem('@MasterTrusteeInfo', value)
+    } catch (e) {
+      console.err("Error while saving item MasterTrusteeInfo");
+      console.err(e);
+    }
+  }  
+
+
     return (
         <Context.Provider value={{getMyId, getMyPublicKey, saveMyName, getMyName, getMyAddressData,
           saveMyRole,getMyRole,
           askRootTrusteeCertificate, getRootTrusteeCertificate,
-          saveMyParticipationCertificate, getMyParticipationCertificate, saveMyRootCertificate, getMyRootCertificate,
-          signTrusteeCertificate, 
+          saveMyTrusteeCertificate, getMyTrusteeCertificate, saveMyRootCertificate, getMyRootCertificate,
+          signTrusteeCertificate, saveMyRootTrusteeInfo, getMyRootTrusteeInfo,
           getDataToAskAddressCertificate, getDataToAskTrusteeCertificate, signAddressCertificate, 
-          saveMyAddressData, saveMyAddressCertificate, getMyAddressCertificate,
+          saveMyAddressData, saveMyAddressCertificate, getMyAddressCertificate, saveMasterTrusteeInfo,
           saveMyTrusteeInfo, getMyTrusteeInfo}}>
         {children}
         </Context.Provider>

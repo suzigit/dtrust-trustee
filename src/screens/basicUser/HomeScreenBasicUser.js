@@ -5,11 +5,12 @@ import i18n from 'i18n-js';
 
 const HomeScreenBasicUser = ({ navigation }) => {
 
+  const [ name, setName ] = useState('');
   const [ data, setData ] = useState('');
   const [ trusteeData, setTrusteeData ] = useState('');
 
   const { getMyAddressCertificate, saveMyAddressCertificate, 
-    saveMyTrusteeInfo, getMyTrusteeInfo } = useContext(Context);
+    saveMyTrusteeInfo, getMyTrusteeInfo, getMyName } = useContext(Context);
 
     useEffect (() => {
 
@@ -29,7 +30,8 @@ const HomeScreenBasicUser = ({ navigation }) => {
         } 
         setTrusteeData(trusteeName);
       });
-  
+
+      getMyName(setName);  
   
     }, []);
   
@@ -42,6 +44,8 @@ const HomeScreenBasicUser = ({ navigation }) => {
   return (
     <View>
       <Text style={styles.text}>{i18n.t('navigation.BasicUser.title')}</Text>
+      { (name)? <Text>{i18n.t('general.greetings')} {name}</Text> :  <Text></Text>}
+
       { (!data) ? 
           <View>
             { (!trusteeData) ?
@@ -66,7 +70,8 @@ const HomeScreenBasicUser = ({ navigation }) => {
             }
           </View>
         :
-          <View>      
+          <View> 
+              <Text>{i18n.t('navigation.Trustee.roleName')}: {trusteeData}</Text>     
               <Button
                 onPress={() => navigation.navigate('ViewAddressCertificate')}
                 title={i18n.t('navigation.BasicUser.seeYourAddressCertificate')}

@@ -11,7 +11,7 @@ import {
   
 const GetParticipationCertificateAsRoot = ({ navigation }) => {
 
-  const { getRootTrusteeCertificate, saveMyRootCertificate, saveMyTrusteeInfo } = useContext(Context);
+  const { getRootTrusteeCertificate, saveMyRootCertificate, saveMasterTrusteeInfo } = useContext(Context);
 
   const [ data, setData ] = useState('');
 
@@ -40,7 +40,7 @@ const GetParticipationCertificateAsRoot = ({ navigation }) => {
         }
         console.log(myTrusteeInfo);
         
-        saveMyTrusteeInfo(JSON.stringify(myTrusteeInfo));
+        saveMasterTrusteeInfo(JSON.stringify(myTrusteeInfo));
 
       }
     })

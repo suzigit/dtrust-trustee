@@ -5,20 +5,21 @@ import i18n from 'i18n-js';
 
 const HomeScreenTrustee = ({ navigation }) => {
     
+  const [ name, setName ] = useState('');
   const [ data, setData ] = useState('');
   const [ rootTrusteeData, setRootTrusteeData ] = useState('');
 
-  const { getMyParticipationCertificate, saveMyParticipationCertificate, 
-    saveMyTrusteeInfo, getMyTrusteeInfo } = useContext(Context);
+  const { getMyTrusteeCertificate, saveMyTrusteeCertificate, 
+    saveMyRootTrusteeInfo, getMyRootTrusteeInfo, getMyName } = useContext(Context);
    
   useEffect (() => {
 
-    getMyParticipationCertificate((certificate) => {
+    getMyTrusteeCertificate((certificate) => {
       console.log("#### exibindo certificado do trustee = " + certificate);
       setData(certificate);
     });
 
-    getMyTrusteeInfo((trusteeInfo) => {
+    getMyRootTrusteeInfo((trusteeInfo) => {
       console.log("#### exibindo dados do root trustee = " + trusteeInfo);
       const trusteeInfoAsJson = JSON.parse(trusteeInfo);
       console.log(trusteeInfoAsJson);
@@ -30,17 +31,20 @@ const HomeScreenTrustee = ({ navigation }) => {
       setRootTrusteeData(trusteeName);
     });
 
+    getMyName(setName);
 
   }, []);
 
   const clearRootTrustee = (() => { 
     setRootTrusteeData("");
-    saveMyTrusteeInfo("");
+    saveMyRootTrusteeInfo("");
   });
 
   return (
     <View>
       <Text style={styles.text}>{i18n.t('navigation.Trustee.title')}</Text>
+      { (name)? <Text>{i18n.t('general.greetings')} {name}</Text> :  <Text></Text>}
+
     { (!data) ? 
     <View>
         { (!rootTrusteeData) ?
@@ -68,6 +72,7 @@ const HomeScreenTrustee = ({ navigation }) => {
     </View>
     :
     <View>
+      <Text>{i18n.t('navigation.RootTrustee.roleName')}: {rootTrusteeData}</Text>
       <Button
         onPress={() => navigation.navigate('ConfirmAddress')}
         title={i18n.t('navigation.Trustee.confirmAddress')}
@@ -78,7 +83,7 @@ const HomeScreenTrustee = ({ navigation }) => {
       />
       <Button
         onPress={() => {
-          saveMyParticipationCertificate("");
+          saveMyTrusteeCertificate("");
           setData("");
         }}
         title={i18n.t('general.deleteYourCertificate')}

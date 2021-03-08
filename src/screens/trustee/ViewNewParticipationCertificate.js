@@ -11,10 +11,10 @@ import i18n from 'i18n-js';
 const ViewNewParticipationCertificate = ({ navigation }) => {
 
     const [ data, setData ] = useState('');
-    const { getMyParticipationCertificate } = useContext(Context);
+    const { getMyTrusteeCertificate } = useContext(Context);
 
     useEffect (() => {
-      getMyParticipationCertificate((certificate) => {
+      getMyTrusteeCertificate((certificate) => {
         setData(certificate);
         console.log("certificado de participacao no ViewNewParticipationCertificate=" + data);
       });

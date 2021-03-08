@@ -3,7 +3,6 @@ import { Text, StyleSheet, View, TextInput, Button } from 'react-native';
 import Context from '../../context/Context';
 import i18n from 'i18n-js';
 
-
 const TrusteeRegistration = ({ navigation }) => {
 
   const [ localName, setLocalName ] = useState('');
@@ -11,9 +10,7 @@ const TrusteeRegistration = ({ navigation }) => {
   const { getMyName, saveMyName, getMyPublicKey } = useContext(Context);
 
   useEffect (() => {
-    getMyName((name) => {
-      setLocalName(name);
-    })
+    getMyName(setLocalName)
   }, []);
 
   return (

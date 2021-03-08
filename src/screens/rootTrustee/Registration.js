@@ -3,7 +3,6 @@ import { Text, StyleSheet, View, TextInput, Button } from 'react-native';
 import Context from '../../context/Context';
 import i18n from 'i18n-js';
 
-
 const Registration = ({ navigation }) => {
 
   const secretCodeToCompare = 'ABCD1234!';
@@ -14,9 +13,7 @@ const Registration = ({ navigation }) => {
   const { getMyName, saveMyName, getMyPublicKey, askRootTrusteeCertificate } = useContext(Context);
 
   useEffect (() => {
-    getMyName((name) => {
-      setLocalName(name);
-    })
+    getMyName(setLocalName)
   }, []);
 
 //      { localName.length > 0 && localName.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }

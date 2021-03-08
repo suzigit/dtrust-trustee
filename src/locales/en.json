@@ -64,7 +64,7 @@
   "general" : {
       "greetings": "Hi,",
       "yourIdentifier": "Your identifier",
-      "yourName": "Your name",
+      "yourName": "Your full name",
       "secretCode": "Secret code",
       "generateQRCode": "Generate QRCode",
       "deleteYourCertificate": "Delete your Certificate",

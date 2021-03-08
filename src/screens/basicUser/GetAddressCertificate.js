@@ -12,7 +12,6 @@ const GetAddressCertificate = ({ navigation }) => {
 
   const { saveMyAddressCertificate } = useContext(Context);
 
-
   const updateCaller = (data) => {
     navigation.navigate('ViewNewAddressCertificate')
     saveMyAddressCertificate(data);

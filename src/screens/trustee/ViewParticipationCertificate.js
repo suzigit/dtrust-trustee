@@ -12,15 +12,15 @@ const ViewParticipationCertificate = ({ navigation }) => {
 
     const [ data, setData ] = useState('');
     const [ rootTrusteeData, setRootTrusteeData ] = useState('');
-    const { getMyParticipationCertificate, getMyTrusteeInfo } = useContext(Context);
+    const { getMyTrusteeCertificate, getMyRootTrusteeInfo } = useContext(Context);
 
     useEffect (() => {
-      getMyParticipationCertificate((certificate) => {
+      getMyTrusteeCertificate((certificate) => {
         setData(certificate);
         console.log("certificado de participacao no ViewParticipationCertificate=" + data);
       });
 
-      getMyTrusteeInfo((data) => {
+      getMyRootTrusteeInfo((data) => {
         console.log("#### exibindo dados do root trustee = " + data);
         setRootTrusteeData(data);
       });

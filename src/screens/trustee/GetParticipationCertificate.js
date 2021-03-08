@@ -8,19 +8,18 @@ import {
   import Context from '../../context/Context';
   import i18n from 'i18n-js';
 
-  
 const GetParticipationCertificate = ({ navigation }) => {
 
-  const { saveMyParticipationCertificate } = useContext(Context);
+  const { saveMyTrusteeCertificate } = useContext(Context);
 
   const updateCaller = (data) => {
     navigation.navigate('ViewNewParticipationCertificate')
-    saveMyParticipationCertificate(data);
+    saveMyTrusteeCertificate(data);
   };
 
   return (
       <View>
-        <Text style={styles.textStyle}>{i18n.t('general.pointCellToQRCodeToGenerateCertificate')}</Text>
+        <Text style={styles.textStyle}>{i18n.t('general.pointCellToQRCodeofYourCertificate')}</Text>
         <View><QRCodeScanner updateCaller={updateCaller}/></View>
       </View>
   );

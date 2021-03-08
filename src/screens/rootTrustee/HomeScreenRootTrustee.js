@@ -10,7 +10,7 @@ const HomeScreenRootTrustee = ({ navigation }) => {
   const [ data, setData ] = useState('');
   const [ name, setName ] = useState('');
 
-  const { getMyRootCertificate, saveMyParticipationCertificate, getMyName } = useContext(Context);
+  const { getMyRootCertificate, saveMyTrusteeCertificate, getMyName } = useContext(Context);
 
   useEffect (() => {
 
@@ -19,9 +19,7 @@ const HomeScreenRootTrustee = ({ navigation }) => {
       setData(certificate);
     });
 
-    getMyName((myName) => {
-      setName(myName);
-    });
+    getMyName(setName);  
 
   }, []);
 
@@ -64,7 +62,7 @@ const HomeScreenRootTrustee = ({ navigation }) => {
       />
       <Button
         onPress={() => {
-          saveMyParticipationCertificate("");
+          saveMyTrusteeCertificate("");
           setData("");
         }}
         title={i18n.t('general.deleteYourCertificate')}

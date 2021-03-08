@@ -17,13 +17,9 @@ const AskToConfirmYourAddress = ({ navigation }) => {
   const [ localName, setLocalName ] = useState('');
 
   useEffect (() => {
-    getMyName((name) => {
-      setLocalName(name);
-    })
-
-    getMyAddressData((savedAddress) => {
-      setLocalAddress(savedAddress);
-    });
+    
+    getMyName(setLocalName);
+    getMyAddressData(setLocalAddress);
 
   }, []);
 

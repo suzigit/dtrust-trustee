@@ -7,7 +7,6 @@ import QRCodeGenerator from '../../component/QRCodeGenerator';
 import i18n from 'i18n-js';
 
 
-
 const ViewParticipationCertificate = ({ navigation }) => {
 
     const [ data, setData ] = useState('');

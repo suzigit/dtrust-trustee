@@ -11,12 +11,12 @@ import {
   
 const GetRootTrusteeData = ({ navigation }) => {
 
-  const { saveMyTrusteeInfo } = useContext(Context);
+  const { saveMyRootTrusteeInfo } = useContext(Context);
 
   const updateCaller = (data) => {
     navigation.pop(2);
     navigation.push('HomeScreenTrustee');
-    saveMyTrusteeInfo(data);
+    saveMyRootTrusteeInfo(data);
   };
 
   return (
