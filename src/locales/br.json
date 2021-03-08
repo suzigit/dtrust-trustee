@@ -9,7 +9,9 @@
         "roleName": "Público Geral",
         "title": "Para todos",
         "askAddressConfirmation": "Peça confirmação de seu endereço",
-        "seeYourAddressCertificate": "Veja seu Certificado de Endereço"
+        "seeYourAddressCertificate": "Veja seu Certificado de Endereço",
+        "connectWithTrustee": "Conecte com seu Certificador",
+        "changeTrustee": "Mude seu Certificador"
     },
     "Trustee": {
         "roleName": "Certificadores",
@@ -27,22 +29,25 @@
         "askToBeRootTrustee": "Peça para ser um Líder de Certificadores",
         "askToBeRootTrusteeAgain": "Peça para ser um Líder de Certificadores (NOVAMENTE)",
         "receiveParticipationCertificate": "Receba seu Certificado",
-        "seeYourParticipationCertificate": "Veja seu Certificado"
+        "seeYourParticipationCertificate": "Veja seu Certificado",        
     }
   },
   "basicUser": {
       "enterCompleteAddress": "Informe seu endereço para o certificado",
       "askAddressCertificate": "Gere seu certificado apresentando esse QRCode a um Certificador",
-      "addressCertificate": "Veja seu Certificado de Endereço"
+      "addressCertificate": "Veja seu Certificado de Endereço",
+      "getTrusteeData": "Leia os dados do Certificador",
+      "trusteeData": "Este é o certificado do seu Certificador"
   },
   "trustee": {
+      "basicUserId": "Id de quem solicita o certificado",
       "addressToConfirm": "Endereço a confirmar",
       "nameWhoLivesThere": "Nome de quem vive no endereço",
       "adrressCertificateOfOthers": "Este é o Certificado de Endereço solicitado",
       "askToParticipate": "Peça seu Certificado apresentando esse QRCode ao Líder dos Certificadores",
       "participationCertificate": "Este é o seu Certificado",
       "getRootTrusteeData": "Leia dados do Líder de Certificados",
-      "rootTrusteeData": "This is your Certifier Manager data (DID and name)"
+      "rootTrusteeData": "Este é o certificado do seu Líder de Certificados"
   },
   "rootTrustee": {
       "trusteeId": "Identificador de quem deseja ser um Certificador",

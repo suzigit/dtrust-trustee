@@ -9,22 +9,8 @@ import {
 
 const ConfirmAddress = ({ navigation }) => {
 
-  const updateCaller = (inputData) => {
-
-    const inputDataAsObject = JSON.parse(inputData);
-    const subjectId = inputDataAsObject.subjectId;
-    const addressData = inputDataAsObject.addressData;
-    
-    if (!subjectId) {
-      navigation.navigate('ErrorState', {text:"SubjectId not found"});
-    }
-    else if (!addressData) {
-      navigation.navigate('ErrorState', {text:"AddressData not found"});
-    }
-    else {
-      navigation.navigate('ConfirmAddressStep2', {subjectId, addressData});
-    }
-
+  const updateCaller = (infoRequest) => {
+      navigation.navigate('ConfirmAddressStep2', {infoRequest});
   };
 
 

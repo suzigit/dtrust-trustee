@@ -16,13 +16,14 @@ const ConfirmAddressStep3 = ({ navigation }) =>  {
   const { signAddressCertificate } = useContext(Context);
   const [ signedData, setSignedData] = useState("")
 
+
   const getSignedData = async () => {
     try {   
         const value = await signAddressCertificate(subjectId, subjectName, addressData);
         setSignedData(value);
         return value;
       } catch(e) {
-        console.error("Error reading data of getSignedData");
+        console.error("Error reading data of signAddressCertificate");
         console.error(e);
     }
 

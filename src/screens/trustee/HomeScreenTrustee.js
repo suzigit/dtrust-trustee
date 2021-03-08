@@ -24,7 +24,7 @@ const HomeScreenTrustee = ({ navigation }) => {
       console.log(trusteeInfoAsJson);
 
       let trusteeName;
-      if (trusteeInfoAsJson.data) {
+      if (trusteeInfoAsJson.data) { //only available to trustees
         trusteeName = trusteeInfoAsJson.data.subnm;
       } 
       setRootTrusteeData(trusteeName);

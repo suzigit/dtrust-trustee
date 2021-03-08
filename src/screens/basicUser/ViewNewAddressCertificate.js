@@ -7,30 +7,31 @@ import QRCodeGenerator from '../../component/QRCodeGenerator';
 import i18n from 'i18n-js';
 
 
-
-const ViewNewParticipationCertificate = ({ navigation }) => {
+const ViewNewAddressCertificate = ({ navigation }) => {
 
     const [ data, setData ] = useState('');
-    const { getMyParticipationCertificate } = useContext(Context);
+    const { getMyAddressCertificate } = useContext(Context);
 
     useEffect (() => {
-      getMyParticipationCertificate((certificate) => {
-        setData(certificate);
-        console.log("certificado de participacao no ViewNewParticipationCertificate=" + data);
+      getMyAddressCertificate((addrCertificate) => {
+        setData(addrCertificate);
+        console.log("certificado de endereco no ViewNewAddressCertificate=" + data);
+
       });
     }, []);
   
+    console.log("certificado de endereço=" + data);
 //        <Text style={styles.certificateStyle}>{data}</Text>
 
     return (
         <View>
-        <Text style={styles.textStyle}>{i18n.t('trustee.participationCertificate')}</Text>
+        <Text style={styles.textStyle}>{i18n.t('basicUser.addressCertificate')}:</Text>
         {data!=""? <View><QRCodeGenerator data={data}/></View> : <Text style={styles.certificateStyle}>{i18n.t('general.waitToCreate')}</Text>}
 
         <Button 
             onPress={() => {
               navigation.pop(5);
-              navigation.push('HomeScreenTrustee')
+              navigation.navigate('HomeScreenBasicUser');
             }}
             title={i18n.t('general.startToUseCertificate')}
         />
@@ -51,4 +52,4 @@ const styles = StyleSheet.create({
   }   
 });
 
-export default ViewNewParticipationCertificate;
+export default ViewNewAddressCertificate;

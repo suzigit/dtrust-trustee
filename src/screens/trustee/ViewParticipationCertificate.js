@@ -15,8 +15,8 @@ const ViewParticipationCertificate = ({ navigation }) => {
     const { getMyParticipationCertificate, getMyTrusteeInfo } = useContext(Context);
 
     useEffect (() => {
-      getMyParticipationCertificate((addrCertificate) => {
-        setData(addrCertificate);
+      getMyParticipationCertificate((certificate) => {
+        setData(certificate);
         console.log("certificado de participacao no ViewParticipationCertificate=" + data);
       });
 

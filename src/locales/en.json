@@ -9,7 +9,9 @@
         "roleName": "General Public",
         "title": "For General Public",
         "askAddressConfirmation": "Ask to confirm your address",
-        "seeYourAddressCertificate": "See your Address Certificate"
+        "seeYourAddressCertificate": "See your Address Certificate",
+        "connectWithTrustee": "Connect with Certifier",
+        "changeTrustee": "Change your Certifier"
     },
     "Trustee": {
         "roleName": "Certifier",
@@ -33,16 +35,19 @@
   "basicUser": {
       "enterCompleteAddress": "Enter your complete address",
       "askAddressCertificate": "Generate a certificate showing this QRCode to a Certifier",
-      "addressCertificate": "This is your Address Certificate"
+      "addressCertificate": "This is your Address Certificate",
+      "getTrusteeData": "Get Certifier Data",
+      "trusteeData": "This is your Certifier's Certificate"
   },
   "trustee": {
+      "basicUserId": "Id from who requested an Address Certificate",
       "addressToConfirm": "Address to Confirm",
       "nameWhoLivesThere": "Name of who lives there",
       "adrressCertificateOfOthers": "This is the requested Address Certificate",
       "askToParticipate": "Ask your Certificate showing this QRCode to the Certifier Manager",
       "participationCertificate": "This is your Certificate",
       "getRootTrusteeData": "Get Certifier Manager Data",
-      "rootTrusteeData": "This is your Certifier Manager data (DID and name)"
+      "rootTrusteeData": "This is your Certifier Manager's Certificate"
   },
   "rootTrustee": {
       "trusteeId": "Id from who wants to be a Certifier",

@@ -14,26 +14,18 @@ const AskToParticipate = ({ navigation }) => {
 
     const [ qrCodeData, setQRCodeData] = useState('fetching data');
 
-    const { getMyName, getMyPublicKey } = useContext(Context);
-
-    console.log("ID do trustee = " + getMyPublicKey());
+    const { getDataToAskTrusteeCertificate } = useContext(Context);
     
     useEffect (() => {
-      getMyName((name) => {
-          setQRCodeData (JSON.stringify({
-                subkey: getMyPublicKey(),
-                subnm: name
-          }));
-          console.log("QRCode de pedido do Trustee=");
-      })
+      getDataToAskTrusteeCertificate(setQRCodeData);
+      console.log("QRCode de pedido do Trustee=");
     }, []);
       
-
 
     return (
         <View>
           <Text style={styles.textStyle}>{i18n.t('trustee.askToParticipate')}</Text>
-          <View><QRCodeGenerator data={qrCodeData}/></View>
+          {qrCodeData!=""? <View><QRCodeGenerator data={qrCodeData}/></View> : <Text style={styles.certificateStyle}>{i18n.t('general.waitToCreate')}</Text>}
 
           <Button 
             onPress={() => {

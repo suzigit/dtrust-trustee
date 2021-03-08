@@ -7,32 +7,39 @@ import {
   
 const ConfirmAddressStep2 = ({ navigation }) => {
 
-  const [ localName, setLocalName ] = useState('');
+  const infoRequest = navigation.getParam("infoRequest");
+  const inputRequestAsObject = JSON.parse(infoRequest);
+  const subjectId = inputRequestAsObject.subdid;
+  const subjectName = inputRequestAsObject.subnm;
+  const addressData = inputRequestAsObject.addr;
 
-  const subjectId = navigation.getParam("subjectId");
-  const addressData = navigation.getParam("addressData");
-
-//      { localName.length > 0 && localName.length < 4 ? <Text style={styles.errorTextStyle} >O nome digitado está muito pequeno</Text> : null }
+  /*
+  if (!subjectId) {
+    navigation.navigate('ErrorState', {text:"SubjectId not found"});
+  }
+  else if (!addressData) {
+    navigation.navigate('ErrorState', {text:"AddressData not found"});
+  }
+*/
 
   return (
 
       <View style={styles.marginTop}>
+
+      <Text style={styles.textStyle}>{i18n.t('trustee.basicUserId')}</Text>
+      <Text style={styles.input}>{subjectId}</Text>
+
       <Text style={styles.textStyle}>{i18n.t('trustee.addressToConfirm')}</Text>
       <Text style={styles.input}>{addressData}</Text>
 
       <Text style={styles.textStyle}>{i18n.t('trustee.nameWhoLivesThere')}</Text>      
-      <TextInput style={styles.input} 
-          autoCapitalize="words" 
-          autoCorrect={false} 
-          placeholder={i18n.t('general.typeHere')}
-          onChangeText={setLocalName}
-      />
+      <Text style={styles.input}>{subjectName}</Text>
 
 
       <View style={styles.marginTop}>
       <Button 
       onPress={() => {
-        navigation.navigate('ConfirmAddressStep3', {subjectId, addressData, subjectName: localName});
+        navigation.navigate('ConfirmAddressStep3', {subjectId, subjectName, addressData});
       }}
       title={i18n.t('general.generateQRCode')}
       />

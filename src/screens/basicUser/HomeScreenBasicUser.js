@@ -1,24 +1,86 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { Text, StyleSheet, View, Button } from 'react-native';
-
+import Context from '../../context/Context';
 import i18n from 'i18n-js';
 
 const HomeScreenBasicUser = ({ navigation }) => {
 
+  const [ data, setData ] = useState('');
+  const [ trusteeData, setTrusteeData ] = useState('');
+
+  const { getMyAddressCertificate, saveMyAddressCertificate, 
+    saveMyTrusteeInfo, getMyTrusteeInfo } = useContext(Context);
+
+    useEffect (() => {
+
+      getMyAddressCertificate((certificate) => {
+        console.log("#### exibindo certificado de endereco = " + certificate);
+        setData(certificate);
+      });
+  
+      getMyTrusteeInfo((trusteeInfo) => {
+        console.log("#### exibindo dados do trustee = " + trusteeInfo);
+        const trusteeInfoAsJson = JSON.parse(trusteeInfo);
+        console.log(trusteeInfoAsJson);
+  
+        let trusteeName;
+        if (trusteeInfoAsJson.data) { 
+          trusteeName = trusteeInfoAsJson.data.subnm;
+        } 
+        setTrusteeData(trusteeName);
+      });
+  
+  
+    }, []);
+  
+    const clearTrustee = (() => { 
+      setTrusteeData("");
+      saveMyTrusteeInfo("");
+    });
+  
 
   return (
     <View>
-
       <Text style={styles.text}>{i18n.t('navigation.BasicUser.title')}</Text>
-      <Button
-        onPress={() => navigation.navigate('AskToConfirmYourAddress')}
-        title={i18n.t('navigation.BasicUser.askAddressConfirmation')}
-      />
-      <Button
-        onPress={() => navigation.navigate('ViewAddressCertificate')}
-        title={i18n.t('navigation.BasicUser.seeYourAddressCertificate')}
-      />
+      { (!data) ? 
+          <View>
+            { (!trusteeData) ?
+                <Button
+                onPress={() => navigation.navigate('GetTrusteeData')}
+                title={i18n.t('navigation.BasicUser.connectWithTrustee')}
+                />
+            :
+              <View>
+              <Text>{i18n.t('navigation.Trustee.roleName')}: {trusteeData}</Text>
+              <Button
+                onPress={() => navigation.navigate('AskToConfirmYourAddress')}
+                title={i18n.t('navigation.BasicUser.askAddressConfirmation')}
+              />
+              <Button
+                onPress={() => {
+                  clearTrustee();
+                }}
+                title={i18n.t('navigation.BasicUser.changeTrustee')}
+              />
+              </View>
+            }
+          </View>
+        :
+          <View>      
+              <Button
+                onPress={() => navigation.navigate('ViewAddressCertificate')}
+                title={i18n.t('navigation.BasicUser.seeYourAddressCertificate')}
+              />
+              <Button
+                onPress={() => {
+                  saveMyAddressCertificate("");
+                  setData("");
+                }}
+                title={i18n.t('general.deleteYourCertificate')}
+              />
+          </View>
 
+        }
     </View>
   );
 };

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import {
     StyleSheet,
     Text,
@@ -8,24 +8,23 @@ import {
   import Context from '../../context/Context';
   import i18n from 'i18n-js';
 
-const GetAddressCertificate = ({ navigation }) => {
+  
+const GetTrusteeData = ({ navigation }) => {
 
-  const { saveMyAddressCertificate } = useContext(Context);
-
+  const { saveMyTrusteeInfo } = useContext(Context);
 
   const updateCaller = (data) => {
-    navigation.navigate('ViewNewAddressCertificate')
-    saveMyAddressCertificate(data);
+    navigation.pop(2);
+    navigation.push('HomeScreenBasicUser');
+    saveMyTrusteeInfo(data);
   };
-
 
   return (
       <View>
-        <Text style={styles.textStyle}>{i18n.t('general.pointCellToQRCodeofYourCertificate')}</Text>
+        <Text style={styles.textStyle}>{i18n.t('basicUser.getTrusteeData')}</Text>
         <View><QRCodeScanner updateCaller={updateCaller}/></View>
       </View>
   );
-
 };
 
 
@@ -35,4 +34,4 @@ const styles = StyleSheet.create({
   } 
 });
 
-export default GetAddressCertificate;
+export default GetTrusteeData;

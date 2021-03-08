@@ -69,42 +69,55 @@ export const Provider = ({ children }) => {
     const getDataToAskAddressCertificate = async (callback) => {
       
       const myAddress = await getMyAddressData();
+      const myName = await getMyName();
 
       const dataToAskAddressCertificate = 
       {
-        subjectId: getMyId(),
-        addressData: myAddress
+        subdid: getMyId(),
+        subnm: myName,
+        addr: myAddress
       };
 
       callback(JSON.stringify(dataToAskAddressCertificate));
 
     }
 
+    const getDataToAskTrusteeCertificate = async (callback) => {
+      
+      const myName = await getMyName();
+
+      const dataToAskCertificate = 
+      {
+        subkey: getMyPublicKey(),
+        subnm: myName
+      };
+
+      callback(JSON.stringify(dataToAskCertificate));
+
+    }
 
     const signAddressCertificate = async (subjectId, subjectName, addressData) => {
 
-      const myName = await getMyName();
       const certificateBody = 
         {
-          trusteeId: getMyId(),
-          trusteeName: myName,
-          subjectId: subjectId,
-          subjectName: subjectName,
-          addressData: addressData,
-          timestamp: new Date()
-        };  
+          subdid: subjectId,
+          subnm: subjectName,
+          addr: addressData,
+          iat: Date.now()
+        }; 
+        
         const signedCertificate = await userWallet.signMessage(JSON.stringify(certificateBody));
 //        console.log(signedCertificate);
 
-        certificateBody["signature"] = signedCertificate;
-        saveAddressCertificate(certificateBody);
+        const addressCertificate = {
+          data: certificateBody,
+          sig: signedCertificate,
+        }
 
-        const certificateBodyAsString = JSON.stringify(certificateBody);
+        saveAddressCertificate(addressCertificate);
 
-//        console.log("certificateBody");
-//        console.log(certificateBody);
+        return JSON.stringify(addressCertificate);
 
-        return certificateBodyAsString;
     };
 
 
@@ -297,7 +310,7 @@ export const Provider = ({ children }) => {
           askRootTrusteeCertificate, getRootTrusteeCertificate,
           saveMyParticipationCertificate, getMyParticipationCertificate, saveMyRootCertificate, getMyRootCertificate,
           signTrusteeCertificate, 
-          getDataToAskAddressCertificate, signAddressCertificate, 
+          getDataToAskAddressCertificate, getDataToAskTrusteeCertificate, signAddressCertificate, 
           saveMyAddressData, saveMyAddressCertificate, getMyAddressCertificate,
           saveMyTrusteeInfo, getMyTrusteeInfo}}>
         {children}

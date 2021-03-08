@@ -21,6 +21,9 @@ import AskToConfirmYourAddress from './src/screens/basicUser/AskToConfirmYourAdd
 import AskToConfirmYourAddressStep2 from './src/screens/basicUser/AskToConfirmYourAddressStep2';
 import GetAddressCertificate from './src/screens/basicUser/GetAddressCertificate';
 import ViewAddressCertificate from './src/screens/basicUser/ViewAddressCertificate';
+import ViewNewAddressCertificate from './src/screens/basicUser/ViewNewAddressCertificate';
+
+import GetTrusteeData from './src/screens/basicUser/GetTrusteeData';
 
 import ConfirmAddress from './src/screens/trustee/ConfirmAddress';
 import ConfirmAddressStep2 from './src/screens/trustee/ConfirmAddressStep2';
@@ -50,6 +53,7 @@ const navigator = createStackNavigator(
     AddTrusteeStep3,
     GetAddressCertificate,
     ViewAddressCertificate,
+    ViewNewAddressCertificate,
 
     GetRootTrusteeData,
     TrusteeRegistration,
@@ -58,6 +62,7 @@ const navigator = createStackNavigator(
     ConfirmAddressStep2,
     ConfirmAddressStep3,
 
+    GetTrusteeData,
     AskToConfirmYourAddress,
     AskToConfirmYourAddressStep2,
 
