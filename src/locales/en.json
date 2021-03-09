@@ -21,7 +21,8 @@
         "connectWithManager": "Connect with Certifier Manager",
         "changeRootTrustee": "Change your Certifier Manager",
         "askToParticipate": "Ask to be a Certifier",
-        "seeYourParticipationCertificate": "See your Certificate",
+        "seeYourParticipationCertificateQRCode": "See your Certificate (QRCode)",
+        "seeContentYourParticipationCertificate": "See Content of your Certificate"
     },
     "RootTrustee": {
         "roleName": "Certifier Manager",
@@ -30,7 +31,8 @@
         "askToBeRootTrustee": "Ask to be a Certifier Manager",
         "askToBeRootTrusteeAgain": "Ask to be a Certifier Manager (AGAIN)",
         "receiveParticipationCertificate": "Receive your Certificate",
-        "seeYourParticipationCertificate": "See your Certificate",
+        "seeYourParticipationCertificateQRCode": "See your Certificate (QRCode)",
+        "seeContentYourParticipationCertificate": "See Content of your Certificate"
     }
   },
   "basicUser": {

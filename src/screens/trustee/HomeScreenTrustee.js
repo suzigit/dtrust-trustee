@@ -79,7 +79,11 @@ const HomeScreenTrustee = ({ navigation }) => {
       />
       <Button
         onPress={() => navigation.navigate('ViewParticipationCertificate')}
-        title={i18n.t('navigation.Trustee.seeYourParticipationCertificate')}
+        title={i18n.t('navigation.Trustee.seeYourParticipationCertificateQRCode')}
+      />
+      <Button
+        onPress={() => navigation.navigate('ViewDataParticipationCertificate')}
+        title={i18n.t('navigation.Trustee.seeContentYourParticipationCertificate')}
       />
       <Button
         onPress={() => {

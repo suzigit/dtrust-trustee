@@ -58,7 +58,11 @@ const HomeScreenRootTrustee = ({ navigation }) => {
       />
       <Button
         onPress={() => navigation.navigate('ViewParticipationCertificateAsRoot')}
-        title={i18n.t('navigation.RootTrustee.seeYourParticipationCertificate')}
+        title={i18n.t('navigation.RootTrustee.seeYourParticipationCertificateQRCode')}
+      />
+      <Button
+        onPress={() => navigation.navigate('ViewDataParticipationCertificateAsRoot')}
+        title={i18n.t('navigation.RootTrustee.seeContentYourParticipationCertificate')}
       />
       <Button
         onPress={() => {

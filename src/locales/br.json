@@ -9,7 +9,7 @@
         "roleName": "Público Geral",
         "title": "Para todos",
         "askAddressConfirmation": "Peça confirmação de seu endereço",
-        "seeYourAddressCertificateQRCode": "Veja seu Certificado de Endereço (QR Code)",
+        "seeYourAddressCertificateQRCode": "Veja seu Certificado de Endereço (QRCode)",
         "seeContentYourAddressCertificate": "Veja conteúdo de seu Certificado de Endereço",
         "connectWithTrustee": "Conecte com seu Certificador",
         "changeTrustee": "Mude seu Certificador"
@@ -21,7 +21,8 @@
         "connectWithManager": "Conecte com Líder de Certificadores",
         "changeRootTrustee": "Mude seu Lúder de Certificadores",
         "askToParticipate": "Peça para ser um Certificador",
-        "seeYourParticipationCertificate": "Veja seu Certificado"
+        "seeYourParticipationCertificateQRCode": "Veja seu Certificado (QRCode)",
+        "seeContentYourParticipationCertificate": "Veja o Conteúdo de seu Certificado" 
     },
     "RootTrustee": {
         "roleName": "Líder de Certificadores",
@@ -30,7 +31,8 @@
         "askToBeRootTrustee": "Peça para ser um Líder de Certificadores",
         "askToBeRootTrusteeAgain": "Peça para ser um Líder de Certificadores (NOVAMENTE)",
         "receiveParticipationCertificate": "Receba seu Certificado",
-        "seeYourParticipationCertificate": "Veja seu Certificado",        
+        "seeYourParticipationCertificateQRCode": "Veja seu Certificado (QRCode)",
+        "seeContentYourParticipationCertificate": "Veja o Conteúdo de seu Certificado"
     }
   },
   "basicUser": {

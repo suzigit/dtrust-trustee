@@ -15,6 +15,7 @@ import Registration from './src/screens/rootTrustee/Registration';
 import AddTrustee from './src/screens/rootTrustee/AddTrustee';
 import AddTrusteeStep2 from './src/screens/rootTrustee/AddTrusteeStep2';
 import AddTrusteeStep3 from './src/screens/rootTrustee/AddTrusteeStep3';
+import ViewDataParticipationCertificateAsRoot from './src/screens/rootTrustee/ViewDataParticipationCertificateAsRoot';
 
 
 import AskToConfirmYourAddress from './src/screens/basicUser/AskToConfirmYourAddress';
@@ -31,6 +32,7 @@ import ConfirmAddressStep2 from './src/screens/trustee/ConfirmAddressStep2';
 import ConfirmAddressStep3 from './src/screens/trustee/ConfirmAddressStep3';
 import TrusteeRegistration from './src/screens/trustee/TrusteeRegistration';
 import GetRootTrusteeData from './src/screens/trustee/GetRootTrusteeData';
+import ViewDataParticipationCertificate from './src/screens/trustee/ViewDataParticipationCertificate';
 
 import AskToParticipate from './src/screens/trustee/AskToParticipate';
 
@@ -47,6 +49,7 @@ const navigator = createStackNavigator(
     HomeScreenBasicUser,
     HomeScreenTrustee,
     HomeScreenRootTrustee,
+    ViewDataParticipationCertificateAsRoot,
 
     Registration,
     AddTrustee,
@@ -63,6 +66,7 @@ const navigator = createStackNavigator(
     ConfirmAddress,
     ConfirmAddressStep2,
     ConfirmAddressStep3,
+    ViewDataParticipationCertificate,
 
     GetTrusteeData,
     AskToConfirmYourAddress,
