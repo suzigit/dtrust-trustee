@@ -9,7 +9,8 @@
         "roleName": "Público Geral",
         "title": "Para todos",
         "askAddressConfirmation": "Peça confirmação de seu endereço",
-        "seeYourAddressCertificate": "Veja seu Certificado de Endereço",
+        "seeYourAddressCertificateQRCode": "Veja seu Certificado de Endereço (QR Code)",
+        "seeContentYourAddressCertificate": "Veja conteúdo de seu Certificado de Endereço",
         "connectWithTrustee": "Conecte com seu Certificador",
         "changeTrustee": "Mude seu Certificador"
     },
@@ -33,7 +34,7 @@
     }
   },
   "basicUser": {
-      "enterCompleteAddress": "Informe seu endereço para o certificado",
+      "completeAddress": "Seu endereço para o certificado",
       "askAddressCertificate": "Gere seu certificado apresentando esse QRCode a um Certificador",
       "addressCertificate": "Veja seu Certificado de Endereço",
       "getTrusteeData": "Leia os dados do Certificador",
@@ -65,6 +66,7 @@
       "greetings": "Olá,",
       "yourIdentifier": "Seu identitificador",
       "yourName": "Seu nome completo",
+      "issuedAt": "Emitido em (dd/mm/aaaa)",
       "secretCode": "Código secreto",
       "generateQRCode": "Gerar QRCode",
       "deleteYourCertificate": "Apague seu certificado",

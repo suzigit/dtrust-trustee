@@ -74,7 +74,11 @@ const HomeScreenBasicUser = ({ navigation }) => {
               <Text>{i18n.t('navigation.Trustee.roleName')}: {trusteeData}</Text>     
               <Button
                 onPress={() => navigation.navigate('ViewAddressCertificate')}
-                title={i18n.t('navigation.BasicUser.seeYourAddressCertificate')}
+                title={i18n.t('navigation.BasicUser.seeYourAddressCertificateQRCode')}
+              />
+              <Button
+                onPress={() => navigation.navigate('ViewDataAddressCertificate')}
+                title={i18n.t('navigation.BasicUser.seeContentYourAddressCertificate')}
               />
               <Button
                 onPress={() => {

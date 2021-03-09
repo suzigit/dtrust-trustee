@@ -40,7 +40,7 @@ const AskToConfirmYourAddress = ({ navigation }) => {
             onChangeText={setLocalName}
         />
 
-          <Text style={styles.textStyle}>{i18n.t('basicUser.enterCompleteAddress')}</Text>
+          <Text style={styles.textStyle}>{i18n.t('basicUser.completeAddress')}</Text>
           <TextInput style={styles.input} 
             autoCapitalize="words" 
             autoCorrect={false} 

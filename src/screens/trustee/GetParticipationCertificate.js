@@ -13,8 +13,8 @@ const GetParticipationCertificate = ({ navigation }) => {
   const { saveMyTrusteeCertificate } = useContext(Context);
 
   const updateCaller = (data) => {
-    navigation.navigate('ViewNewParticipationCertificate')
     saveMyTrusteeCertificate(data);
+    navigation.navigate('ViewNewParticipationCertificate');
   };
 
   return (

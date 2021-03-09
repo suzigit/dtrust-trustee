@@ -9,7 +9,8 @@
         "roleName": "General Public",
         "title": "For General Public",
         "askAddressConfirmation": "Ask to confirm your address",
-        "seeYourAddressCertificate": "See your Address Certificate",
+        "seeYourAddressCertificateQRCode": "See your Address Certificate (QR Code)",
+        "seeContentYourAddressCertificate": "See Content of your Address Certificate",
         "connectWithTrustee": "Connect with Certifier",
         "changeTrustee": "Change your Certifier"
     },
@@ -33,7 +34,7 @@
     }
   },
   "basicUser": {
-      "enterCompleteAddress": "Enter your complete address",
+      "completeAddress": "Your full address",
       "askAddressCertificate": "Generate a certificate showing this QRCode to a Certifier",
       "addressCertificate": "This is your Address Certificate",
       "getTrusteeData": "Get Certifier Data",
@@ -65,6 +66,7 @@
       "greetings": "Hi,",
       "yourIdentifier": "Your identifier",
       "yourName": "Your full name",
+      "issuedAt": "Issued at (dd/mm/yyyy)",
       "secretCode": "Secret code",
       "generateQRCode": "Generate QRCode",
       "deleteYourCertificate": "Delete your Certificate",
