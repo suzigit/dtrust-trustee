@@ -23,7 +23,7 @@ const ViewDataAddressCertificate = ({ navigation }) => {
             setName(certificateAsJson.data.subnm); 
             setAddress(certificateAsJson.data.addr);
             const d = new Date(certificateAsJson.data.iat);
-            const formattedD = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear();
+            const formattedD = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes();
             setDate(formattedD);
         });
 

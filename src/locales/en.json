@@ -68,7 +68,7 @@
       "greetings": "Hi,",
       "yourIdentifier": "Your identifier",
       "yourName": "Your full name",
-      "issuedAt": "Issued at (dd/mm/yyyy)",
+      "issuedAt": "Issued at (dd/mm/yyyy hh:mm)",
       "secretCode": "Secret code",
       "generateQRCode": "Generate QRCode",
       "deleteYourCertificate": "Delete your Certificate",

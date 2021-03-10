@@ -21,7 +21,7 @@ const ViewDataParticipationCertificate = ({ navigation }) => {
             setId(certificateAsJson.data.subkey);  
             setName(certificateAsJson.data.subnm); 
             const d = new Date(certificateAsJson.data.iat);
-            const formattedD = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear();
+            const formattedD = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes();
             setDate(formattedD);
         });
 

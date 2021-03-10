@@ -68,7 +68,7 @@
       "greetings": "Olá,",
       "yourIdentifier": "Seu identitificador",
       "yourName": "Seu nome completo",
-      "issuedAt": "Emitido em (dd/mm/aaaa)",
+      "issuedAt": "Emitido em (dd/mm/aaaa hh:mm)",
       "secretCode": "Código secreto",
       "generateQRCode": "Gerar QRCode",
       "deleteYourCertificate": "Apague seu certificado",
