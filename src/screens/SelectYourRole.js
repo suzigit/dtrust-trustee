@@ -1,46 +1,25 @@
 import React, {useState, useContext, useEffect} from 'react';
-import { Text, StyleSheet, View, Button } from 'react-native';
+import { Text, StyleSheet, View, Button, TouchableOpacity, Image } from 'react-native';
+import { Ionicons } from '@expo/vector-icons'; 
 
-import * as Localization from 'expo-localization';
+
 import i18n from 'i18n-js';
-import en from '../locales/en.json';
-import br from '../locales/br.json';
 import Context from '../context/Context';
 
 const SelectYourRole = ({ navigation }) => {
 
-  const [ loadedTranslation, setLoadedTranslation ] = useState(false);
   const [ role, setRole ] = useState('');
+  const [ name, setName ] = useState('');
 
-  const { getMyRole, saveMyRole }  = useContext(Context);
-
-
-  useEffect (() => {
-
-    i18n.translations = { en, br };   
-    // Set the locale once at the beginning of your app.
-    i18n.locale = 'en';//Localization.locale;
-    i18n.fallbacks = true;
-    setLoadedTranslation(true);
-
-  }, []);
-
-  const getMyRoleInThisScreen = async () => {
-    try {   
-        const value = await getMyRole();
-        setRole(value);
-      } catch(e) {
-        console.error("Error reading data of getMyRoleInThisScreen");
-        console.error(e);
-    }
-  } 
+  const { getMyRole, saveMyRole, getMyName }  = useContext(Context);
 
   const updateRole = (r) => {
     saveMyRole(r);
     setRole(r);
   }
 
-  getMyRoleInThisScreen();
+  getMyRole(setRole);
+  getMyName(setName);  
 
   return (
     <View>
@@ -71,14 +50,22 @@ const SelectYourRole = ({ navigation }) => {
       />
       </View>:
       <View>
-      <Text style={styles.text}>{i18n.t('navigation.welcome')} {i18n.t('navigation.'+ role+ '.roleName')}</Text>
+      { (name)? <Text style={styles.headerName}>{i18n.t('general.greetings')} {name}</Text> :  <Text></Text>}
+        <View style={styles.headerRole}>
+          <Text>{i18n.t('navigation.yourRole')} {i18n.t('navigation.'+ role+ '.roleName')}</Text>
+          <TouchableOpacity onPress={() => {
+                updateRole("");
+        }}>
+                <Ionicons name="settings-outline" size={24} color="black" />
+          </TouchableOpacity>
+        </View>
 
-      <Button
-        onPress={() => {
-          navigation.navigate('HomeScreen' + role);
-        }}
-        title={i18n.t('navigation.seeMyMenu')}
-      />
+        <TouchableOpacity onPress={() => {
+                    navigation.navigate('HomeScreen' + role)
+          }}>
+          <Text style={styles.enter}>Enter</Text>
+        </TouchableOpacity>
+
 
       <Button
         onPress={() => {
@@ -90,17 +77,48 @@ const SelectYourRole = ({ navigation }) => {
       </View>
 
     }
+
+      <View style={styles.center}>
+        <Image
+          style={styles.logo}
+          source={require('../img/defi4good.png')}
+        />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  text: {
+  headerName: {
     fontSize: 20,
     backgroundColor: 'blue',
     color: 'white',
+    textAlign: 'left',
+  },
+  headerRole: {
+    fontSize: 14,
+    backgroundColor: 'blue',
+    color: 'white',
+    textAlign: 'left',
+  },
+  enter: {
+    backgroundColor: '#3A59FF',
+    color: 'white',
+    width: "75%",
+    borderRadius: 25,
     textAlign: 'center',
-    marginTop: 20
+    fontWeight: 'bold',
+    marginLeft: '11%',
+    padding: "2%",
+    fontSize:  27,
+    marginTop: '10%'
+  },
+  logo: {
+    width: 250,
+    height: 250,
+  },
+  center: {
+    alignItems: 'center'
   }
 });
 

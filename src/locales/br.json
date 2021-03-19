@@ -1,13 +1,15 @@
 {
+  "nameApp": "Web de Certificadores",
   "navigation": {
     "home": "Início",
     "selectRole": "Selecione seu Perfil de Uso",
-    "welcome": "Bem-vindo, seu perfil é",
-    "seeMyMenu": "Ver meu menu",
+    "yourRole": "Seu papel",
+    "welcome": "Bem-vindo",
+    "seeMyMenu": "Clique aqui para começar!",
     "changeRole": "Mude meu perfil",
     "BasicUser": {
-        "roleName": "Público Geral",
-        "title": "Para todos",
+        "roleName": "Usuário Comum",
+        "title": "Para usuário comum",
         "askAddressConfirmation": "Peça confirmação de seu endereço",
         "seeYourAddressCertificateQRCode": "Veja seu Certificado de Endereço (QRCode)",
         "seeContentYourAddressCertificate": "Veja conteúdo de seu Certificado de Endereço",
@@ -69,7 +71,7 @@
       "yourIdentifier": "Seu identitificador",
       "yourName": "Seu nome completo",
       "issuedAt": "Emitido em (dd/mm/aaaa hh:mm)",
-      "secretCode": "Código secreto",
+      "secretCode": "Código Secreto recebido",
       "generateQRCode": "Gerar QRCode",
       "deleteYourCertificate": "Apague seu certificado",
       "startToUseCertificate": "Comece a usar seu novo certificado",

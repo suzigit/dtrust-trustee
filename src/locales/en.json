@@ -1,13 +1,15 @@
 {
+  "nameApp": "Web of Certifiers",
   "navigation": {
     "home": "Home",
     "selectRole": "Select your role",
-    "welcome": "Welcome, your role is",
-    "seeMyMenu": "See my menu",
+    "yourRole": "Your role:",
+    "welcome": "Welcome",
+    "seeMyMenu": "Click here to start!",
     "changeRole": "Chenge my selected role",
     "BasicUser": {
-        "roleName": "General Public",
-        "title": "For General Public",
+        "roleName": "Standard User",
+        "title": "For Standard User",
         "askAddressConfirmation": "Ask to confirm your address",
         "seeYourAddressCertificateQRCode": "See your Address Certificate (QR Code)",
         "seeContentYourAddressCertificate": "See Content of your Address Certificate",
@@ -69,7 +71,7 @@
       "yourIdentifier": "Your identifier",
       "yourName": "Your full name",
       "issuedAt": "Issued at (dd/mm/yyyy hh:mm)",
-      "secretCode": "Secret code",
+      "secretCode": "Your received Secret Code",
       "generateQRCode": "Generate QRCode",
       "deleteYourCertificate": "Delete your Certificate",
       "startToUseCertificate": "Start to use your new Certificate",

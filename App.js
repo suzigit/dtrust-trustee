@@ -42,6 +42,17 @@ import ViewNewParticipationCertificate from './src/screens/trustee/ViewNewPartic
 import ViewParticipationCertificateAsRoot from './src/screens/rootTrustee/ViewParticipationCertificateAsRoot'
 
 import ErrorState from './src/screens/ErrorState';
+import i18n from 'i18n-js';
+import en from './src/locales/en.json';
+import br from './src/locales/br.json';
+//import * as Localization from 'expo-localization';
+
+i18n.translations = { en, br };   
+// Set the locale once at the beginning of your app.
+i18n.locale = 'en';//Localization.locale;
+i18n.fallbacks = true;
+
+const nameApp = i18n.t('nameApp');
 
 const navigator = createStackNavigator(
   {
@@ -82,7 +93,7 @@ const navigator = createStackNavigator(
   {
     initialRouteName: 'SelectYourRole',
     defaultNavigationOptions: {
-      title: 'Confio',
+      title: nameApp,
       headerBackTitle: "" 
     },
   }

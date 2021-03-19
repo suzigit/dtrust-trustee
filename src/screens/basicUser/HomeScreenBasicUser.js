@@ -1,16 +1,20 @@
 import React, {useState, useContext, useEffect} from 'react';
-import { Text, StyleSheet, View, Button } from 'react-native';
+import { Text, StyleSheet, View, TouchableOpacity, Button, Icon } from 'react-native';
 import Context from '../../context/Context';
 import i18n from 'i18n-js';
+import { Ionicons } from '@expo/vector-icons'; 
+
 
 const HomeScreenBasicUser = ({ navigation }) => {
 
   const [ name, setName ] = useState('');
+  const [ role, setRole ] = useState('');
+
   const [ data, setData ] = useState('');
   const [ trusteeData, setTrusteeData ] = useState('');
 
   const { getMyAddressCertificate, saveMyAddressCertificate, 
-    saveMyTrusteeInfo, getMyTrusteeInfo, getMyName } = useContext(Context);
+    saveMyTrusteeInfo, getMyTrusteeInfo, getMyName, getMyRole } = useContext(Context);
 
     useEffect (() => {
 
@@ -32,6 +36,7 @@ const HomeScreenBasicUser = ({ navigation }) => {
       });
 
       getMyName(setName);  
+      getMyRole(setRole);
   
     }, []);
   
@@ -40,11 +45,20 @@ const HomeScreenBasicUser = ({ navigation }) => {
       saveMyTrusteeInfo("");
     });
   
+//      <Text style={styles.text}>{i18n.t('navigation.BasicUser.title')}</Text>
 
   return (
     <View>
-      <Text style={styles.text}>{i18n.t('navigation.BasicUser.title')}</Text>
       { (name)? <Text>{i18n.t('general.greetings')} {name}</Text> :  <Text></Text>}
+      { (role)? <View>
+            <Text>{i18n.t('navigation.yourRole')} {i18n.t('navigation.'+ role+ '.roleName')}</Text>
+            <TouchableOpacity onPress={() => {
+                navigation.navigate('SelectYourRole')
+              }} title={i18n.t('navigation.BasicUser.changeTrustee')}>
+            <Ionicons name="settings-outline" size={24} color="black" />
+            </TouchableOpacity>
+            </View>
+      :  <Text></Text>}
 
       { (!data) ? 
           <View>
@@ -60,7 +74,7 @@ const HomeScreenBasicUser = ({ navigation }) => {
                 onPress={() => navigation.navigate('AskToConfirmYourAddress')}
                 title={i18n.t('navigation.BasicUser.askAddressConfirmation')}
               />
-              <Button
+             <Button
                 onPress={() => {
                   clearTrustee();
                 }}
