@@ -11,10 +11,10 @@
         "roleName": "Standard User",
         "title": "For Standard User",
         "askAddressConfirmation": "Ask to confirm your address",
-        "seeYourAddressCertificateQRCode": "See your Address Certificate (QR Code)",
+        "seeYourAddressCertificateQRCode": "See QRCode of your Address Certificate",
         "seeContentYourAddressCertificate": "See Content of your Address Certificate",
         "connectWithTrustee": "Connect with Certifier",
-        "changeTrustee": "Change your Certifier"
+        "changeTrustee": "Click here to change your Certifier"
     },
     "Trustee": {
         "roleName": "Certifier",
@@ -23,7 +23,7 @@
         "connectWithManager": "Connect with Certifier Manager",
         "changeRootTrustee": "Change your Certifier Manager",
         "askToParticipate": "Ask to be a Certifier",
-        "seeYourParticipationCertificateQRCode": "See your Certificate (QRCode)",
+        "seeYourParticipationCertificateQRCode": "See QRCode of your Certificate",
         "seeContentYourParticipationCertificate": "See Content of your Certificate"
     },
     "RootTrustee": {
@@ -33,7 +33,7 @@
         "askToBeRootTrustee": "Ask to be a Certifier Manager",
         "askToBeRootTrusteeAgain": "Ask to be a Certifier Manager (AGAIN)",
         "receiveParticipationCertificate": "Receive your Certificate",
-        "seeYourParticipationCertificateQRCode": "See your Certificate (QRCode)",
+        "seeYourParticipationCertificateQRCode": "See QRCode of your Certificate",
         "seeContentYourParticipationCertificate": "See Content of your Certificate"
     }
   },

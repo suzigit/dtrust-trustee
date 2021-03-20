@@ -61,7 +61,6 @@ const styles = StyleSheet.create({
     }, 
     certificateStyle: {
       fontSize: 20,
-      color: 'blue'
     }   
   });
 

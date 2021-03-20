@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
   },
   link: {
     color: '#0068D6',
+    textDecorationLine: 'underline'
   },
   title: {
     marginTop: '10%',

@@ -7,7 +7,6 @@ import { Ionicons } from '@expo/vector-icons';
 
 const HomeScreenBasicUser = ({ navigation }) => {
 
-  const [ name, setName ] = useState('');
   const [ role, setRole ] = useState('');
 
   const [ data, setData ] = useState('');
@@ -35,7 +34,6 @@ const HomeScreenBasicUser = ({ navigation }) => {
         setTrusteeData(trusteeName);
       });
 
-      getMyName(setName);  
       getMyRole(setRole);
   
     }, []);
@@ -45,57 +43,69 @@ const HomeScreenBasicUser = ({ navigation }) => {
       saveMyTrusteeInfo("");
     });
   
-//      <Text style={styles.text}>{i18n.t('navigation.BasicUser.title')}</Text>
 
   return (
     <View>
-      { (name)? <Text>{i18n.t('general.greetings')} {name}</Text> :  <Text></Text>}
       { (role)? <View>
-            <Text>{i18n.t('navigation.yourRole')} {i18n.t('navigation.'+ role+ '.roleName')}</Text>
+            <Text style={styles.headerInfo}>{i18n.t('navigation.yourRole')} {i18n.t('navigation.'+ role+ '.roleName')}</Text>
             </View>
       :  <Text></Text>}
 
       { (!data) ? 
           <View>
             { (!trusteeData) ?
-                <Button
-                onPress={() => navigation.navigate('GetTrusteeData')}
-                title={i18n.t('navigation.BasicUser.connectWithTrustee')}
-                />
+
+                <TouchableOpacity onPress={() => {
+                  navigation.navigate('GetTrusteeData')
+                }}>
+                <Text style={styles.enter}>{i18n.t('navigation.BasicUser.connectWithTrustee')} </Text>
+                </TouchableOpacity>
             :
               <View>
-              <Text>{i18n.t('navigation.Trustee.roleName')}: {trusteeData}</Text>
-              <Button
-                onPress={() => navigation.navigate('AskToConfirmYourAddress')}
-                title={i18n.t('navigation.BasicUser.askAddressConfirmation')}
-              />
-             <Button
-                onPress={() => {
-                  clearTrustee();
-                }}
-                title={i18n.t('navigation.BasicUser.changeTrustee')}
-              />
+                  <Text style={styles.headerInfo}>{i18n.t('navigation.Trustee.roleName')}: {trusteeData}</Text>
+
+                  <TouchableOpacity onPress={() => {
+                              navigation.navigate('AskToConfirmYourAddress')
+                    }}>
+                  <Text style={styles.enter}>{i18n.t('navigation.BasicUser.askAddressConfirmation')} </Text>
+                  </TouchableOpacity>
+
+                  <View style={styles.centerBelowButton}>
+                  <TouchableOpacity onPress={() => {
+                              clearTrustee();
+                    }}>
+                  <Text style={styles.link}>{i18n.t('navigation.BasicUser.changeTrustee')} </Text>
+                  </TouchableOpacity>
+                  </View>
               </View>
             }
           </View>
         :
           <View> 
-              <Text>{i18n.t('navigation.Trustee.roleName')}: {trusteeData}</Text>     
-              <Button
-                onPress={() => navigation.navigate('ViewAddressCertificate')}
-                title={i18n.t('navigation.BasicUser.seeYourAddressCertificateQRCode')}
-              />
-              <Button
-                onPress={() => navigation.navigate('ViewDataAddressCertificate')}
-                title={i18n.t('navigation.BasicUser.seeContentYourAddressCertificate')}
-              />
-              <Button
-                onPress={() => {
-                  saveMyAddressCertificate("");
-                  setData("");
-                }}
-                title={i18n.t('general.deleteYourCertificate')}
-              />
+              <Text style={styles.headerInfo}>{i18n.t('navigation.Trustee.roleName')}: {trusteeData}</Text>     
+
+
+              <TouchableOpacity onPress={() => {
+                              navigation.navigate('ViewAddressCertificate')
+                    }}>
+                  <Text style={styles.enter}>{i18n.t('navigation.BasicUser.seeYourAddressCertificateQRCode')} </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => {
+                              navigation.navigate('ViewDataAddressCertificate')
+                    }}>
+                  <Text style={styles.enter}>{i18n.t('navigation.BasicUser.seeContentYourAddressCertificate')} </Text>
+              </TouchableOpacity>
+
+              <View style={styles.centerBelowButton}>
+                  <TouchableOpacity onPress={() => {
+                               saveMyAddressCertificate("");
+                               setData("");
+                    }}>
+                  <Text style={styles.link}>{i18n.t('general.deleteYourCertificate')} </Text>
+                  </TouchableOpacity>
+                  </View>
+
           </View>
 
         }
@@ -104,13 +114,36 @@ const HomeScreenBasicUser = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  text: {
-    fontSize: 20,
-    backgroundColor: 'blue',
+
+  headerInfo: {
+    fontSize: 16,
+    color: '#0068D6',
+    textAlign: 'left',
+    paddingLeft: '2%',
+  },
+
+  enter: {
+    backgroundColor: '#0068D6',
     color: 'white',
+    width: "75%",
+    borderRadius: 25,
     textAlign: 'center',
-    marginTop: 20
-  }
+    fontWeight: 'bold',
+    marginLeft: '11%',
+    padding: "2%",
+    fontSize:  27,
+    marginTop: '10%'
+  },
+  link: {
+    color: '#0068D6',
+    textDecorationLine: 'underline'
+  },
+  centerBelowButton: {
+    alignItems: 'center',
+    marginTop: '2%'
+  },
+
+
 });
 
 export default HomeScreenBasicUser;
