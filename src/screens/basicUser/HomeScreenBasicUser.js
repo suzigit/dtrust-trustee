@@ -1,8 +1,7 @@
 import React, {useState, useContext, useEffect} from 'react';
-import { Text, StyleSheet, View, TouchableOpacity, Button, Icon } from 'react-native';
+import { Text, StyleSheet, View, TouchableOpacity } from 'react-native';
 import Context from '../../context/Context';
 import i18n from 'i18n-js';
-import { Ionicons } from '@expo/vector-icons'; 
 
 
 const HomeScreenBasicUser = ({ navigation }) => {
@@ -13,7 +12,7 @@ const HomeScreenBasicUser = ({ navigation }) => {
   const [ trusteeData, setTrusteeData ] = useState('');
 
   const { getMyAddressCertificate, saveMyAddressCertificate, 
-    saveMyTrusteeInfo, getMyTrusteeInfo, getMyName, getMyRole } = useContext(Context);
+    saveMyTrusteeInfo, getMyTrusteeInfo, getMyRole } = useContext(Context);
 
     useEffect (() => {
 
@@ -70,13 +69,13 @@ const HomeScreenBasicUser = ({ navigation }) => {
                   <Text style={styles.enter}>{i18n.t('navigation.BasicUser.askAddressConfirmation')} </Text>
                   </TouchableOpacity>
 
-                  <View style={styles.centerBelowButton}>
+
                   <TouchableOpacity onPress={() => {
                               clearTrustee();
-                    }}>
-                  <Text style={styles.link}>{i18n.t('navigation.BasicUser.changeTrustee')} </Text>
+                  }}>
+                  <Text style={styles.enterCare}>{i18n.t('navigation.BasicUser.changeTrustee')} </Text>
                   </TouchableOpacity>
-                  </View>
+
               </View>
             }
           </View>
@@ -97,14 +96,13 @@ const HomeScreenBasicUser = ({ navigation }) => {
                   <Text style={styles.enter}>{i18n.t('navigation.BasicUser.seeContentYourAddressCertificate')} </Text>
               </TouchableOpacity>
 
-              <View style={styles.centerBelowButton}>
-                  <TouchableOpacity onPress={() => {
-                               saveMyAddressCertificate("");
-                               setData("");
-                    }}>
-                  <Text style={styles.link}>{i18n.t('general.deleteYourCertificate')} </Text>
-                  </TouchableOpacity>
-                  </View>
+              <TouchableOpacity onPress={() => {
+                        saveMyAddressCertificate("");
+                        setData("");
+              }}>
+              <Text style={styles.enterCare}>{i18n.t('general.deleteYourCertificate')} </Text>
+              </TouchableOpacity>
+
 
           </View>
 
@@ -134,16 +132,19 @@ const styles = StyleSheet.create({
     fontSize:  27,
     marginTop: '10%'
   },
-  link: {
-    color: '#0068D6',
-    textDecorationLine: 'underline'
-  },
-  centerBelowButton: {
-    alignItems: 'center',
-    marginTop: '2%'
-  },
 
-
+  enterCare: {
+    backgroundColor: '#BE3144',
+    color: 'white',
+    width: "75%",
+    borderRadius: 25,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginLeft: '11%',
+    padding: "2%",
+    fontSize:  27,
+    marginTop: '10%'
+  }
 });
 
 export default HomeScreenBasicUser;

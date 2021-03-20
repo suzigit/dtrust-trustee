@@ -1,16 +1,16 @@
 import React, {useState, useContext, useEffect} from 'react';
-import { Text, StyleSheet, View, Button } from 'react-native';
+import { Text, StyleSheet, View, TouchableOpacity } from 'react-native';
 import Context from '../../context/Context';
 import i18n from 'i18n-js';
 
 const HomeScreenTrustee = ({ navigation }) => {
     
-  const [ name, setName ] = useState('');
+  const [ role, setRole ] = useState('');
   const [ data, setData ] = useState('');
   const [ rootTrusteeData, setRootTrusteeData ] = useState('');
 
   const { getMyTrusteeCertificate, saveMyTrusteeCertificate, 
-    saveMyRootTrusteeInfo, getMyRootTrusteeInfo, getMyName } = useContext(Context);
+    saveMyRootTrusteeInfo, getMyRootTrusteeInfo, getMyRole } = useContext(Context);
    
   useEffect (() => {
 
@@ -30,8 +30,8 @@ const HomeScreenTrustee = ({ navigation }) => {
       } 
       setRootTrusteeData(trusteeName);
     });
+    getMyRole(setRole);
 
-    getMyName(setName);
 
   }, []);
 
@@ -42,56 +42,72 @@ const HomeScreenTrustee = ({ navigation }) => {
 
   return (
     <View>
-      <Text style={styles.text}>{i18n.t('navigation.Trustee.title')}</Text>
-      { (name)? <Text>{i18n.t('general.greetings')} {name}</Text> :  <Text></Text>}
+
+    { (role)? <View>
+            <Text style={styles.headerInfo}>{i18n.t('navigation.yourRole')} {i18n.t('navigation.'+ role+ '.roleName')}</Text>
+            </View>
+      :  <Text></Text>}
 
     { (!data) ? 
     <View>
+
         { (!rootTrusteeData) ?
-        <Button
-        onPress={() => navigation.navigate('GetRootTrusteeData')}
-        title={i18n.t('navigation.Trustee.connectWithManager')}
-        />
+
+        <TouchableOpacity onPress={() => {
+          navigation.navigate('GetRootTrusteeData')
+        }}>
+        <Text style={styles.enter}>{i18n.t('navigation.Trustee.connectWithManager')} </Text>
+        </TouchableOpacity>
+
         :
         <View>
-          <Text>{i18n.t('navigation.RootTrustee.roleName')}: {rootTrusteeData}</Text>
-          <Button
-          onPress={() => navigation.navigate('TrusteeRegistration')}
-          title={i18n.t('navigation.Trustee.askToParticipate')}
-          />
+          <Text style={styles.headerInfo}>{i18n.t('navigation.RootTrustee.roleName')}: {rootTrusteeData}</Text>
 
-         <Button
-          onPress={() => {
-            clearRootTrustee();
-          }}
-          title={i18n.t('navigation.Trustee.changeRootTrustee')}
-        />
+
+          <TouchableOpacity onPress={() => {
+          navigation.navigate('TrusteeRegistration')
+        }}>
+        <Text style={styles.enter}>{i18n.t('navigation.Trustee.askToParticipate')} </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => {
+          clearRootTrustee();
+        }}>
+        <Text style={styles.enterCare}>{i18n.t('navigation.Trustee.changeRootTrustee')} </Text>
+        </TouchableOpacity>
 
         </View>
       }
     </View>
     :
     <View>
-      <Text>{i18n.t('navigation.RootTrustee.roleName')}: {rootTrusteeData}</Text>
-      <Button
-        onPress={() => navigation.navigate('ConfirmAddress')}
-        title={i18n.t('navigation.Trustee.confirmAddress')}
-      />
-      <Button
-        onPress={() => navigation.navigate('ViewParticipationCertificate')}
-        title={i18n.t('navigation.Trustee.seeYourParticipationCertificateQRCode')}
-      />
-      <Button
-        onPress={() => navigation.navigate('ViewDataParticipationCertificate')}
-        title={i18n.t('navigation.Trustee.seeContentYourParticipationCertificate')}
-      />
-      <Button
-        onPress={() => {
-          saveMyTrusteeCertificate("");
-          setData("");
-        }}
-        title={i18n.t('general.deleteYourCertificate')}
-      />
+      <Text style={styles.headerInfo}>{i18n.t('navigation.RootTrustee.roleName')}: {rootTrusteeData}</Text>
+
+
+      <TouchableOpacity onPress={() => {
+          navigation.navigate('ConfirmAddress')
+        }}>
+        <Text style={styles.enter}>{i18n.t('navigation.Trustee.confirmAddress')} </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => {
+          navigation.navigate('ViewParticipationCertificate')
+        }}>
+        <Text style={styles.enter}>{i18n.t('navigation.Trustee.seeYourParticipationCertificateQRCode')} </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => {
+          navigation.navigate('ViewDataParticipationCertificate')
+        }}>
+        <Text style={styles.enter}>{i18n.t('navigation.Trustee.seeContentYourParticipationCertificate')} </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => {
+              saveMyTrusteeCertificate("");
+              setData("");
+        }}>
+        <Text style={styles.enterCare}>{i18n.t('general.deleteYourCertificate')} </Text>
+        </TouchableOpacity>
 
     </View>
 
@@ -102,13 +118,39 @@ const HomeScreenTrustee = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  text: {
-    fontSize: 20,
-    backgroundColor: 'blue',
+
+  headerInfo: {
+    fontSize: 16,
+    color: '#0068D6',
+    textAlign: 'left',
+    paddingLeft: '2%',
+  },
+
+  enter: {
+    backgroundColor: '#0068D6',
     color: 'white',
+    width: "75%",
+    borderRadius: 25,
     textAlign: 'center',
-    marginTop: 20
+    fontWeight: 'bold',
+    marginLeft: '11%',
+    padding: "2%",
+    fontSize:  27,
+    marginTop: '10%'
+  },
+  enterCare: {
+    backgroundColor: '#BE3144',
+    color: 'white',
+    width: "75%",
+    borderRadius: 25,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginLeft: '11%',
+    padding: "2%",
+    fontSize:  27,
+    marginTop: '10%'
   }
+
 });
 
 export default HomeScreenTrustee;

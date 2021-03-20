@@ -1,5 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react';
-import { Text, StyleSheet, View, Button } from 'react-native';
+import { Text, StyleSheet, View, Button, TouchableOpacity } from 'react-native';
 import Context from '../../context/Context';
 
 
@@ -7,10 +7,11 @@ import i18n from 'i18n-js';
 
 const HomeScreenRootTrustee = ({ navigation }) => {
 
+  const [ role, setRole ] = useState('');
   const [ data, setData ] = useState('');
   const [ name, setName ] = useState('');
 
-  const { getMyRootCertificate, saveMyRootCertificate, getMyName } = useContext(Context);
+  const { getMyRootCertificate, saveMyRootCertificate, getMyName, getMyRole } = useContext(Context);
 
   useEffect (() => {
 
@@ -20,57 +21,67 @@ const HomeScreenRootTrustee = ({ navigation }) => {
     });
 
     getMyName(setName);  
+    getMyRole(setRole);
 
   }, []);
 
     
   return (
     <View>
-
-      <Text style={styles.text}>{i18n.t('navigation.RootTrustee.title')}</Text>
-      { (name)? <Text>{i18n.t('general.greetings')} {name}</Text> :  <Text></Text>}
+      { (role)? <View>
+            <Text style={styles.headerInfo}>{i18n.t('navigation.yourRole')} {i18n.t('navigation.'+ role+ '.roleName')}</Text>
+            </View>
+      :  <Text></Text>}
 
       { (!data) ? 
       <View>
 
-      { (!name)?
-      <Button
-        onPress={() => navigation.navigate('Registration')}
-        title={i18n.t('navigation.RootTrustee.askToBeRootTrustee')}
-      />
-      :
-      <Button
-        onPress={() => navigation.navigate('Registration')}
-        title={i18n.t('navigation.RootTrustee.askToBeRootTrusteeAgain')}
-      />
-      }
+          <TouchableOpacity onPress={() => {
+            navigation.navigate('Registration')
+          }}>
+              { (!name)?
+                <Text style={styles.enter}>{i18n.t('navigation.RootTrustee.askToBeRootTrustee')} </Text>
+              :
+                <Text style={styles.enter}>{i18n.t('navigation.RootTrustee.askToBeRootTrusteeAgain')} </Text>
+              }
+          </TouchableOpacity>
 
-      <Button
-        onPress={() => navigation.navigate('GetParticipationCertificateAsRoot')}
-        title={i18n.t('navigation.RootTrustee.receiveParticipationCertificate')}
-      />
+          <TouchableOpacity onPress={() => {
+            navigation.navigate('GetParticipationCertificateAsRoot')
+          }}>
+                <Text style={styles.enter}>{i18n.t('navigation.RootTrustee.receiveParticipationCertificate')} </Text>
+          </TouchableOpacity>
+
       </View>
       :
       <View>
-      <Button
-        onPress={() => navigation.navigate('AddTrustee')}
-        title={i18n.t('navigation.RootTrustee.addTrustee')}
-      />
-      <Button
-        onPress={() => navigation.navigate('ViewParticipationCertificateAsRoot')}
-        title={i18n.t('navigation.RootTrustee.seeYourParticipationCertificateQRCode')}
-      />
-      <Button
-        onPress={() => navigation.navigate('ViewDataParticipationCertificateAsRoot')}
-        title={i18n.t('navigation.RootTrustee.seeContentYourParticipationCertificate')}
-      />
-      <Button
-        onPress={() => {
-          saveMyRootCertificate("");
-          setData("");
-        }}
-        title={i18n.t('general.deleteYourCertificate')}
-      />
+
+          <TouchableOpacity onPress={() => {
+            navigation.navigate('AddTrustee')
+          }}>
+                <Text style={styles.enter}>{i18n.t('navigation.RootTrustee.addTrustee')} </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => {
+            navigation.navigate('ViewParticipationCertificateAsRoot')
+          }}>
+                <Text style={styles.enter}>{i18n.t('navigation.RootTrustee.seeYourParticipationCertificateQRCode')} </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => {
+            navigation.navigate('ViewDataParticipationCertificateAsRoot')
+          }}>
+                <Text style={styles.enter}>{i18n.t('navigation.RootTrustee.seeContentYourParticipationCertificate')} </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => {
+              saveMyRootCertificate("");
+              setData("");
+          }}>
+            <Text style={styles.enterCare}>{i18n.t('general.deleteYourCertificate')} </Text>
+          </TouchableOpacity>
+
+
       </View>
       }
     </View>
@@ -78,12 +89,37 @@ const HomeScreenRootTrustee = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  text: {
-    fontSize: 20,
-    backgroundColor: 'blue',
+  headerInfo: {
+    fontSize: 16,
+    color: '#0068D6',
+    textAlign: 'left',
+    paddingLeft: '2%',
+  },
+
+  enter: {
+    backgroundColor: '#0068D6',
     color: 'white',
+    width: "75%",
+    borderRadius: 25,
     textAlign: 'center',
-    marginTop: 20
+    fontWeight: 'bold',
+    marginLeft: '11%',
+    padding: "2%",
+    fontSize:  27,
+    marginTop: '10%'
+  },
+
+  enterCare: {
+    backgroundColor: '#BE3144',
+    color: 'white',
+    width: "75%",
+    borderRadius: 25,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginLeft: '11%',
+    padding: "2%",
+    fontSize:  27,
+    marginTop: '10%'
   }
 });
 

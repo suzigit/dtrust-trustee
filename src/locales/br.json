@@ -9,7 +9,6 @@
     "changeRole": "Clique aqui para mudar perfil",
     "BasicUser": {
         "roleName": "Usuário Comum",
-        "title": "Para usuário comum",
         "askAddressConfirmation": "Peça confirmação de seu endereço",
         "seeYourAddressCertificateQRCode": "Veja QRCode de seu Certificado de Endereço",
         "seeContentYourAddressCertificate": "Veja conteúdo de seu Certificado de Endereço",
@@ -18,7 +17,6 @@
     },
     "Trustee": {
         "roleName": "Certificadores",
-        "title": "Para Certificadores",
         "confirmAddress": "Confirme um endereço",
         "connectWithManager": "Conecte com Líder de Certificadores",
         "changeRootTrustee": "Mude seu Lúder de Certificadores",
@@ -28,7 +26,6 @@
     },
     "RootTrustee": {
         "roleName": "Líder de Certificadores",
-        "title": "Para o Líder de Certificadores",
         "addTrustee": "Adicione um Certificador",
         "askToBeRootTrustee": "Peça para ser um Líder de Certificadores",
         "askToBeRootTrusteeAgain": "Peça para ser um Líder de Certificadores (NOVAMENTE)",
@@ -67,7 +64,6 @@
       "errorTypingSecretCode": "Você digitou a palavra secreta errada. O pedido não foi enviado."
     },
   "general" : {
-      "greetings": "Olá,",
       "yourIdentifier": "Seu identitificador",
       "yourName": "Seu nome completo",
       "issuedAt": "Emitido em (dd/mm/aaaa hh:mm)",

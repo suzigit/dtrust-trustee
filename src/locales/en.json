@@ -9,7 +9,6 @@
     "changeRole": "Click here to change role",
     "BasicUser": {
         "roleName": "Standard User",
-        "title": "For Standard User",
         "askAddressConfirmation": "Ask to confirm your address",
         "seeYourAddressCertificateQRCode": "See QRCode of your Address Certificate",
         "seeContentYourAddressCertificate": "See Content of your Address Certificate",
@@ -18,7 +17,6 @@
     },
     "Trustee": {
         "roleName": "Certifier",
-        "title": "For Certifiers",
         "confirmAddress": "Confirm an address",
         "connectWithManager": "Connect with Certifier Manager",
         "changeRootTrustee": "Change your Certifier Manager",
@@ -28,7 +26,6 @@
     },
     "RootTrustee": {
         "roleName": "Certifier Manager",
-        "title": "For the Certifier Manager",
         "addTrustee": "Add a Certifier",
         "askToBeRootTrustee": "Ask to be a Certifier Manager",
         "askToBeRootTrusteeAgain": "Ask to be a Certifier Manager (AGAIN)",
@@ -67,7 +64,6 @@
       "errorTypingSecretCode": "You typed a wrong security code. The request was not sent."
     },
   "general" : {
-      "greetings": "Hi,",
       "yourIdentifier": "Your identifier",
       "yourName": "Your full name",
       "issuedAt": "Issued at (dd/mm/yyyy hh:mm)",
