@@ -5,8 +5,8 @@
     "selectRole": "Select your role",
     "yourRole": "Your role:",
     "welcome": "Welcome",
-    "seeMyMenu": "Click here to start!",
-    "changeRole": "Chenge my selected role",
+    "seeMyMenu": "Enter",
+    "changeRole": "Click here to change role",
     "BasicUser": {
         "roleName": "Standard User",
         "title": "For Standard User",

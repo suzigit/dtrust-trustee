@@ -1,6 +1,5 @@
-import React, {useState, useContext, useEffect} from 'react';
-import { Text, StyleSheet, View, Button, TouchableOpacity, Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; 
+import React, {useState, useContext} from 'react';
+import { Text, StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 
 
 import i18n from 'i18n-js';
@@ -9,9 +8,8 @@ import Context from '../context/Context';
 const SelectYourRole = ({ navigation }) => {
 
   const [ role, setRole ] = useState('');
-  const [ name, setName ] = useState('');
 
-  const { getMyRole, saveMyRole, getMyName }  = useContext(Context);
+  const { getMyRole, saveMyRole }  = useContext(Context);
 
   const updateRole = (r) => {
     saveMyRole(r);
@@ -19,90 +17,68 @@ const SelectYourRole = ({ navigation }) => {
   }
 
   getMyRole(setRole);
-  getMyName(setName);  
 
   return (
     <View>
 
+      <View style={styles.center}>
+        <Image
+          style={styles.logo}
+          source={require('../img/cert.png')}
+        />
+      </View>
+
+      
     { (!role) ? 
-      <View>
-      <Text style={styles.text}>{i18n.t('navigation.selectRole')}</Text>
-      <Button
-        onPress={() => {
-          updateRole("BasicUser");
-          navigation.navigate('HomeScreenBasicUser')
-        }}
-        title={i18n.t('navigation.BasicUser.roleName')}
-      />
-      <Button
-        onPress={() => {
-          updateRole("Trustee");
-          navigation.navigate('HomeScreenTrustee')
-        }}
-        title={i18n.t('navigation.Trustee.roleName')}
-      />
-      <Button
-        onPress={() => {
-          updateRole("RootTrustee");
-          navigation.navigate('HomeScreenRootTrustee')
-        }}
-        title={i18n.t('navigation.RootTrustee.roleName')}
-      />
-      </View>:
-      <View>
-      { (name)? <Text style={styles.headerName}>{i18n.t('general.greetings')} {name}</Text> :  <Text></Text>}
-        <View style={styles.headerRole}>
-          <Text>{i18n.t('navigation.yourRole')} {i18n.t('navigation.'+ role+ '.roleName')}</Text>
-          <TouchableOpacity onPress={() => {
-                updateRole("");
-        }}>
-                <Ionicons name="settings-outline" size={24} color="black" />
+      <View >
+      <Text style={styles.title}>{i18n.t('navigation.selectRole')}</Text>
+          <TouchableOpacity
+            onPress={() => {
+              updateRole("BasicUser");
+            }}
+          ><Text style={styles.enter}>{i18n.t('navigation.BasicUser.roleName')}</Text>
           </TouchableOpacity>
-        </View>
-
-        <TouchableOpacity onPress={() => {
-                    navigation.navigate('HomeScreen' + role)
-          }}>
-          <Text style={styles.enter}>Enter</Text>
-        </TouchableOpacity>
-
-
-      <Button
-        onPress={() => {
-          updateRole("");
-        }}
-        title={i18n.t('navigation.changeRole')}
-      />
+          <TouchableOpacity
+            onPress={() => {
+              updateRole("Trustee");
+            }}
+          ><Text style={styles.enter}>{i18n.t('navigation.Trustee.roleName')}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              updateRole("RootTrustee");
+            }}
+          ><Text style={styles.enter}>{i18n.t('navigation.RootTrustee.roleName')}</Text>
+          </TouchableOpacity>
+      </View>:
+      <View >
+          <View>
+            <TouchableOpacity onPress={() => {
+                        navigation.navigate('HomeScreen' + role)
+              }}>
+            <Text style={styles.enter}>{i18n.t('navigation.seeMyMenu')} </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.center}>
+              <Text>{i18n.t('navigation.yourRole')} {i18n.t('navigation.'+ role+ '.roleName')}</Text>
+              <TouchableOpacity onPress={() => {
+                            updateRole("");
+                      }}><Text style={styles.link}>{i18n.t('navigation.changeRole')}</Text>
+                      </TouchableOpacity>
+          </View>
 
       </View>
 
     }
 
-      <View style={styles.center}>
-        <Image
-          style={styles.logo}
-          source={require('../img/defi4good.png')}
-        />
-      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  headerName: {
-    fontSize: 20,
-    backgroundColor: 'blue',
-    color: 'white',
-    textAlign: 'left',
-  },
-  headerRole: {
-    fontSize: 14,
-    backgroundColor: 'blue',
-    color: 'white',
-    textAlign: 'left',
-  },
+
   enter: {
-    backgroundColor: '#3A59FF',
+    backgroundColor: '#0068D6',
     color: 'white',
     width: "75%",
     borderRadius: 25,
@@ -114,12 +90,23 @@ const styles = StyleSheet.create({
     marginTop: '10%'
   },
   logo: {
-    width: 250,
+    width: 330,
     height: 250,
   },
   center: {
-    alignItems: 'center'
+    alignItems: 'center',
+  },
+  link: {
+    color: '#0068D6',
+  },
+  title: {
+    marginTop: '10%',
+    color: '#0068D6',
+    fontWeight: 'bold',
+    fontSize:  20,
+    textAlign: 'center',
   }
+
 });
 
 export default SelectYourRole;

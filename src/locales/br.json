@@ -5,8 +5,8 @@
     "selectRole": "Selecione seu Perfil de Uso",
     "yourRole": "Seu papel",
     "welcome": "Bem-vindo",
-    "seeMyMenu": "Clique aqui para começar!",
-    "changeRole": "Mude meu perfil",
+    "seeMyMenu": "Entrar",
+    "changeRole": "Clique aqui para mudar perfil",
     "BasicUser": {
         "roleName": "Usuário Comum",
         "title": "Para usuário comum",

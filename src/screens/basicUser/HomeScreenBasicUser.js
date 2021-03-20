@@ -52,11 +52,6 @@ const HomeScreenBasicUser = ({ navigation }) => {
       { (name)? <Text>{i18n.t('general.greetings')} {name}</Text> :  <Text></Text>}
       { (role)? <View>
             <Text>{i18n.t('navigation.yourRole')} {i18n.t('navigation.'+ role+ '.roleName')}</Text>
-            <TouchableOpacity onPress={() => {
-                navigation.navigate('SelectYourRole')
-              }} title={i18n.t('navigation.BasicUser.changeTrustee')}>
-            <Ionicons name="settings-outline" size={24} color="black" />
-            </TouchableOpacity>
             </View>
       :  <Text></Text>}
 
