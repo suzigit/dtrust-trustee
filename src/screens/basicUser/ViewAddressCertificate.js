@@ -10,18 +10,12 @@ import i18n from 'i18n-js';
 const ViewAddressCertificate = ({ navigation }) => {
 
     const [ data, setData ] = useState('');
-    const [ trusteeData, setTrusteeData ] = useState('');
 
     const { getMyAddressCertificate, getMyTrusteeInfo } = useContext(Context);
 
     useEffect (() => {
       getMyAddressCertificate((addrCertificate) => {
         setData(addrCertificate);
-      });
-
-      getMyTrusteeInfo((data) => {
-        console.log("#### exibindo dados do root trustee = " + data);
-        setTrusteeData(data);
       });
 
     }, []);
@@ -34,14 +28,18 @@ const ViewAddressCertificate = ({ navigation }) => {
         <Text style={styles.textStyle}>{i18n.t('basicUser.addressCertificate')}:</Text>
         {data!=""? <View><QRCodeGenerator data={data}/></View> : <Text style={styles.certificateStyle}>{i18n.t('general.waitToCreate')}</Text>}
 
-        <Text style={styles.textStyle}>{i18n.t('basicUser.trusteeData')}</Text>
-        {data!=""? <View><QRCodeGenerator data={trusteeData}/></View> : <Text style={styles.certificateStyle}>{i18n.t('general.waitToCreate')}</Text>}
-
         <Button 
             onPress={() => {
               navigation.navigate('HomeScreenBasicUser');
             }}
             title="Ok"
+        />
+
+        <Button 
+            onPress={() => {
+              navigation.navigate('ViewTrusteeCertificate');
+            }}
+            title={i18n.t('navigation.BasicUser.viewTrusteeQRCodeCertificate')}
         />
 
         </View>

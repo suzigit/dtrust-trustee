@@ -15,12 +15,29 @@ export const Provider = ({ children }) => {
     //Certificado(s) recebido(s)
     //Chaves publicas + nomes + datas para quem emitiu certificado de ateste? (precisa armazenar certificados emitidos? acho que nao)
 
-    const [ userWallet ] = useState(ethers.Wallet.createRandom());
+    const [ userWallet, setUserWallet ] = useState(ethers.Wallet.createRandom());
 
-    useEffect (() => {
-      console.log("salvou carteira do usuario");
-      saveMyUserWallet();
-    }, []);    
+    useEffect ( () => {
+
+      const configureWallet = async () => {
+
+        const privateKeyOfUseWallet = await getMyPrivateKeyOfUserWallet();
+
+        if (privateKeyOfUseWallet) {
+            const w = new ethers.Wallet(privateKeyOfUseWallet);
+            setUserWallet(w);
+            console.log("recuperou carteira do usuario");
+            console.log(userWallet.publicKey);
+          }
+          else {
+            console.log("salvou carteira do usuario");
+            console.log(userWallet.publicKey);
+            saveMyUserWallet(); 
+          }
+      }
+      configureWallet();
+
+    }, []);
 
     const getMyId = () => {
       return "did:ethr:" + userWallet.address;
@@ -125,6 +142,22 @@ export const Provider = ({ children }) => {
         console.err("Error while saving item @MyName");
         console.err(e);
       }
+    }
+
+    const getMyPrivateKeyOfUserWallet = async (callback) => {
+      try {
+        const value = await AsyncStorage.getItem('@MyPrivateKey');
+        if(value !== null) {
+            if (callback) {
+              callback(value);
+            }
+            return value;
+        }
+    } catch(e) {
+        console.error("Error reading data of MyPrivateKey");
+        console.error(e);
+    }
+
     }
 
     //MyName

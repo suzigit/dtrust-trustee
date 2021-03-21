@@ -33,8 +33,13 @@ const HomeScreenRootTrustee = ({ navigation }) => {
             </View>
       :  <Text></Text>}
 
+
       { (!data) ? 
       <View>
+      { (name)?<View>
+            <Text style={styles.headerInfo}>{i18n.t('general.status')}: {i18n.t('rootTrustee.requestSubmitted')} {i18n.t('navigation.RootTrustee.receiveParticipationCertificate')}</Text>
+            </View>
+      :  <Text></Text>}
 
           <TouchableOpacity onPress={() => {
             navigation.navigate('Registration')
@@ -46,11 +51,13 @@ const HomeScreenRootTrustee = ({ navigation }) => {
               }
           </TouchableOpacity>
 
+          { (name)?
           <TouchableOpacity onPress={() => {
             navigation.navigate('GetParticipationCertificateAsRoot')
           }}>
                 <Text style={styles.enter}>{i18n.t('navigation.RootTrustee.receiveParticipationCertificate')} </Text>
           </TouchableOpacity>
+          : <Text></Text>}
 
       </View>
       :

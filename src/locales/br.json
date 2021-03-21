@@ -13,7 +13,8 @@
         "seeYourAddressCertificateQRCode": "Veja QRCode de seu Certificado de Endereço",
         "seeContentYourAddressCertificate": "Veja conteúdo de seu Certificado de Endereço",
         "connectWithTrustee": "Conecte com seu Certificador",
-        "changeTrustee": "Clique aqui para mudar seu Certificador"
+        "changeTrustee": "Mudar seu Certificador",
+        "viewTrusteeQRCodeCertificate": "Veja o QRCode de seu Certificado"
     },
     "Trustee": {
         "roleName": "Certificadores",
@@ -22,7 +23,8 @@
         "changeRootTrustee": "Mude seu Lúder de Certificadores",
         "askToParticipate": "Peça para ser um Certificador",
         "seeYourParticipationCertificateQRCode": "Veja QRCode de seu Certificado",
-        "seeContentYourParticipationCertificate": "Veja o Conteúdo de seu Certificado" 
+        "seeContentYourParticipationCertificate": "Veja Conteúdo de seu Certificado",
+        "viewRootTrusteeQRCodeCertificate": "Veja QRCode do seu Líder de Certificados" 
     },
     "RootTrustee": {
         "roleName": "Líder de Certificadores",
@@ -61,7 +63,8 @@
       "veryingCertificateState": "Verificando se o certificado está pronto",
       "certificateIsReadyAndReceived": "Seu certificado está pronto e foi salvo no seu celular",
       "certificateNotReadyorNotReceived": "Seu certificado não está pronto ou não seu pedido não foi recebido",
-      "errorTypingSecretCode": "Você digitou a palavra secreta errada. O pedido não foi enviado."
+      "errorTypingSecretCode": "Você digitou a palavra secreta errada. O pedido não foi enviado.",
+      "requestSubmitted": "Seu pedido foi submetido. Por favor aguarde aprovação. Você pode verificar que seu pedido foi aprovado clicando no botão"
     },
   "general" : {
       "yourIdentifier": "Seu identitificador",
@@ -77,7 +80,8 @@
       "waitToCreate": "Por favor espere a geração do QRCode",
       "typeHere": "Digite aqui",
       "defaultErrorMessage": "Aconteceu um erro na última operação",
-      "networkError": "Erro na última operação. Por favor, verifique sua conexão com a Internet."
+      "networkError": "Erro na última operação. Por favor, verifique sua conexão com a Internet.",
+      "status": "Estado"
 
   }
 }

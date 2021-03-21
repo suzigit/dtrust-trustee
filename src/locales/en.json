@@ -13,7 +13,8 @@
         "seeYourAddressCertificateQRCode": "See QRCode of your Address Certificate",
         "seeContentYourAddressCertificate": "See Content of your Address Certificate",
         "connectWithTrustee": "Connect with Certifier",
-        "changeTrustee": "Click here to change your Certifier"
+        "changeTrustee": "Change your Certifier",
+        "viewTrusteeQRCodeCertificate": "View QRCode of your Certifier"
     },
     "Trustee": {
         "roleName": "Certifier",
@@ -22,7 +23,8 @@
         "changeRootTrustee": "Change your Certifier Manager",
         "askToParticipate": "Ask to be a Certifier",
         "seeYourParticipationCertificateQRCode": "See QRCode of your Certificate",
-        "seeContentYourParticipationCertificate": "See Content of your Certificate"
+        "seeContentYourParticipationCertificate": "See Content of your Certificate",
+        "viewRootTrusteeQRCodeCertificate": "View QRCode of your Certifier Manager"
     },
     "RootTrustee": {
         "roleName": "Certifier Manager",
@@ -61,7 +63,8 @@
       "veryingCertificateState": "Checking if your certificate is ready",
       "certificateIsReadyAndReceived": "You Certificate is ready and was saved in your cellphone",
       "certificateNotReadyorNotReceived": "Your Certificate is not ready or was not received",
-      "errorTypingSecretCode": "You typed a wrong security code. The request was not sent."
+      "errorTypingSecretCode": "You typed a wrong security code. The request was not sent.",
+      "requestSubmitted": "Your request was submitted. Please wait for approval. You can check it is ready by clicking on the button"
     },
   "general" : {
       "yourIdentifier": "Your identifier",
@@ -77,6 +80,7 @@
       "waitToCreate": "Please wait to generate the QRCode",
       "typeHere": "Type here",
       "defaultErrorMessage": "An error happened during the last operation",
-      "networkError": "Error during last operation. Please check your Internet connection."
+      "networkError": "Error during last operation. Please check your Internet connection.",
+      "status": "Status"
   }
 }

@@ -35,18 +35,21 @@ const SelectYourRole = ({ navigation }) => {
           <TouchableOpacity
             onPress={() => {
               updateRole("BasicUser");
+              navigation.navigate('HomeScreenBasicUser');
             }}
           ><Text style={styles.enter}>{i18n.t('navigation.BasicUser.roleName')}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
               updateRole("Trustee");
+              navigation.navigate('HomeScreenTrustee');
             }}
           ><Text style={styles.enter}>{i18n.t('navigation.Trustee.roleName')}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
               updateRole("RootTrustee");
+              navigation.navigate('HomeScreenRootTrustee');
             }}
           ><Text style={styles.enter}>{i18n.t('navigation.RootTrustee.roleName')}</Text>
           </TouchableOpacity>
