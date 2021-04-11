@@ -81,7 +81,7 @@ const SelectYourRole = ({ navigation }) => {
 const styles = StyleSheet.create({
 
   enter: {
-    backgroundColor: '#0068D6',
+    backgroundColor: '#0089FA',
     color: 'white',
     width: "75%",
     borderRadius: 25,
@@ -100,12 +100,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   link: {
-    color: '#0068D6',
+    color: '#0089FA',
     textDecorationLine: 'underline'
   },
   title: {
     marginTop: '10%',
-    color: '#0068D6',
+    color: '#0089FA',
     fontWeight: 'bold',
     fontSize:  20,
     textAlign: 'center',

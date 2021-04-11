@@ -121,13 +121,13 @@ const styles = StyleSheet.create({
 
   headerInfo: {
     fontSize: 16,
-    color: '#0068D6',
+    color: '#0089FA',
     textAlign: 'left',
     paddingLeft: '2%',
   },
 
   enter: {
-    backgroundColor: '#0068D6',
+    backgroundColor: '#0089FA',
     color: 'white',
     width: "75%",
     borderRadius: 25,
