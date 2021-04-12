@@ -139,8 +139,8 @@ export const Provider = ({ children }) => {
       try {
         await AsyncStorage.setItem('@MyPrivateKey', userWallet.privateKey)
       } catch (e) {
-        console.err("Error while saving item @MyName");
-        console.err(e);
+        console.error("Error while saving item @MyName");
+        console.error(e);
       }
     }
 
@@ -166,8 +166,8 @@ export const Provider = ({ children }) => {
       try {
         await AsyncStorage.setItem('@MyName', value)
       } catch (e) {
-        console.err("Error while saving item @MyName");
-        console.err(e);
+        console.error("Error while saving item @MyName");
+        console.error(e);
       }
     }
   
@@ -192,8 +192,8 @@ export const Provider = ({ children }) => {
       try {
         await AsyncStorage.setItem('@MyRole', value)
       } catch (e) {
-        console.err("Error while saving item @MyRole");
-        console.err(e);
+        console.error("Error while saving item @MyRole");
+        console.error(e);
       }
     }
   
@@ -220,8 +220,8 @@ export const Provider = ({ children }) => {
       try {
         await AsyncStorage.setItem('@MyAddress', value)
       } catch (e) {
-        console.err("Error while saving item @MyAddress");
-        console.err(e);
+        console.error("Error while saving item @MyAddress");
+        console.error(e);
       }
     }  
   
@@ -247,8 +247,8 @@ export const Provider = ({ children }) => {
     try {
       await AsyncStorage.setItem('@MyAddressCertificate', value)
     } catch (e) {
-      console.err("Error while saving item");
-      console.err(e);
+      console.error("Error while saving item");
+      console.error(e);
     }
   }
 
@@ -269,8 +269,8 @@ export const Provider = ({ children }) => {
     try {
       await AsyncStorage.setItem('@MyTrusteeCertificate', value)
     } catch (e) {
-      console.err("Error while saving item MyTrusteeCertificate");
-      console.err(e);
+      console.error("Error while saving item MyTrusteeCertificate");
+      console.error(e);
     }
   }  
 
@@ -291,8 +291,8 @@ export const Provider = ({ children }) => {
     try {
       await AsyncStorage.setItem('@MyRootCertificate', value)
     } catch (e) {
-      console.err("Error while saving item MyRootCertificate");
-      console.err(e);
+      console.error("Error while saving item MyRootCertificate");
+      console.error(e);
     }
   }  
 
@@ -314,8 +314,8 @@ export const Provider = ({ children }) => {
     try {
       await AsyncStorage.setItem('@MyTrusteeInfo', value)
     } catch (e) {
-      console.err("Error while saving item MyTrusteeInfo");
-      console.err(e);
+      console.error("Error while saving item MyTrusteeInfo");
+      console.error(e);
     }
   }  
 
@@ -336,8 +336,8 @@ export const Provider = ({ children }) => {
     try {
       await AsyncStorage.setItem('@MyRootTrusteeInfo', value)
     } catch (e) {
-      console.err("Error while saving item MyRootTrusteeInfo");
-      console.err(e);
+      console.error("Error while saving item MyRootTrusteeInfo");
+      console.error(e);
     }
   }  
 
@@ -359,8 +359,8 @@ export const Provider = ({ children }) => {
     try {
       await AsyncStorage.setItem('@MasterTrusteeInfo', value)
     } catch (e) {
-      console.err("Error while saving item MasterTrusteeInfo");
-      console.err(e);
+      console.error("Error while saving item MasterTrusteeInfo");
+      console.error(e);
     }
   }  
 
