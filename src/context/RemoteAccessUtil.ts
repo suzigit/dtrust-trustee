@@ -43,7 +43,7 @@ const saveTrusteeCertificate = (certificateBody) => {
   }  
 }
 
-const askRootTrusteeCertificateRemote = async (subjectId, subjectName) => {
+const askRootTrusteeCertificateRemote = async (subjectId:string, subjectName:string) => {
   
   try {
 
@@ -74,7 +74,7 @@ const askRootTrusteeCertificateRemote = async (subjectId, subjectName) => {
   }
 }
 
-const getRootTrusteeCertificateRemote = async (subjectId, subjectName) => {
+const getRootTrusteeCertificateRemote = async (subjectId:string, subjectName:string) => {
 
   try {
 

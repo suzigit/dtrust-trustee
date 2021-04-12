@@ -7,7 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {saveAddressCertificate, saveTrusteeCertificate, 
   askRootTrusteeCertificateRemote, getRootTrusteeCertificateRemote} from './RemoteAccessUtil';
 
-const Context = React.createContext();
+const Context = React.createContext({ });
 
 export const Provider = ({ children }) => {
   
@@ -21,7 +21,7 @@ export const Provider = ({ children }) => {
 
       const configureWallet = async () => {
 
-        const privateKeyOfUseWallet = await getMyPrivateKeyOfUserWallet();
+        const privateKeyOfUseWallet = await getMyPrivateKeyOfUserWallet(null);
 
         if (privateKeyOfUseWallet) {
             const w = new ethers.Wallet(privateKeyOfUseWallet);
@@ -47,7 +47,7 @@ export const Provider = ({ children }) => {
       return userWallet.publicKey;
     }    
 
-    const askRootTrusteeCertificate = (subjectName) => {
+    const askRootTrusteeCertificate = (subjectName: string) => {
         return askRootTrusteeCertificateRemote(getMyPublicKey(), subjectName);
     }
 
@@ -60,7 +60,7 @@ export const Provider = ({ children }) => {
         callback(result);
     }
 
-    const signTrusteeCertificate = async (subjectId, subjectName) => {
+    const signTrusteeCertificate = async (subjectId: string, subjectName: string) => {
 
       const certificateBody = 
         {
@@ -111,7 +111,7 @@ export const Provider = ({ children }) => {
 
     }
 
-    const signAddressCertificate = async (subjectId, subjectName, addressData) => {
+    const signAddressCertificate = async (subjectId:string, subjectName:string, addressData:string) => {
 
       const certificateBody = 
         {
@@ -144,25 +144,29 @@ export const Provider = ({ children }) => {
       }
     }
 
-    const getMyPrivateKeyOfUserWallet = async (callback) => {
+    const getMyPrivateKeyOfUserWallet = async (callback): Promise<string> => {
       try {
-        const value = await AsyncStorage.getItem('@MyPrivateKey');
-        if(value !== null) {
+        const v = await AsyncStorage.getItem('@MyPrivateKey');
+        if(v !== null) {
+            const value:string = v;
             if (callback) {
               callback(value);
             }
             return value;
         }
-    } catch(e) {
-        console.error("Error reading data of MyPrivateKey");
-        console.error(e);
-    }
-
+        else {
+          throw Error ("Error reading data of MyPrivateKey (null value)");
+        }
+      } catch(e) {
+          console.error("Error reading data of MyPrivateKey");
+          console.error(e);
+          throw e;
+      }
     }
 
     //MyName
 
-    const saveMyName = async (value) => {
+    const saveMyName = async (value: string) => {
       try {
         await AsyncStorage.setItem('@MyName', value)
       } catch (e) {
@@ -188,7 +192,7 @@ export const Provider = ({ children }) => {
   }
 
     //My Role
-    const saveMyRole = async (value) => {
+    const saveMyRole = async (value:string) => {
       try {
         await AsyncStorage.setItem('@MyRole', value)
       } catch (e) {
@@ -216,7 +220,7 @@ export const Provider = ({ children }) => {
 
     //MyAddress
 
-    const saveMyAddressData = async (value) => {
+    const saveMyAddressData = async (value:string) => {
       try {
         await AsyncStorage.setItem('@MyAddress', value)
       } catch (e) {
@@ -243,7 +247,7 @@ export const Provider = ({ children }) => {
 
   //MyAddressCertificate
   
-  const saveMyAddressCertificate = async (value) => {
+  const saveMyAddressCertificate = async (value:string) => {
     try {
       await AsyncStorage.setItem('@MyAddressCertificate', value)
     } catch (e) {
@@ -265,7 +269,7 @@ export const Provider = ({ children }) => {
     }
   }
 
-  const saveMyTrusteeCertificate = async (value) => {
+  const saveMyTrusteeCertificate = async (value:string) => {
     try {
       await AsyncStorage.setItem('@MyTrusteeCertificate', value)
     } catch (e) {
@@ -287,7 +291,7 @@ export const Provider = ({ children }) => {
     }
   }
 
-  const saveMyRootCertificate = async (value) => {
+  const saveMyRootCertificate = async (value:string) => {
     try {
       await AsyncStorage.setItem('@MyRootCertificate', value)
     } catch (e) {
@@ -310,7 +314,7 @@ export const Provider = ({ children }) => {
   }
 
 
-  const saveMyTrusteeInfo = async (value) => {
+  const saveMyTrusteeInfo = async (value:string) => {
     try {
       await AsyncStorage.setItem('@MyTrusteeInfo', value)
     } catch (e) {
@@ -332,7 +336,7 @@ export const Provider = ({ children }) => {
     }
   }
 
-  const saveMyRootTrusteeInfo = async (value) => {
+  const saveMyRootTrusteeInfo = async (value:string) => {
     try {
       await AsyncStorage.setItem('@MyRootTrusteeInfo', value)
     } catch (e) {
@@ -355,7 +359,7 @@ export const Provider = ({ children }) => {
   }
 
   
-  const saveMasterTrusteeInfo = async (value) => {
+  const saveMasterTrusteeInfo = async (value:string) => {
     try {
       await AsyncStorage.setItem('@MasterTrusteeInfo', value)
     } catch (e) {
